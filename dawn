@@ -1,0 +1,52 @@
+#!/usr/bin/env ruby
+require 'commander/import'
+require 'rest-client'
+
+# :name is optional, otherwise uses the basename of this executable
+program :name, 'Dawn'
+program :version, '0.0.1α'
+program :description, 'CLI client for Dawn'
+
+@host = "http://localhost:3000" #http://anzejagodic.com:3000" 
+
+@api_key = "nuV5vqsutE6vAr9Lw3zC"
+
+command :create do |c|
+  #c.option '--interval SECONDS', Integer, 'Interval in seconds'
+  #c.option '--timeout SECONDS', Integer, 'Timeout in seconds'
+  c.action do |args, options|
+    #options.default(interval: 2, timeout: 60)
+    RestClient.post "#{@host}/api/apps", :name => args.first
+    puts "Created app #{args.first}"
+  end
+end
+
+command 'keys:add' do |c|
+  c.action do |args, options|
+    file = "#{Dir.home}/.ssh/id_rsa.pub"
+    key = File.open(file) {|io| io.read }
+    fingerprint = `ssh-keygen -lf #{file}`
+    puts RestClient.post "#{@host}/api/keys", key: key, fingerprint: fingerprint
+  end
+end
+
+# dawn keys
+  # - :add / :push
+# dawn run <command>
+# dawn scale
+# dawn restart
+
+# dawn logs
+# dawn logs --tail
+
+# gem push dawn master
+
+=begin
+$ heroku ps
+=== web: `bundle exec unicorn -p $PORT -c ./config/unicorn.rb`
+web.1: up for 8h
+web.2: up for 3m
+
+=== worker: `bundle exec stalk worker.rb`
+worker.1: up for 1m
+=end
