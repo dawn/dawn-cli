@@ -1,42 +1,55 @@
 #!/usr/bin/env ruby
-require 'bundler/setup'
-Bundler.require
+#require 'bundler/setup'
+#Bundler.require
 require 'commander/import'
-require 'rest-client'
-
-$stderr = File.open("result.html", "w")
-$stderr.sync = true
+require 'excon'
 
 # :name is optional, otherwise uses the basename of this executable
 program :name, 'Dawn'
 program :version, '0.0.1α'
 program :description, 'CLI client for Dawn'
 
-@host = "api.anzejagodic.com:5000" #http://anzejagodic.com:3000"
-#@api_key = "nuV5vqsutE6vAr9Lw3zC"
-@api_key = "_9Jy-iePzoApzVDxu_2p"
+@api_key = "3zPFSV4EoixxGDsHMz8C"
+
+@headers = {
+  'Authorization' => "Token token=\"#{@api_key}\""
+}
+
+@api = Excon.new('http://api.anzejagodic.com:5000', :headers => @headers)
+
 
 command :create do |c|
   #c.option '--interval SECONDS', Integer, 'Interval in seconds'
   #c.option '--timeout SECONDS', Integer, 'Timeout in seconds'
   c.action do |args, options|
     #options.default(interval: 2, timeout: 60)
-    RestClient.post "#{@host}/api/apps", name: args.first
+
+    resp = @api.request(
+      method: :post,
+      path: '/apps',
+      query: { name: args.first }
+    )
     puts "Created app #{args.first}"
   end
 end
 
 command 'keys:list' do |c|
   c.action do |args, options|
-    puts RestClient.get "#{@host}/account/keys",
-                        params: { api_key: @api_key }
+    resp = @api.request(
+      method: :get,
+      path: '/account/keys'
+    )
+    puts resp.body
   end
 end
 
 command 'keys:get' do |c|
   c.action do |args, options|
-    puts RestClient.get "#{@host}/account/keys/#{args.first.to_i}",
-                        params: { api_key: @api_key }
+    resp = @api.request(
+      method: :get,
+      path: '/account/keys/#{args.first}'
+    )
+    puts resp.body
   end
 end
 
@@ -45,11 +58,13 @@ command 'keys:add' do |c|
     file = "#{Dir.home}/.ssh/id_rsa.pub"
     pubkey = File.read(file)#.delete("\n")
     fingerprint = `ssh-keygen -lf #{file}`#.delete("\n")
-    puts RestClient.post "#{@host}/account/keys",
-                          api_key: @api_key,
-                          key: pubkey,
-                          fingerprint: fingerprint
-    #File.write("result.html", ())
+
+    resp = @api.request(
+      method: :post,
+      path: '/account/keys',
+      query: { key: pubkey, fingerprint: fingerprint }
+    )
+    puts resp.body
   end
 end
 
