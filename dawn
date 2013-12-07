@@ -47,7 +47,7 @@ command 'keys:get' do |c|
   c.action do |args, options|
     resp = @api.request(
       method: :get,
-      path: '/account/keys/#{args.first}'
+      path: "/account/keys/#{args.first}"
     )
     puts resp.body
   end
