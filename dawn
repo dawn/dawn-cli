@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-#require 'bundler/setup'
-#Bundler.require
+require 'bundler/setup'
+Bundler.require
 require 'commander/import'
 require 'excon'
 
@@ -9,16 +9,16 @@ program :name, 'Dawn'
 program :version, '0.0.1α'
 program :description, 'CLI client for Dawn'
 
-@api_key = "3zPFSV4EoixxGDsHMz8C"
+#@api_key = "3zPFSV4EoixxGDsHMz8C" # VPS
+@api_key = "TKHV5tEJ46tzx9azCzak" # VPS - IceDragon
 
 @headers = {
   'Authorization' => "Token token=\"#{@api_key}\""
 }
 
-@api = Excon.new('http://api.anzejagodic.com:5000', :headers => @headers)
+@api = Excon.new('http://api.anzejagodic.com:5000', headers: @headers)
 
-
-command :create do |c|
+command 'apps:create' do |c|
   #c.option '--interval SECONDS', Integer, 'Interval in seconds'
   #c.option '--timeout SECONDS', Integer, 'Timeout in seconds'
   c.action do |args, options|
@@ -29,7 +29,53 @@ command :create do |c|
       path: '/apps',
       query: { name: args.first }
     )
-    puts "Created app #{args.first}"
+    #`git remote add dawn git@anzejagodic.com:#{resp[:name]}`
+    hsh = JSON.load(resp.body)
+    puts "Created app #{hsh["app"]["name"]}"
+  end
+end
+
+command 'apps:list' do |c|
+  c.action do |args, options|
+    resp = @api.request(
+      method: :get,
+      path: '/apps'
+    )
+    hsh = JSON.load(resp.body)
+    hsh.each do |app_hash|
+      puts app_hash
+    end
+  end
+end
+
+command 'apps:get' do |c|
+  c.action do |args, options|
+    resp = @api.request(
+      method: :get,
+      path: "/apps/#{args.first}"
+    )
+    hsh = JSON.load(resp.body)
+    puts hsh
+  end
+end
+
+command 'apps:update' do |c|
+  c.action do |args, options|
+    resp = @api.request(
+      method: :puts,
+      path: "/apps/#{args.first}"
+    )
+    puts resp
+  end
+end
+
+command 'apps:delete' do |c|
+  c.action do |args, options|
+    resp = @api.request(
+      method: :delete,
+      path: "/apps/#{args.first}"
+    )
+    puts resp
   end
 end
 
