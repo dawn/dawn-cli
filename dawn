@@ -4,6 +4,9 @@ Bundler.require
 require 'commander/import'
 require 'excon'
 
+require_relative 'api/apps'
+require_relative 'api/keys'
+
 # :name is optional, otherwise uses the basename of this executable
 program :name, 'Dawn'
 program :version, '0.0.1α'
@@ -17,102 +20,6 @@ program :description, 'CLI client for Dawn'
 }
 
 @api = Excon.new('http://api.anzejagodic.com:5000', headers: @headers)
-
-command 'apps:create' do |c|
-  #c.option '--interval SECONDS', Integer, 'Interval in seconds'
-  #c.option '--timeout SECONDS', Integer, 'Timeout in seconds'
-  c.action do |args, options|
-    #options.default(interval: 2, timeout: 60)
-
-    resp = @api.request(
-      method: :post,
-      path: '/apps',
-      query: { name: args.first }
-    )
-    #`git remote add dawn git@anzejagodic.com:#{resp[:name]}`
-    hsh = JSON.load(resp.body)
-    puts "Created app #{hsh["app"]["name"]}"
-  end
-end
-
-command 'apps:list' do |c|
-  c.action do |args, options|
-    resp = @api.request(
-      method: :get,
-      path: '/apps'
-    )
-    hsh = JSON.load(resp.body)
-    hsh.each do |app_hash|
-      puts app_hash
-    end
-  end
-end
-
-command 'apps:get' do |c|
-  c.action do |args, options|
-    resp = @api.request(
-      method: :get,
-      path: "/apps/#{args.first}"
-    )
-    hsh = JSON.load(resp.body)
-    puts hsh
-  end
-end
-
-command 'apps:update' do |c|
-  c.action do |args, options|
-    resp = @api.request(
-      method: :puts,
-      path: "/apps/#{args.first}"
-    )
-    puts resp
-  end
-end
-
-command 'apps:delete' do |c|
-  c.action do |args, options|
-    resp = @api.request(
-      method: :delete,
-      path: "/apps/#{args.first}"
-    )
-    puts resp
-  end
-end
-
-command 'keys:list' do |c|
-  c.action do |args, options|
-    resp = @api.request(
-      method: :get,
-      path: '/account/keys'
-    )
-    puts resp.body
-  end
-end
-
-command 'keys:get' do |c|
-  c.action do |args, options|
-    resp = @api.request(
-      method: :get,
-      path: "/account/keys/#{args.first}"
-    )
-    puts resp.body
-  end
-end
-
-command 'keys:add' do |c|
-  c.action do |args, options|
-    file = "#{Dir.home}/.ssh/id_rsa.pub"
-    pubkey = File.read(file)#.delete("\n")
-    fingerprint = `ssh-keygen -lf #{file}`#.delete("\n")
-
-    resp = @api.request(
-      method: :post,
-      path: '/account/keys',
-      query: { key: pubkey, fingerprint: fingerprint }
-    )
-    puts resp.body
-  end
-end
 
 # dawn keys
   # - :add / :push
