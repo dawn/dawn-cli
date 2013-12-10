@@ -4,8 +4,8 @@ Bundler.require
 require 'commander/import'
 require 'excon'
 
-require_relative 'api/apps'
-require_relative 'api/keys'
+require_relative 'lib/dawn/cli/apps'
+require_relative 'lib/dawn/cli/keys'
 
 # :name is optional, otherwise uses the basename of this executable
 program :name, 'Dawn'

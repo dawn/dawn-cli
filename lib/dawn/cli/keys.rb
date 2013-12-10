@@ -1,3 +1,17 @@
+command 'keys:add' do |c|
+  c.action do |args, options|
+    file = "#{Dir.home}/.ssh/id_rsa.pub"
+    pubkey = File.read(file)
+    fingerprint = `ssh-keygen -lf #{file}`
+    resp = @api.request(
+      method: :post,
+      path: '/account/keys',
+      query: { key: pubkey, fingerprint: fingerprint }
+    )
+    puts resp.body
+  end
+end
+
 command 'keys:list' do |c|
   c.action do |args, options|
     resp = @api.request(
@@ -17,21 +31,6 @@ command 'keys:get' do |c|
     )
     key = JSON.load(resp.body)
     puts key
-  end
-end
-
-command 'keys:add' do |c|
-  c.action do |args, options|
-    file = "#{Dir.home}/.ssh/id_rsa.pub"
-    pubkey = File.read(file)#.delete("\n")
-    fingerprint = `ssh-keygen -lf #{file}`#.delete("\n")
-
-    resp = @api.request(
-      method: :post,
-      path: '/account/keys',
-      query: { key: pubkey, fingerprint: fingerprint }
-    )
-    puts resp.body
   end
 end
 
