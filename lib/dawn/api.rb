@@ -30,18 +30,26 @@ module Dawn
     def authenticate(options)
       options = OPTIONS.merge(options)
       options[:headers] = options[:headers].merge(HEADERS)
-
-      ### some magic here ###
       @api_key = options.delete(:api_key) || ENV['DAWN_API_KEY']
-      if !@api_key && options.key?(:username) && options.key?(:password)
-        usn = options.delete(:username)
-        psw = options.delete(:password)
-        @connection = Excon.new("#{options[:scheme]}://#{options[:host]}",
-                                options.merge(headers: HEADERS))
-        @api_key = post_login['api_key']
+      if !@api_key
+        if options.key?(:username) && options.key?(:password)
+          usn = options.delete(:username)
+          psw = options.delete(:password)
+          @connection = Excon.new("#{options[:scheme]}://#{options[:host]}",
+                                  options.merge(headers: HEADERS))
+          @api_key = post_login['api_key']
+        else
+          netrc = Netrc.read
+          usn, api_key = netrc['dawn.in']
+          if api_key
+            @api_key = api_key
+          else
+            fail "Authentication failed: please provide a DAWN_API_KEY, username and password or update your netrc with the dawn details"
+          end
+        end
       end
       @headers = { 'Authorization' => "Token token=\"#{@api_key}\"" }
-      @connection = Excon.new("#{options[:scheme]}://#{options[:host]}")
+      @connection = Excon.new("#{options[:scheme]}://#{options[:host]}", headers: @headers)
     end
 
     def request(options)
