@@ -4,22 +4,15 @@ Bundler.require
 require 'commander/import'
 require 'excon'
 
-require_relative 'lib/dawn/cli/apps'
-require_relative 'lib/dawn/cli/keys'
-
 # :name is optional, otherwise uses the basename of this executable
 program :name, 'Dawn'
 program :version, '0.0.1α'
 program :description, 'CLI client for Dawn'
 
-#@api_key = "3zPFSV4EoixxGDsHMz8C" # VPS
-@api_key = "TKHV5tEJ46tzx9azCzak" # VPS - IceDragon
+require_relative 'lib/dawn/cli'
 
-@headers = {
-  'Authorization' => "Token token=\"#{@api_key}\""
-}
-
-@api = Excon.new('http://api.anzejagodic.com:5000', headers: @headers)
+options = { api_key: "TKHV5tEJ46tzx9azCzak" }
+Dawn.authenticate(options)
 
 # dawn keys
   # - :add / :push
