@@ -4,5 +4,6 @@ unless $LOAD_PATH.include?(__LIB_DIR__)
 end
 
 require 'dawn/api'
+require 'dawn/cli/login'
 require 'dawn/cli/apps'
 require 'dawn/cli/keys'
