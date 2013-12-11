@@ -15,6 +15,10 @@ module Dawn
       data["id"]["$oid"]
     end
 
+    def formation
+      data["formation"]
+    end
+
     def update(options={})
       Dawn.request(
         expects: 200,
