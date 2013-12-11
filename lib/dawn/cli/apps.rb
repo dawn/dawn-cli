@@ -6,7 +6,7 @@ def print_apps(apps)
   end
 end
 
-command 'apps:create' do |c|
+command 'app:create' do |c|
   c.action do |args, options|
     appname = args.first
     app = Dawn::App.create(name: appname)
@@ -15,14 +15,14 @@ command 'apps:create' do |c|
   end
 end
 
-command 'apps:list' do |c|
+command 'app:list' do |c|
   c.action do |args, options|
     apps = Dawn::App.all
     print_apps(apps)
   end
 end
 
-command 'apps:get' do |c|
+command 'app:get' do |c|
   c.action do |args, options|
     app_id = args.first
     app = Dawn::App.find(id: app_id)
@@ -30,7 +30,7 @@ command 'apps:get' do |c|
   end
 end
 
-command 'apps:update' do |c|
+command 'app:update' do |c|
   c.action do |args, options|
     app_id = args.first
     app = Dawn::App.find(id: app_id)
@@ -40,7 +40,28 @@ command 'apps:update' do |c|
   end
 end
 
-command 'apps:delete' do |c|
+command 'app:scale' do |c|
+  c.action do |args, options|
+    app_id = args.first
+    app = Dawn::App.find(id: app_id)
+    formation = {}
+    args[1, args.size-1].each do |s|
+      mtch_data = s.match(/(?<type>web|worker)(?<op>[+-=])(?<value>\d+)/)
+      next unless mtch_data
+      type = mtch_data[:type]
+      value = mtch_data[:value].to_i
+      old_formation = (app.formation[type] || 0).to_i
+      formation[type] = case mtch_data[:op]
+                        when "+" then old_formation + value
+                        when "-" then old_formation - value
+                        when "=" then value
+                        end
+    end
+    app.scale(formation: formation)
+  end
+end
+
+command 'app:delete' do |c|
   c.action do |args, options|
     app_id = args.first
     Dawn::App.destroy(id: app_id)
