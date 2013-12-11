@@ -28,6 +28,15 @@ module Dawn
       )
     end
 
+    def scale(options={})
+      Dawn.request(
+        expects: 200,
+        method: :post,
+        path: "/apps/#{id}/scale",
+        query: options
+      )
+    end
+
     def destroy(options={})
       Dawn.request(
         expects: 204,
@@ -62,7 +71,7 @@ module Dawn
         method: :get,
         path: "/apps/#{options[:id]}",
         query: options
-      ).body)
+      ).body)["app"]
     end
 
     def self.destroy(options)
