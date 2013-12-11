@@ -4,7 +4,7 @@ module Dawn
     attr_reader :data
 
     def initialize(hsh)
-      @data = hsh["app"]
+      @data = hsh
     end
 
     def name
@@ -40,7 +40,7 @@ module Dawn
         path: "/apps",
         query: options
       )
-      JSON.load(resp.body).map { |hsh| new(hsh) }
+      JSON.load(resp.body).map { |hsh| new(hsh["app"]) }
     end
 
     def self.create(options)
@@ -49,7 +49,7 @@ module Dawn
         method: :post,
         path: '/apps',
         query: options
-      ).body)
+      ).body)["app"]
     end
 
     def self.find(options)
