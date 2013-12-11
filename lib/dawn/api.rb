@@ -38,11 +38,9 @@ module Dawn
           @connection = Excon.new("#{options[:scheme]}://#{options[:host]}",
                                   headers: HEADERS)
           @api_key = post_login(username: usn, password: psw)['api_key']
-          if options[:save_to_netrc]
-            netrc = Netrc.read
-            netrc['dawn.in'] = usn, @api_key
-            netrc.save
-          end
+          netrc = Netrc.read
+          netrc['dawn.in'] = usn, @api_key
+          netrc.save
         else
           netrc = Netrc.read
           usn, api_key = netrc['dawn.in']
