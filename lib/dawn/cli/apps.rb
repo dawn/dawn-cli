@@ -1,7 +1,8 @@
 def print_apps(apps)
-  puts "ID\t\t\t\tNAME"
+  puts "ID\t\t\t\tNAME\t\tFORMATION"
   apps.each do |app|
-    puts "#{app.id}\t#{app.name}"
+    form = app.formation.map { |k,v| "#{k}: #{v}" }.join(",")
+    puts "#{app.id}\t#{app.name}\t#{form}"
   end
 end
 
