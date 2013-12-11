@@ -11,8 +11,7 @@ program :description, 'CLI client for Dawn'
 
 require_relative 'lib/dawn/cli'
 
-options = { api_key: "TKHV5tEJ46tzx9azCzak" }
-Dawn.authenticate(options)
+Dawn.authenticate()
 
 # dawn keys
   # - :add / :push
