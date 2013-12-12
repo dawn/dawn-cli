@@ -1,14 +1,12 @@
-__LIB_DIR__ = File.expand_path(File.join(File.dirname(__FILE__), ".."))
-unless $LOAD_PATH.include?(__LIB_DIR__)
-  $LOAD_PATH.unshift(__LIB_DIR__)
-end
+require 'json'
+require 'excon'
+require 'netrc'
 
 require 'dawn/api/app'
 require 'dawn/api/key'
+require 'dawn/api/version'
 
 module Dawn
-
-  VERSION = "0.0.1".freeze
 
   HEADERS = {
     'Accept'                => 'application/json',

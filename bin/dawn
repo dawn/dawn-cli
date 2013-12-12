@@ -1,15 +1,13 @@
 #!/usr/bin/env ruby
-require 'bundler/setup'
-Bundler.require
+require 'commander'
 require 'commander/import'
-require 'excon'
 
 # :name is optional, otherwise uses the basename of this executable
 program :name, 'Dawn'
 program :version, '0.0.1α'
 program :description, 'CLI client for Dawn'
 
-require_relative 'lib/dawn/cli'
+require 'dawn/cli'
 
 Dawn.authenticate()
 
