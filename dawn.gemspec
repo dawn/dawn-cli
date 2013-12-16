@@ -1,27 +1,16 @@
 #
 # dawn/dawn.gemspec
 #
-lib = File.expand_path('../lib/', __FILE__)
-$:.unshift lib unless $:.include?(lib)
-
-require 'dawn/api/version'
-
 Gem::Specification.new do |s|
   s.name        = "dawn"
   s.homepage    = 'http://anzejagodic.com:5000/'
-  s.version     = Dawn::Api::VERSION
+  s.version     = "0.0.0"
   s.platform    = Gem::Platform::RUBY
-  s.summary     = "Dawn CLI and API"
+  s.summary     = "Dawn main gem"
   s.date        = Time.now.to_date.to_s
 
   s.authors = ["Blaž Hrastnik", "Corey Powell"]
 
-  s.add_runtime_dependency "commander"
-  s.add_runtime_dependency "excon"
-  s.add_runtime_dependency "json"
-  s.add_runtime_dependency "netrc"
-
-  s.executables = "dawn"
-  s.require_path = "lib"
-  s.files = Dir.glob("{bin,lib}/**/*")
+  s.add_runtime_dependency "dawn-api"
+  s.add_runtime_dependency "dawn-cli"
 end
