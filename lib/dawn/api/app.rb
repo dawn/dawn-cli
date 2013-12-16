@@ -19,6 +19,15 @@ module Dawn
       data["formation"]
     end
 
+    def logs(options={})
+      Dawn.request(
+        expects: 200,
+        method: :patch,
+        path: "/apps/#{id}/logs",
+        query: options
+      )
+    end
+
     def update(options={})
       Dawn.request(
         expects: 200,
