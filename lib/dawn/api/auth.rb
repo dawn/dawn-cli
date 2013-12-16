@@ -30,7 +30,7 @@ module Dawn
     end
 
     def git_host
-      OPTIONS[:host]
+      "anzejagodic.com"
     end
 
   end
