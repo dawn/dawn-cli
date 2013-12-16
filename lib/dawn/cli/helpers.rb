@@ -13,5 +13,7 @@ module Dawn
       %x{ git #{flattened_args} 2>&1 }.strip
     end
 
+    extend self
+
   end
 end
