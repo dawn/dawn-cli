@@ -1,5 +1,4 @@
 require 'dawn/api'
-require 'dawn/cli/login'
-require 'dawn/cli/app'
-require 'dawn/cli/key'
-require 'dawn/cli/version'
+require 'dawn/cli/helpers'
+require 'dawn/cli/commands'
+require 'dawn/cli/version' # CLI::Version information

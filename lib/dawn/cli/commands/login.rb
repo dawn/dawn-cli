@@ -3,6 +3,6 @@ command "login" do |c|
     usn = ask "Username: "
     psw = password "Password: "
     Dawn.authenticate(username: usn, password: psw)
-    puts " ! login details have been saved to your .netrc"
+    say " ! login details have been saved to your .netrc"
   end
 end
