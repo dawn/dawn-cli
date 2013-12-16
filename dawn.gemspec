@@ -9,7 +9,7 @@ require 'dawn/api/version'
 Gem::Specification.new do |s|
   s.name        = "dawn"
   s.homepage    = 'http://anzejagodic.com:5000/'
-  s.version     = Dawn::VERSION
+  s.version     = Dawn::Api::VERSION
   s.platform    = Gem::Platform::RUBY
   s.summary     = "Dawn CLI and API"
   s.date        = Time.now.to_date.to_s

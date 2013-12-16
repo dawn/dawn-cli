@@ -11,7 +11,7 @@ module Dawn
   HEADERS = {
     'Accept'                => 'application/json',
     'Accept-Encoding'       => 'gzip',
-    'User-Agent'            => "dawn/#{VERSION}",
+    'User-Agent'            => "dawn/#{Api::VERSION}",
     'X-Ruby-Version'        => RUBY_VERSION,
     'X-Ruby-Platform'       => RUBY_PLATFORM
   }
