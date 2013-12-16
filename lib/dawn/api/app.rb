@@ -70,7 +70,7 @@ module Dawn
       hsh = JSON.load(Dawn.request(
         expects: 200,
         method: :get,
-        path: path
+        path: path,
         query: options
       ).body)
       hsh = hsh.first if hsh.is_a?(Array)
