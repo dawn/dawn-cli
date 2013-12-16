@@ -95,13 +95,19 @@ command "init" do |c|
 end
 
 command "logs" do |c|
-  c.syntax = "dawn logs [tail [-f]]"
-  c.description = ""
-  c.option "tail -f", "Follow the log stream?"
+  c.syntax = "dawn logs [tail]"
+  c.description = "Prints the App's log to STDOUT"
   c.action do |args, options|
     opts = {}
     opts[:tail] = true if args.include?("tail")
     app = Dawn::App.find(name: current_app)
-    say app.logs(opts)
+    url = app.logs(opts)
+    begin
+      streamer = lambda do |chunk, remaining_bytes, total_bytes|
+        puts chunk
+      end
+      Excon.get(url, response_block: streamer, query: { srv: 1 })
+    rescue Interrupt
+    end
   end
 end
