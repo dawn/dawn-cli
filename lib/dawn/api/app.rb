@@ -19,6 +19,10 @@ module Dawn
       data["formation"]
     end
 
+    def git
+      data["git"]
+    end
+
     def logs(options={})
       Dawn.request(
         expects: 200,
