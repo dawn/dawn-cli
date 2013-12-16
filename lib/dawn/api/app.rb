@@ -24,21 +24,21 @@ module Dawn
     end
 
     def logs(options={})
-      Dawn.request(
+      JSON.load(Dawn.request(
         expects: 200,
-        method: :patch,
+        method: :get,
         path: "/apps/#{id}/logs",
         query: options
-      )
+      ).body)
     end
 
     def update(options={})
-      Dawn.request(
+      data.merge!(JSON.load(Dawn.request(
         expects: 200,
         method: :patch,
         path: "/apps/#{id}",
         query: options
-      )
+      ).body)["app"])
     end
 
     def scale(options={})
