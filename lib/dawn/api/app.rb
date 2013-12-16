@@ -24,12 +24,13 @@ module Dawn
     end
 
     def logs(options={})
-      JSON.load(Dawn.request(
+      url = JSON.load(Dawn.request(
         expects: 200,
         method: :get,
         path: "/apps/#{id}/logs",
         query: options
-      ).body)
+      ).body)["logs"]
+      "http://dawn:salvorhardin@anzejagodic.com:8001#{url}"
     end
 
     def update(options={})
