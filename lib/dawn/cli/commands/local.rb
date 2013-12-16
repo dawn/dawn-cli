@@ -1,3 +1,7 @@
+def git_create_dawn_remote(app)
+  Dawn::Helpers.git("remote add dawn git@anzejagodic.com:#{app.git}")
+end
+
 def try_create_app(appname)
   begin
     app = Dawn::App.create(name: appname)
@@ -6,10 +10,6 @@ def try_create_app(appname)
     say " warning ! App #{app.name} already exists"
   end
   return app
-end
-
-def setup_dawn_remote(app)
-  `git remote add dawn git@anzejagodic.com:#{app.name}`
 end
 
 command "create" do |c|
@@ -26,7 +26,7 @@ command "create" do |c|
     Dir.chdir(appname) do
       app = try_create_app(appname)
       `git init`
-      setup_dawn_remote(app)
+      git_create_dawn_remote(app)
     end
   end
 end
@@ -36,7 +36,7 @@ command "init" do |c|
   c.description = "Setup existing app with a dawn remote"
   c.action do |args, options|
     app = try_create_app(appname)
-    setup_dawn_remote(app)
+    git_create_dawn_remote(app)
   end
 end
 
