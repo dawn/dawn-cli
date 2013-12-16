@@ -66,12 +66,15 @@ module Dawn
     end
 
     def self.find(options)
-      new JSON.load(Dawn.request(
+      path = options[:id] ? "/apps/#{options.delete(:id)}" : "/apps"
+      hsh = JSON.load(Dawn.request(
         expects: 200,
         method: :get,
-        path: "/apps/#{options[:id]}",
+        path: path
         query: options
-      ).body)["app"]
+      ).body)
+      hsh = hsh.first if hsh.is_a?(Array)
+      new hsh["app"]
     end
 
     def self.destroy(options)
