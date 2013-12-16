@@ -6,7 +6,8 @@ def print_apps(apps)
   end
 end
 
-command 'app:create' do |c|
+command "app:create" do |c|
+  c.syntax = ""
   c.action do |args, options|
     appname = args.first
     app = Dawn::App.create(name: appname)
@@ -15,14 +16,14 @@ command 'app:create' do |c|
   end
 end
 
-command 'app:list' do |c|
+command "app:list" do |c|
   c.action do |args, options|
     apps = Dawn::App.all
     print_apps(apps)
   end
 end
 
-command 'app:get' do |c|
+command "app:get" do |c|
   c.action do |args, options|
     app_id = args.first
     app = Dawn::App.find(id: app_id)
@@ -30,7 +31,7 @@ command 'app:get' do |c|
   end
 end
 
-command 'app:update' do |c|
+command "app:update" do |c|
   c.action do |args, options|
     app_id = args.first
     app = Dawn::App.find(id: app_id)
@@ -40,7 +41,7 @@ command 'app:update' do |c|
   end
 end
 
-command 'app:scale' do |c|
+command "app:scale" do |c|
   c.action do |args, options|
     app_id = args.first
     app = Dawn::App.find(id: app_id)
@@ -61,7 +62,7 @@ command 'app:scale' do |c|
   end
 end
 
-command 'app:delete' do |c|
+command "app:delete" do |c|
   c.action do |args, options|
     app_id = args.first
     Dawn::App.destroy(id: app_id)
