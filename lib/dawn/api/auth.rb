@@ -1,4 +1,6 @@
 module Dawn
+  class AuthenticationError < RuntimeError
+  end
   class << self
 
     def authenticate(options={})
@@ -21,7 +23,8 @@ module Dawn
           if api_key
             @api_key = api_key
           else
-            fail "Authentication failed: please provide a DAWN_API_KEY, username and password or update your .netrc with the dawn details (use dawn login)"
+            raise AuthenticationError, "api_key was not found, try dawn login to reset your .netrc"
+            # "please provide a DAWN_API_KEY, username and password, or update your .netrc with the dawn details (use dawn login)"
           end
         end
       end
