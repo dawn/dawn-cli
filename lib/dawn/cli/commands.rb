@@ -56,7 +56,7 @@ def extract_app_in_dir(dir, options={})
   end
 end
 
-def current_app(options={})
+def current_app_name(options={})
   @current_app ||= if options.key?(:app)
     options[:app]
   elsif ENV.key?("DAWN_APP")
@@ -66,6 +66,10 @@ def current_app(options={})
   else
     raise "App could not be located!"
   end
+end
+
+def current_app
+  Dawn::App.find(name: current_app_name)
 end
 
 require 'dawn/cli/commands/app'   # Remote App management namespace

@@ -32,7 +32,7 @@ command "logs" do |c|
   c.action do |args, options|
     opts = {}
     opts[:tail] = true if args.include?("tail")
-    app = Dawn::App.find(name: current_app)
+    app = current_app
     url = app.logs(opts)
     begin
       streamer = lambda do |chunk, remaining_bytes, total_bytes|
