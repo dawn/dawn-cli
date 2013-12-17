@@ -30,7 +30,7 @@ module Dawn
         path: "/apps/#{id}/logs",
         query: options
       ).body)["logs"]
-      "http://dawn:salvorhardin@anzejagodic.com:8001#{url}"
+      "http://anzejagodic.com:8001#{url}"
     end
 
     def update(options={})
