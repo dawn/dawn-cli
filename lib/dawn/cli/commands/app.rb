@@ -1,21 +1,3 @@
-def print_apps(apps)
-  puts "ID\t\t\t\tNAME\t\tFORMATION"
-  apps.each do |app|
-    form = app.formation.map { |k,v| "#{k}: #{v}" }.join(",")
-    puts "#{app.id}\t#{app.name}\t#{form}"
-  end
-end
-
-def find_app_by_id_or_name(args, options)
-  query = {}
-  if options.key?(:name)
-    query[:name] = options[:name]
-  else
-    query[:id] = args.first
-  end
-  Dawn::App.find(query)
-end
-
 command "app:create" do |c|
   c.syntax = "dawn app:create <app_name>"
   c.action do |args, options|
