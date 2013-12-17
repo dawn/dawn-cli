@@ -6,17 +6,6 @@ command "app:list" do |c|
   end
 end
 
-##
-# TODO this does nothing yet.
-command "app:update" do |c|
-  c.syntax = "dawn app:update <options>"
-  c.action do |args, options|
-    app = current_app
-    update_options = {}
-    app.update(update_options)
-  end
-end
-
 command "app:scale" do |c|
   c.syntax = "dawn app:scale <gear_modifier>"
   c.action do |args, options|

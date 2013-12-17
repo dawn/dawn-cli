@@ -26,6 +26,15 @@ command "init" do |c|
   end
 end
 
+command "rename" do |c|
+  c.syntax = "dawn rename <newname>"
+  c.action do |args, options|
+    app_name = args.first
+    app = current_app
+    app.update(name: app_name)
+  end
+end
+
 command "logs" do |c|
   c.syntax = "dawn logs [tail]"
   c.description = "Prints the App's log to STDOUT"
