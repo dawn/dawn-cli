@@ -47,7 +47,7 @@ module Dawn
         expects: 200,
         method: :post,
         path: "/apps/#{id}/scale",
-        body: options
+        body: options.to_json
       )
     end
 
@@ -75,7 +75,7 @@ module Dawn
         expects: 200,
         method: :post,
         path: '/apps',
-        body: options
+        body: options.to_json
       ).body)["app"]
     end
 
