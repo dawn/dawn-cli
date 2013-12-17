@@ -62,7 +62,7 @@ command "app:scale" do |c|
     gears = options.key?(:name) ? args : args[1, args.size-1]
     formation = {}
     gears.each do |s|
-      mtch_data = s.match(/(?<type>web|worker)(?<op>[+-=])(?<value>\d+)/)
+      mtch_data = s.match(/(?<type>\S+)(?<op>[+-=])(?<value>\d+)/)
       next unless mtch_data
       type = mtch_data[:type]
       value = mtch_data[:value].to_i
