@@ -6,7 +6,7 @@ module Dawn
         expects: 200,
         method: :post,
         path: '/login',
-        query: options
+        body: options
       ).body)
     end
 
