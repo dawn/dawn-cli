@@ -61,7 +61,7 @@ module Dawn
         expects: 200,
         method: :patch,
         path: "/apps/#{id}",
-        query: { name: name }.merge(options)
+        body: { name: name }.merge(options).to_json
       ).body)["app"])
     end
 
