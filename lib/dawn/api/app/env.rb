@@ -6,7 +6,7 @@ module Dawn
 
       def initialize(app, data)
         @app = app
-        super
+        super()
         merge!(data)
       end
 
@@ -20,12 +20,12 @@ module Dawn
       end
 
       def save(options={})
-        Dawn.request(
+        merge!(JSON.load(Dawn.request(
           expects: 200,
           method: :put,
           path: "/apps/#{app.id}/env",
-          query: { env: merge(options) }
-        )
+          body: { env: merge(options) }.to_json
+        ).body)["env"])
       end
 
     end
