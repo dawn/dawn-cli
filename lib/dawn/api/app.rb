@@ -23,6 +23,24 @@ module Dawn
       data["git"]
     end
 
+    def restart(options={})
+      Dawn.request(
+        expects: 204,
+        method: :delete,
+        path: "/apps/#{id}/gears",
+        query: options
+      )
+    end
+
+    def gears(options={})
+      JSON.load(Dawn.request(
+        expects: 200,
+        method: :get,
+        path: "/apps/#{id}/gears",
+        query: options
+      ).body).map { |hsh| Dawn::Gear.new(self, hsh["gear"]) }
+    end
+
     def logs(options={})
       url = JSON.load(Dawn.request(
         expects: 200,
