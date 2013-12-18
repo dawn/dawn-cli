@@ -5,9 +5,11 @@ module Dawn
   class App
 
     attr_reader :data
+    attr_reader :env
 
     def initialize(hsh)
       @data = hsh
+      @env = Env.new(self, @data.delete("env"))
     end
 
     def name
@@ -24,10 +26,6 @@ module Dawn
 
     def git
       data["git"]
-    end
-
-    def env
-      data["env"]
     end
 
     def restart(options={})
