@@ -42,6 +42,7 @@ command "logs" do |c|
   c.action do |args, options|
     opts = {}
     opts[:tail] = true if options[:f]
+    filters = args # TODO
     app = current_app
     url = app.logs(opts)
     begin
