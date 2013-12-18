@@ -9,7 +9,7 @@ end
 def print_gears(gears)
   say "ID\t\t\t\tNAME\t\tTYPE\t\tNUMBER"
   gears.each do |gear|
-    say "#{gear.id}\t#{gear.name}\t#{gear.type}\t#{gear.number}"
+    say "#{gear.id}\t#{gear.name}\t\t#{gear.type}\t\t#{gear.number}"
   end
 end
 

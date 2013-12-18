@@ -54,3 +54,32 @@ command "logs" do |c|
     end
   end
 end
+
+command "ps" do |c|
+  c.syntax = "dawn ps"
+  c.description = "Lists all currently running gears"
+  c.action do |args, options|
+    app = current_app
+    gears = app.gears.sort_by(&:number)
+    if args.empty?
+      ## Print all Gears
+      gears_by_type = gears.each_with_object({}) do |gear, hsh|
+        (hsh[gear.type] ||= []) << gear
+      end
+      gears_by_type.keys.sort.each do |key|
+        grs = gears_by_type[key]
+        say "=== #{key}:"
+        print_gears(grs)
+      end
+    else
+      ## Print a specific gear
+      query = args.first
+      gear = gears.find { |gear| gear.name == query }
+      if gear
+        print_gears([gear])
+      else
+        say "Gear #{query} was not found."
+      end
+    end
+  end
+end
