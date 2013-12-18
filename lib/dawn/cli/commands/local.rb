@@ -36,11 +36,12 @@ command "rename" do |c|
 end
 
 command "logs" do |c|
-  c.syntax = "dawn logs [tail]"
+  c.syntax = "dawn logs [-f]"
   c.description = "Prints the App's log to STDOUT"
+  c.option "-f", "should the logs be followed?"
   c.action do |args, options|
     opts = {}
-    opts[:tail] = true if args.include?("tail")
+    opts[:tail] = true if options[:f]
     app = current_app
     url = app.logs(opts)
     begin
