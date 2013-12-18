@@ -1,3 +1,6 @@
+require 'dawn/api/app/env'
+require 'dawn/api/app/gear'
+
 module Dawn
   class App
 
@@ -23,6 +26,10 @@ module Dawn
       data["git"]
     end
 
+    def env
+      data["env"]
+    end
+
     def restart(options={})
       Dawn.request(
         expects: 204,
@@ -38,7 +45,7 @@ module Dawn
         method: :get,
         path: "/apps/#{id}/gears",
         query: options
-      ).body).map { |hsh| Dawn::Gear.new(self, hsh["gear"]) }
+      ).body).map { |hsh| Gear.new(self, hsh["gear"]) }
     end
 
     def logs(options={})
@@ -56,7 +63,7 @@ module Dawn
         expects: 200,
         method: :patch,
         path: "/apps/#{id}",
-        query: options
+        query: { name: name }.merge(options)
       ).body)["app"])
     end
 
