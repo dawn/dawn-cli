@@ -56,7 +56,7 @@ command "logs" do |c|
 end
 
 command "ps" do |c|
-  c.syntax = "dawn ps"
+  c.syntax = "dawn ps [<gear_name>]"
   c.description = "Lists all currently running gears"
   c.action do |args, options|
     app = current_app
@@ -81,5 +81,15 @@ command "ps" do |c|
         say "Gear #{query} was not found."
       end
     end
+  end
+end
+
+command "restart" do |c|
+  c.syntax = "dawn restart"
+  c.description = "restart the app"
+  c.action do |args, options|
+    app = current_app
+    app.restart
+    say "App #{app.name} has been restarted"
   end
 end
