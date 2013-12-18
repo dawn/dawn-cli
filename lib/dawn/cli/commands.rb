@@ -1,15 +1,15 @@
 def print_apps(apps)
-  puts "ID\t\t\t\tNAME\t\tFORMATION"
+  say "ID\t\t\t\tNAME\t\tFORMATION"
   apps.each do |app|
     form = app.formation.map { |k,v| "#{k}: #{v}" }.join(",")
-    puts "#{app.id}\t#{app.name}\t#{form}"
+    say "#{app.id}\t#{app.name}\t#{form}"
   end
 end
 
 def print_gears(gears)
-  puts "ID\t\t\t\tNAME\t\tTYPE\t\tNUMBER"
+  say "ID\t\t\t\tNAME\t\tTYPE\t\tNUMBER"
   gears.each do |gear|
-    puts "#{gear.id}\t#{gear.name}\t#{gear.type}\t#{gear.number}"
+    say "#{gear.id}\t#{gear.name}\t#{gear.type}\t#{gear.number}"
   end
 end
 
