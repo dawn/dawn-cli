@@ -6,6 +6,13 @@ def print_apps(apps)
   end
 end
 
+def print_gears(gears)
+  puts "ID\t\t\t\tNAME\t\tTYPE\t\tNUMBER"
+  gears.each do |gear|
+    puts "#{gear.id}\t#{gear.name}\t#{gear.type}\t#{gear.number}"
+  end
+end
+
 def git_create_dawn_remote(app)
   Dawn::Helpers.git("remote add dawn git@anzejagodic.com:#{app.git}")
 end
