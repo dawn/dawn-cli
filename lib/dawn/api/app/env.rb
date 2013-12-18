@@ -18,6 +18,15 @@ module Dawn
         data[key] = value
       end
 
+      def refresh(options={})
+        @data.merge(JSON.load(Dawn.request(
+          expects: 200,
+          method: :get,
+          path: "/apps/#{app.id}/env",
+          query: options
+        ).body)["env"])
+      end
+
       def update(options={})
         Dawn.request(
           expects: 200,
