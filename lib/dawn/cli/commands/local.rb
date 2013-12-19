@@ -45,11 +45,24 @@ command "logs" do |c|
     filters = args # TODO
     app = current_app
     url = app.logs(opts)
+    uri  = URI.parse(url)
     begin
-      streamer = lambda do |chunk, remaining_bytes, total_bytes|
-        puts chunk
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.read_timeout = 60 * 60 * 24
+      begin
+        http.start do
+          http.request_get(uri.path + (uri.query ? "?" + uri.query : "")) do |request|
+            request.read_body do |chunk|
+              #yield chunk
+              say chunk.to_s
+            end
+          end
+        end
+      rescue Errno::ECONNREFUSED, Errno::ETIMEDOUT, SocketError
+        raise "Could not connect to logging service"
+      rescue Timeout::Error, EOFError
+        raise "\nRequest timed out"
       end
-      Excon.get(url, response_block: streamer, query: { srv: 1 })
     rescue Interrupt
     end
   end
