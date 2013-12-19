@@ -41,7 +41,7 @@ command "logs" do |c|
   c.option "-f", "should the logs be followed?"
   c.action do |args, options|
     opts = {}
-    opts[:tail] = true if options[:f]
+    opts[:tail] = options.f
     filters = args # TODO
     app = current_app
     url = app.logs(opts)
@@ -51,9 +51,10 @@ command "logs" do |c|
       http.read_timeout = 60 * 60 * 24
       begin
         http.start do
-          http.request_get(uri.path + (uri.query ? "?" + uri.query : "")) do |request|
+          link_url = uri.path + ("?srv=1")
+          #say uri.host + ":" + uri.port.to_s + link_url
+          http.request_get(link_url) do |request|
             request.read_body do |chunk|
-              #yield chunk
               say chunk.to_s
             end
           end
