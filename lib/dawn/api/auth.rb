@@ -32,9 +32,5 @@ module Dawn
       @connection = Excon.new("#{options[:scheme]}://#{options[:host]}", headers: @headers)
     end
 
-    def git_host
-      "anzejagodic.com"
-    end
-
   end
 end

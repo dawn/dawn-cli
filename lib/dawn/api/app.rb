@@ -53,7 +53,7 @@ module Dawn
         path: "/apps/#{id}/logs",
         query: options
       ).body)["logs"]
-      "http://anzejagodic.com:8001#{url}"
+      "http://#{Dawn.log_host}#{url}"
     end
 
     def update(options={})
