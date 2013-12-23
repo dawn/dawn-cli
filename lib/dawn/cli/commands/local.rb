@@ -40,9 +40,11 @@ command "logs" do |c|
   c.description = "Prints the App's log to STDOUT"
   c.option "-f", "should the logs be followed?"
   c.action do |args, options|
+    filter_regex = %r{\A(?<timestamp>\S+)\s(?<token>\S+)\[(?<proc_id>\S+)\]\:(?<message>.*)}
+    timestamp_regex = %r{(?<year>\d+)-(?<month>\d+)-(?<day>\d+)T(?<hour>\d+)\:(?<minute>\d+)\:(?<second>\d+)\.(?<other>.*)}
     opts = {}
     opts[:tail] = options.f
-    filters = args # TODO
+    filters = args
     app = current_app
     url = app.logs(opts)
     uri  = URI.parse(url)
@@ -55,7 +57,15 @@ command "logs" do |c|
           #say uri.host + ":" + uri.port.to_s + link_url
           http.request_get(link_url) do |request|
             request.read_body do |chunk|
-              say chunk.to_s
+              if filters.size > 0
+                chunk.each_line do |line|
+                  if mtch_data = line.chomp.match(filter_regex)
+                    say mtch_data[0] if filters.include?(mtch_data[:proc_id])
+                  end
+                end
+              else
+                say chunk.to_s
+              end
             end
           end
         end
