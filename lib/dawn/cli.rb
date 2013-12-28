@@ -1,5 +1,7 @@
 require 'uri'
 require 'net/http'
+require 'time-lord'
+
 require 'dawn/api'          # Dawn::Api
 require 'dawn/cli/version'  # CLI::Version information
 require 'dawn/cli/helpers'  # CLI Helpers Module
