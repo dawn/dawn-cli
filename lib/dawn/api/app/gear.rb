@@ -32,7 +32,7 @@ module Dawn
 
       def restart(options={})
         Dawn.request(
-          expects: 200,
+          expects: 204,
           method: :delete,
           path: "/apps/#{app.id}/gears/#{id}",
           query: options
