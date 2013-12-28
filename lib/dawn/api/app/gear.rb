@@ -18,18 +18,31 @@ module Dawn
         data["id"]["$oid"]
       end
 
+      def uptime
+        data["uptime"]
+      end
+
       def type
-        data["type"]
+        name.split(".").first
       end
 
       def number
-        data["number"]
+        name.split(".").last
       end
 
       def restart(options={})
         Dawn.request(
           expects: 200,
           method: :delete,
+          path: "/apps/#{app.id}/gears/#{id}",
+          query: options
+        )
+      end
+
+      def update(options={})
+        Dawn.request(
+          expects: 200,
+          method: :get,
           path: "/apps/#{app.id}/gears/#{id}",
           query: options
         )
