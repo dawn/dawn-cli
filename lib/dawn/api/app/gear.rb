@@ -23,11 +23,11 @@ module Dawn
       end
 
       def type
-        name.split(".").first
+        data["type"]
       end
 
       def number
-        name.split(".").last
+        data["number"]
       end
 
       def restart(options={})
