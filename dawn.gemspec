@@ -7,16 +7,16 @@ $:.unshift lib unless $:.include?(lib)
 require 'dawn/cli/version'
 
 Gem::Specification.new do |s|
-  s.name        = "dawn"
-  s.homepage    = 'http://anzejagodic.com:5000/'
-  s.version     = Dawn::CLI::VERSION
-  s.platform    = Gem::Platform::RUBY
-  s.summary     = "Dawn CLI"
-  s.date        = Time.now.to_date.to_s
+  s.name     = "dawn"
+  s.homepage = 'http://anzejagodic.com:5000/'
+  s.version  = Dawn::CLI::VERSION
+  s.platform = Gem::Platform::RUBY
+  s.summary  = "Dawn CLI"
+  s.date     = Time.now.to_date.to_s
+  s.license  = 'MIT'
+  s.authors  = ["Blaž Hrastnik", "Corey Powell"]
 
-  s.authors = ["Blaž Hrastnik", "Corey Powell"]
-
-  s.add_runtime_dependency "dawn-api"
+  s.add_runtime_dependency "dawn-api", '~> 0.2'
 
   s.executables = "dawn"
   s.require_path = "lib"
