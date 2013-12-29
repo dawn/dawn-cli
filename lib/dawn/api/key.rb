@@ -1,4 +1,3 @@
-p File.read("#{Dir.home}/.ssh/id_rsa.pub")
 module Dawn
   class Key
 
