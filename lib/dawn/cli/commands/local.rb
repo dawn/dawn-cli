@@ -18,9 +18,10 @@ command "create" do |c|
 end
 
 command "init" do |c|
-  c.syntax = "dawn init"
-  c.description = "Setup existing app with a dawn remote"
+  c.syntax = "dawn init [<appname>]"
+  c.description = "Setup existing app with a dawn remote, if no appname is given, the app directory's name will be used"
   c.action do |args, options|
+    appname = args.first || File.basename(Dir.getwd)
     app = try_create_app(appname)
     git_create_dawn_remote(app)
   end
