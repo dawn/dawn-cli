@@ -14,7 +14,7 @@ module Dawn
           method: :get,
           path: "/apps/#{app.id}/gears",
           query: options
-        ).body).map { |hsh| Drain.new(app, hsh["gear"]) }
+        ).body).map { |hsh| Gear.new(app, hsh["gear"]) }
       end
 
       def find(options={})
