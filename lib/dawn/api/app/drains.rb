@@ -23,7 +23,7 @@ module Dawn
           method: :get,
           path: "/apps/#{app.id}/drains",
           query: options
-        ).body).map { |hsh| Drain.new(self, hsh["drain"]) }
+        ).body).map { |hsh| Drain.new(app, hsh["drain"]) }
       end
 
       def find(options={})
