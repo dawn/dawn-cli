@@ -1,5 +1,7 @@
 require 'dawn/api/app/env'
 require 'dawn/api/app/gear'
+require 'dawn/api/app/drain'
+require 'dawn/api/app/drains'
 
 module Dawn
   class App
@@ -44,6 +46,15 @@ module Dawn
         path: "/apps/#{id}/gears",
         query: options
       ).body).map { |hsh| Gear.new(self, hsh["gear"]) }
+    end
+
+    def drains(options={})
+      JSON.load(Dawn.request(
+        expects: 200,
+        method: :get,
+        path: "/apps/#{id}/drains",
+        query: options
+      ).body).map { |hsh| Drain.new(self, hsh["drain"]) }
     end
 
     def logs(options={})
