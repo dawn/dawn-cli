@@ -6,6 +6,13 @@ def print_apps(apps)
   end
 end
 
+def print_drains(drains)
+  say "ID\t\t\t\tNAME\t\tURL"
+  drains.each do |drain|
+    say "#{drain.id}\t#{drain.name}\t#{drain.url}"
+  end
+end
+
 def print_gears(gears)
   say "ID\t\t\t\tNAME\t\tUPTIME"
   gears.each do |gear|
@@ -87,6 +94,7 @@ def current_app
 end
 
 require 'dawn/cli/commands/app'   # App management namespace
+require 'dawn/cli/commands/drain' # App management namespace
 require 'dawn/cli/commands/env'   # App ENV management namespace
 require 'dawn/cli/commands/key'   # Key management namespace
 require 'dawn/cli/commands/local' # Various functions
