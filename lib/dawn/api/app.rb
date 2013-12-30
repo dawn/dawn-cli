@@ -1,5 +1,6 @@
 require 'dawn/api/app/env'
 require 'dawn/api/app/gear'
+require 'dawn/api/app/gears'
 require 'dawn/api/app/drain'
 require 'dawn/api/app/drains'
 
@@ -39,22 +40,12 @@ module Dawn
       )
     end
 
-    def gears(options={})
-      JSON.load(Dawn.request(
-        expects: 200,
-        method: :get,
-        path: "/apps/#{id}/gears",
-        query: options
-      ).body).map { |hsh| Gear.new(self, hsh["gear"]) }
+    def gears
+      Gears.new(self)
     end
 
-    def drains(options={})
-      JSON.load(Dawn.request(
-        expects: 200,
-        method: :get,
-        path: "/apps/#{id}/drains",
-        query: options
-      ).body).map { |hsh| Drain.new(self, hsh["drain"]) }
+    def drains
+      Drains.new(self)
     end
 
     def logs(options={})
