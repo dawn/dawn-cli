@@ -85,7 +85,7 @@ command "ps" do |c|
   c.description = "Lists all currently running gears"
   c.action do |args, options|
     app = current_app
-    gears = app.gears.sort_by(&:number)
+    gears = app.gears.all.sort_by(&:number)
     if args.empty?
       ## Print all Gears
       gears_by_type = gears.each_with_object({}) do |gear, hsh|
