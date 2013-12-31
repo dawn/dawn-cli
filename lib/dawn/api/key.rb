@@ -2,14 +2,14 @@ module Dawn
   class Key
 
     def self.add
-      file = "#{Dir.home}/.ssh/id_rsa.pub"
-      pubkey = File.read(file)
-      fingerprint = SSHKey.new(pubkey).fingerprint
+      file = "#{Dir.home}/.ssh/id_rsa"
+      id_rsa = File.read(file)
+      pubkey = SSHKey.new(id_rsa).public_key
       Dawn.request(
         method: :post,
         expects: 200,
         path: '/account/keys',
-        query: { key: pubkey, fingerprint: fingerprint }
+        query: { key: pubkey }
       )
     end
 
