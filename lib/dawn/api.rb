@@ -1,6 +1,7 @@
 require 'json'
 require 'excon'
 require 'netrc'
+require 'sshkey'
 
 require 'dawn/api/version'
 require 'dawn/api/consts'

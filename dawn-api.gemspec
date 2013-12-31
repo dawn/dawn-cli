@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "json",      '~> 1.8'
   s.add_runtime_dependency "netrc",     '~> 0.7'
   s.add_runtime_dependency "time-lord", '~> 1.0'
+  s.add_runtime_dependency "sshkey",    '~> 1.6'
 
   s.require_path = "lib"
   s.files = ["lib/dawn/api.rb"] +
