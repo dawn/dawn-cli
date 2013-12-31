@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'time-lord',      '~> 1.0'
   s.add_runtime_dependency 'terminal-table', '~> 1.4'
-  s.add_runtime_dependency 'dawn-api',       '~> 0.3'
+  s.add_runtime_dependency 'dawn-api',       '~> 0.4'
 
   s.executables = 'dawn'
   s.require_path = 'lib'
