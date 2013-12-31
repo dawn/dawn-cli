@@ -1,40 +1,67 @@
 module Dawn
   class Key
 
-    def self.add
-      file = "#{Dir.home}/.ssh/id_rsa"
-      id_rsa = File.read(file)
-      pubkey = SSHKey.new(id_rsa).public_key
-      Dawn.request(
-        method: :post,
-        expects: 200,
-        path: '/account/keys',
-        query: { key: pubkey }
-      )
+    attr_reader :data
+
+    def initialize(data)
+      @data = data
     end
 
-    def self.get(id)
-      JSON.load(Dawn.request(
-        method: :get,
-        expects: 200,
-        path: "/account/keys/#{id}"
-      ).body)
+    def id
+      data["id"]["$oid"]
     end
 
-    def self.all(options={})
-      JSON.load(Dawn.request(
-        method: :get,
-        expects: 200,
-        path: '/account/keys',
-        query: options
-      ).body)
+    def fingerprint
+      data["fingerprint"]
     end
 
-    def self.delete(id)
+    def key
+      data["key"]
+    end
+
+    def destroy
       Dawn.request(
         method: :delete,
         expects: 204,
         path: "/account/keys/#{id}"
+      )
+    end
+
+    def self.add
+      file = "#{Dir.home}/.ssh/id_rsa"
+      id_rsa = File.read(file)
+      pubkey = SSHKey.new(id_rsa).public_key
+      new JSON.load(Dawn.request(
+        method: :post,
+        expects: 200,
+        path: '/account/keys',
+        query: { key: pubkey }
+      ).body)["key"]
+    end
+
+    def self.get(id)
+      new JSON.load(Dawn.request(
+        method: :get,
+        expects: 200,
+        path: "/account/keys/#{id}"
+      ).body)["key"]
+    end
+
+    def self.all(options={})
+      resp = Dawn.request(
+        method: :get,
+        expects: 200,
+        path: '/account/keys',
+        query: options
+      )
+      JSON.load(resp.body).map { |hsh| new(hsh["key"]) }
+    end
+
+    def self.destroy(options={})
+      Dawn.request(
+        method: :delete,
+        expects: 204,
+        path: "/account/keys/#{options[:id]}"
       )
     end
 

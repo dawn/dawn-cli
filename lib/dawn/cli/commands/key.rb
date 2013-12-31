@@ -2,7 +2,8 @@ command "key:add" do |c|
   c.syntax = "dawn key:add"
   c.description = "adds your local ssh_key"
   c.action do |args, options|
-    Dawn::Key.add
+    key = Dawn::Key.add
+    puts "Key (#{key.id}) was successfully added"
   end
 end
 
@@ -11,9 +12,7 @@ command "key:list" do |c|
   c.description = "lists all your ssh_keys"
   c.action do |args, options|
     keys = Dawn::Key.all
-    keys.each do |key|
-      puts key
-    end
+    print_keys(keys)
   end
 end
 
@@ -22,7 +21,8 @@ command "key:get" do |c|
   c.description = "retrieve a key by ID"
   c.action do |args, options|
     key_id = args.first
-    puts Dawn::Key.find(id: key_id)
+    key = Dawn::Key.find(id: key_id)
+    print_keys([key])
   end
 end
 

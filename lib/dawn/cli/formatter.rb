@@ -1,5 +1,16 @@
 def table_style
-  { width: 80 }
+  { } #width: 80 }
+end
+
+def print_keys(keys)
+  table = Terminal::Table.new title: 'Keys',
+                              headings: ['ID', 'Fingerprint', 'Key'],
+                              style: table_style
+  keys.each do |key|
+    table << [key.id, key.fingerprint, " ... "]#key.key[0, 20]] # truncate the key
+    table << :separator
+  end
+  say table
 end
 
 def print_apps(apps)
