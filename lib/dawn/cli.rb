@@ -9,3 +9,4 @@ require 'dawn/cli/helpers'    # CLI Helpers Module
 require 'dawn/cli/app_finder' # CLI App resolver
 require 'dawn/cli/formatter'  # CLI Console Formatters
 require 'dawn/cli/commands'   # CLI Commands
+require 'dawn/cli/patches'    # Various Monkey Patches
