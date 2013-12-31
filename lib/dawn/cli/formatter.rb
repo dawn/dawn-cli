@@ -1,28 +1,34 @@
 def print_apps(apps)
-  say "ID\t\t\t\tNAME\t\tFORMATION"
-  apps.each do |app|
-    form = app.formation.map { |k,v| "#{k}: #{v}" }.join(",")
-    say "#{app.id}\t#{app.name}\t#{form}"
+  say Terminal::Table.new headings: ['ID', 'Name', 'Formation'] do |t|
+    apps.each do |app|
+      form = app.formation.map { |k,v| "#{k}: #{v}" }.join("\n")
+      t << [app.id, app.name, form]
+      t << :separator
+    end
   end
 end
 
 def print_drains(drains)
-  say "ID\t\t\t\tNAME\t\tURL"
-  drains.each do |drain|
-    say "#{drain.id}\t#{drain.name}\t#{drain.url}"
+  say Terminal::Table.new headings: ['ID', 'Name', 'URL'] do |t|
+    drains.each do |drain|
+      t << [drain.id, drain.name, drain.url]
+      t << :separator
+    end
   end
 end
 
 def print_gears(gears)
-  say "ID\t\t\t\tNAME\t\tUPTIME"
-  gears.each do |gear|
-    n = gear.uptime.to_i
-    if n > 0
-      scale  = TimeLord::Scale.new(n)
-      uptime = "#{scale.to_value} #{scale.to_unit}"
-    else
-      uptime = "just now"
+  say Terminal::Table.new headings: ['ID', 'Name', 'Uptime'] do |t|
+    gears.each do |gear|
+      n = gear.uptime.to_i
+      if n > 0
+        scale  = TimeLord::Scale.new(n)
+        uptime = "#{scale.to_value} #{scale.to_unit}"
+      else
+        uptime = "just now"
+      end
+      t << [gear.id, gear.name, uptime]
+      t << :separator
     end
-    say "#{gear.id}\t#{gear.name}\t\t#{uptime}"
   end
 end
