@@ -2,7 +2,7 @@ command "key:add" do |c|
   c.syntax = "dawn key:add"
   c.description = "adds your local ssh_key"
   c.action do |args, options|
-    pubkey = File.read(File.join(Dir.home, ".ssh/id_rsa.pub")).chomp
+    pubkey = File.read(File.join(Dir.home, ".ssh/id_rsa.pub"))
     key    = Dawn::Key.add(pubkey)
     puts "Key (#{key.id}) was successfully added"
   end

@@ -25,14 +25,14 @@ def git_remotes(base_dir=Dir.pwd)
 end
 
 def git_dawn_remote?
-  !!git_remotes["dawn"]
+  !!(git_remotes && git_remotes["dawn"])
 end
 
 def git_remove_dawn_remote(app)
   Dawn::Helpers.git("remote remove dawn") # remove old dawn remote
 end
 
-def git_create_dawn_remote(app)
+def git_add_dawn_remote(app)
   abort "dawn remote already exists, please `dawn app:delete` first" if git_dawn_remote?
   Dawn::Helpers.git("remote add dawn git@#{Dawn.git_host}:#{app.git}")
 end
