@@ -20,8 +20,16 @@ end
 command "init" do |c|
   c.syntax = "dawn init [<appname>]"
   c.description = "Setup existing app with a dawn remote, if no appname is given, the app directory's name will be used"
+  c.option "--name NAME", String, "name your App"
+  c.option "--random", "gives you App an awesome name"
   c.action do |args, options|
-    appname = args.first || File.basename(Dir.getwd)
+    if options.random
+      appname = nil
+    elsif n=options.name
+      appname = n
+    else
+      appname = File.basename(Dir.getwd)
+    end
     app = try_create_app(appname)
     git_create_dawn_remote(app)
   end
