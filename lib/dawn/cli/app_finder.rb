@@ -2,7 +2,7 @@ def git_create_dawn_remote(app)
   Dawn::Helpers.git("remote add dawn git@anzejagodic.com:#{app.git}")
 end
 
-def try_create_app(appname)
+def try_create_app(appname=nil)
   begin
     app = Dawn::App.create(name: appname)
   rescue Excon::Errors::Conflict
@@ -43,7 +43,7 @@ def extract_app_in_dir(dir, options={})
     if apps.size == 1
       apps.first
     else
-      raise "Multiple apps in folder and no app specified.\nSpecify app with --app APP."
+      abort "Multiple apps in folder and no app specified.\nSpecify app with --app APP."
     end
   end
 end
@@ -56,10 +56,12 @@ def current_app_name(options={})
   elsif app_from_dir = extract_app_in_dir(Dir.pwd, options)
     app_from_dir
   else
-    raise "App could not be located!"
+    abort "App could not be located!"
   end
 end
 
 def current_app
-  Dawn::App.find(name: current_app_name)
+  app = Dawn::App.find(name: current_app_name)
+  abort "App #{current_app_name} was not found on the dawn server!" unless app
+  app
 end
