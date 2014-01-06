@@ -12,7 +12,7 @@ command "create" do |c|
     Dir.chdir(appname) do
       app = try_create_app(appname)
       `git init`
-      git_create_dawn_remote(app)
+      git_add_dawn_remote(app)
     end
   end
 end
@@ -31,7 +31,7 @@ command "init" do |c|
       appname = File.basename(Dir.getwd)
     end
     app = try_create_app(appname)
-    git_create_dawn_remote(app)
+    git_add_dawn_remote(app)
   end
 end
 
