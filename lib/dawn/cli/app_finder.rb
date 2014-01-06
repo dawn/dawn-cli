@@ -1,13 +1,10 @@
-def git_create_dawn_remote(app)
-  Dawn::Helpers.git("remote add dawn git@anzejagodic.com:#{app.git}")
-end
-
 def try_create_app(appname=nil)
+  abort "dawn remote already exists, please remove it (dawn app:delete)" if git_dawn_remote?
   begin
     app = Dawn::App.create(name: appname)
   rescue Excon::Errors::Conflict
     app = Dawn::App.find(name: appname)
-    say " warning ! App #{app.name} already exists"
+    say " warning ! App (#{app.name}) already exists"
   end
   return app
 end
@@ -25,6 +22,19 @@ def git_remotes(base_dir=Dir.pwd)
     end
   end
   remotes.empty? ? nil : remotes
+end
+
+def git_dawn_remote?
+  !!git_remotes["dawn"]
+end
+
+def git_remove_dawn_remote(app)
+  Dawn::Helpers.git("remote remove dawn") # remove old dawn remote
+end
+
+def git_create_dawn_remote(app)
+  abort "dawn remote already exists, please `dawn app:delete` first" if git_dawn_remote?
+  Dawn::Helpers.git("remote add dawn git@#{Dawn.git_host}:#{app.git}")
 end
 
 def extract_app_remote_from_git_config
@@ -62,6 +72,6 @@ end
 
 def current_app
   app = Dawn::App.find(name: current_app_name)
-  abort "App #{current_app_name} was not found on the dawn server!" unless app
+  abort "App (#{current_app_name}) was not found on the dawn server!" unless app
   app
 end
