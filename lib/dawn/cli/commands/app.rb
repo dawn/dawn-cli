@@ -5,6 +5,7 @@ command "app:list" do |c|
     print_apps(apps)
   end
 end
+alias_command "ls", "app:list"
 
 command "app:scale" do |c|
   c.syntax = "dawn app:scale <gear_modifier>"
@@ -28,11 +29,20 @@ command "app:scale" do |c|
 end
 
 command "app:delete" do |c|
-  c.syntax = "dawn app:delete"
+  c.syntax = "dawn app:delete [<app_id>]"
+  c.description = "Delete App app_id, if no app_id is provided, the current app is deleted instead"
+  c.option "--name APPNAME", String, "specify an app by name to remove"
   c.action do |args, options|
-    app = current_app
+    if app_id = args.first
+      app = Dawn::App.find(id: app_id)
+    elsif app_name = options.name
+      app = Dawn::App.find(name: app_name)
+    else
+      app = current_app
+    end
     app_name = app.name
     app.destroy
+    git_remove_dawn_remote(app)
     say "#{app_name} has been removed"
   end
 end
