@@ -113,7 +113,7 @@ module Dawn
         query: options
       ).body)
       hsh = hsh.first if hsh.is_a?(Array)
-      new hsh["app"]
+      hsh && new(hsh["app"])
     end
 
     def self.destroy(options)
