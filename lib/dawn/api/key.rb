@@ -27,10 +27,7 @@ module Dawn
       )
     end
 
-    def self.add
-      file = "#{Dir.home}/.ssh/id_rsa"
-      id_rsa = File.read(file)
-      pubkey = SSHKey.new(id_rsa).public_key
+    def self.add(pubkey)
       new JSON.load(Dawn.request(
         method: :post,
         expects: 200,
