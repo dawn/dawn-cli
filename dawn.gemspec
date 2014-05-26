@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = 'Dawn CLI'
   s.description = 'Dawn Client API'
   s.homepage    = 'http://dawn.dev:5000/'
-  s.version     = Dawn::CLI::VERSION
+  s.version     = Dawn::CLI::Version::STRING
   s.platform    = Gem::Platform::RUBY
   s.date        = Time.now.to_date.to_s
   s.license     = 'MIT'

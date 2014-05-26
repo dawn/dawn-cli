@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.name        = 'dawn-api'
   s.summary     = 'Dawn API'
   s.description = 'Dawn Client API'
-  s.homepage    = 'http://anzejagodic.com:5000/'
-  s.version     = Dawn::Api::VERSION
+  s.homepage    = 'http://dawn.dev:5000/'
+  s.version     = Dawn::Api::Version::STRING
   s.platform    = Gem::Platform::RUBY
   s.date        = Time.now.to_date.to_s
   s.license     = 'MIT'
