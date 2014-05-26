@@ -2,11 +2,11 @@ module Dawn
   class << self
 
     def git_host
-      "anzejagodic.com"
+      "dawn.dev"
     end
 
     def log_host
-      "anzejagodic.com:8001"
+      "dawn.dev:8001"
     end
 
   end

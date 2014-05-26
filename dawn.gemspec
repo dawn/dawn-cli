@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.name        = 'dawn'
   s.summary     = 'Dawn CLI'
   s.description = 'Dawn Client API'
-  s.homepage    = 'http://anzejagodic.com:5000/'
+  s.homepage    = 'http://dawn.dev:5000/'
   s.version     = Dawn::CLI::VERSION
   s.platform    = Gem::Platform::RUBY
   s.date        = Time.now.to_date.to_s
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'time-lord',      '~> 1.0'
   s.add_runtime_dependency 'terminal-table', '~> 1.4'
+  s.add_runtime_dependency 'sshkey',         '~> 1.6.1'
   s.add_runtime_dependency 'dawn-api',       '~> 0.4'
 
   s.executables = 'dawn'
