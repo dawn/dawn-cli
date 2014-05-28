@@ -4,22 +4,28 @@ module Dawn
   class << self
 
     def authenticate(options={})
-      options = OPTIONS.merge(options)
+      options = OPTIONS.merge options
       options[:headers] = options[:headers].merge(HEADERS)
       @api_key = options.delete(:api_key) || ENV['DAWN_API_KEY']
+
       if !@api_key
+        hostname = options[:host]
+        url = "#{options[:scheme]}://#{hostname}"
+
         if options.key?(:username) && options.key?(:password)
-          usn = options.delete(:username)
-          psw = options.delete(:password)
-          @connection = Excon.new("#{options[:scheme]}://#{options[:host]}",
-                                  headers: HEADERS)
-          @api_key = post_login(username: usn, password: psw)['api_key']
+          username = options.delete(:username)
+          password = options.delete(:password)
+
+          @connection = Excon.new url, headers: HEADERS
+
+          @api_key = post_login(username: username, password: password)['api_key']
+
           netrc = Netrc.read
-          netrc['dawn.in'] = usn, @api_key
+          netrc[hostname] = username, @api_key
           netrc.save
         else
           netrc = Netrc.read
-          usn, api_key = netrc['dawn.in']
+          username, api_key = netrc[hostname]
           if api_key
             @api_key = api_key
           else
@@ -28,8 +34,8 @@ module Dawn
           end
         end
       end
-      @headers = HEADERS.merge('Authorization' => "Token token=\"#{@api_key}\"")
-      @connection = Excon.new("#{options[:scheme]}://#{options[:host]}", headers: @headers)
+      @headers = HEADERS.merge 'Authorization' => "Token token=\"#{@api_key}\""
+      @connection = Excon.new "#{options[:scheme]}://#{options[:host]}", headers: @headers
     end
 
   end
