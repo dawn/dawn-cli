@@ -8,7 +8,7 @@ module Dawn
     end
 
     def id
-      data["id"]["$oid"]
+      data["id"]
     end
 
     def fingerprint
