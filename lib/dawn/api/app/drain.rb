@@ -10,10 +10,6 @@ module Dawn
         @data = hsh
       end
 
-      def name
-        data["name"]
-      end
-
       def id
         data["id"]["$oid"]
       end
