@@ -11,7 +11,7 @@ module Dawn
 
   OPTIONS = {
     headers:  {},
-    host:     'api.dawn.dev:5000',
+    host:     'api.dawn.dev',
     nonblock: false,
     scheme:   'http'
   }
