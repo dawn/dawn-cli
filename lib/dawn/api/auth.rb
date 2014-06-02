@@ -1,3 +1,5 @@
+require 'netrc'
+
 module Dawn
   class AuthenticationError < RuntimeError
   end
