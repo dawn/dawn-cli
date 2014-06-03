@@ -34,7 +34,7 @@ command "domain:ls" do |c|
   c.action do |args, options|
     app = current_app
 
-    print_domains app.domains.all
+    say format_domains(app.domains.all)
   end
 end
 

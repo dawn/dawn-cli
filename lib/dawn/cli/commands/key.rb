@@ -11,17 +11,16 @@ command "key:add" do |c|
     filename = File.join(Dir.home, ".ssh/id_rsa.pub")
     pubkey = File.read filename
     key    = Dawn::Key.add(pubkey)
-    puts "Key (#{key.id}) was successfully added"
   end
 end
 
-command "key:list" do |c|
-  c.syntax = "dawn key:list"
+command "key:ls" do |c|
+  c.syntax = "dawn key:ls"
   c.description = "Lists all your Keys currently on dawn"
 
   c.action do |args, options|
     keys = Dawn::Key.all
-    print_keys(keys)
+    say format_keys(keys)
   end
 end
 
@@ -32,7 +31,7 @@ command "key:get" do |c|
   c.action do |args, options|
     key_id = args.first
     key = Dawn::Key.find(id: key_id)
-    print_keys([key])
+    say format_keys([key])
   end
 end
 
@@ -43,7 +42,6 @@ command "key:delete" do |c|
   c.action do |args, options|
     key_id = args.first
     Dawn::Key.destroy(id: key_id)
-    puts "Key (#{key_id}) was successfully deleted"
   end
 end
 

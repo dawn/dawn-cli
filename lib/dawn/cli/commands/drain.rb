@@ -25,15 +25,15 @@ command "drain:delete" do |c|
   end
 end
 
-command "drain:list" do |c|
-  c.syntax = "dawn drain:list"
+command "drain:ls" do |c|
+  c.syntax = "dawn drain:ls"
   c.description = "Lists all Drains for this App"
 
   c.action do |args, options|
     drain_url = args.first
     app = current_app
     drains = app.drains.all
-    print_drains(drains)
+    say format_drains(drains)
   end
 end
 

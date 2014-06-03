@@ -10,26 +10,30 @@ def local_commands
 #  end
 #end
 
-command "create" do |c|
-  c.syntax = "dawn create <app_name>"
+command "new" do |c|
+  c.syntax = "dawn new [<app_name>]"
   c.description = "Create a new dawn App (with git; setup)"
 
   c.action do |args, options|
     appname = args.first
+    app = try_create_app appname
+    appname = app.name
 
     if Dir.exists? appname
       say " warning ! Directory #{appname} already exists"
     else
-      Dir.mkdir appname
+      FileUtils.mkdir_p appname
+      say "\tCREATE\t#{appname}"
     end
 
     Dir.chdir appname do
-      app = try_create_app appname
       `git init`
       git_add_dawn_remote app
     end
+    say "\tNEW APP\t#{appname}"
   end
 end
+alias_command "create", "new"
 
 command "init" do |c|
   c.syntax = "dawn init [<app_name>]"

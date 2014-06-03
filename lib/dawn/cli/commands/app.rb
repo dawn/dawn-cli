@@ -3,42 +3,49 @@ module CLI
 class Application
 def app_commands
 
-command "app:list" do |c|
-  c.syntax = "dawn app:list"
+command "app:ls" do |c|
+  c.syntax = "dawn app:ls"
   c.description = "Displays a list of all the apps you have deployed to dawn"
+
   c.action do |args, options|
     apps = Dawn::App.all
-    print_apps apps
+    say format_apps(apps)
   end
 end
-alias_command "ls", "app:list"
+alias_command "ls", "app:ls"
 
 command "app:scale" do |c|
   c.syntax = "dawn app:scale <gear_modifier>"
   c.description = "Modify the gears of the current app"
+
   c.action do |args, options|
     app = current_app
     formation = {}
+
     args.each do |s|
       mtch_data = s.match(/(?<type>\S+)(?<op>[+-=])(?<value>\d+)/)
       next unless mtch_data
+
       type = mtch_data[:type]
       value = mtch_data[:value].to_i
       old_formation = (app.formation[type] || 0).to_i
+
       formation[type] = case mtch_data[:op]
                         when "+" then old_formation + value
                         when "-" then old_formation - value
                         when "=" then value
                         end
     end
-    app.scale(formation: formation)
+    app.scale formation: formation
   end
 end
 
 command "app:delete" do |c|
   c.syntax = "dawn app:delete [<app_id>]"
   c.description = "Delete App app_id, if no app_id is provided, the current app is deleted instead"
+
   c.option "--name APPNAME", String, "specify an app by name to remove"
+
   c.action do |args, options|
     if app_id = args.first
       app = Dawn::App.find(id: app_id)
@@ -47,10 +54,11 @@ command "app:delete" do |c|
     else
       app = current_app
     end
+
     app_name = app.name
     app.destroy
-    git_remove_dawn_remote(app)
-    say "#{app_name} has been removed"
+
+    git_remove_dawn_remote app
   end
 end
 
@@ -122,6 +130,7 @@ command "app:gears" do |c|
   c.action do |args, options|
     app = current_app
     gears = app.gears.all.sort_by(&:number)
+
     if args.empty?
       ## Print all Gears
       gears_by_type = gears.each_with_object({}) do |gear, hsh|
@@ -130,14 +139,15 @@ command "app:gears" do |c|
       gears_by_type.keys.sort.each do |key|
         grs = gears_by_type[key]
         say "=== #{key}:"
-        print_gears(grs)
+        say format_gears grs
       end
     else
       ## Print a specific gear
       query = args.first
       gear = gears.find { |gear| gear.name == query }
+
       if gear
-        print_gears([gear])
+        say format_gears([gear])
       else
         say "Gear #{query} was not found."
       end
