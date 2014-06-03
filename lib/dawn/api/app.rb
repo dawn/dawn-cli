@@ -4,6 +4,7 @@ require 'dawn/api/app/gear'
 require 'dawn/api/app/gears'
 require 'dawn/api/app/drain'
 require 'dawn/api/app/drains'
+require 'dawn/api/app/domains'
 
 module Dawn
   class App
