@@ -1,3 +1,15 @@
+module Dawn
+module CLI
+class Application
+def local_commands
+
+#command "ping" do |c|
+#  c.syntax "dawn ping"
+#  c.description = "Pings the dawn server to determine if its working correctly"
+#  c.action do |args, options|
+#  end
+#end
+
 command "create" do |c|
   c.syntax = "dawn create <app_name>"
   c.description = "Create a new dawn App (with git; setup)"

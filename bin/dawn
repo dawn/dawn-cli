@@ -3,12 +3,9 @@ require 'commander'
 require 'commander/import'
 require 'dawn/cli/version'
 
-# :name is optional, otherwise uses the basename of this executable
-program :name, 'Dawn'
-program :version, Dawn::CLI::VERSION + "α"
-program :description, 'CLI client for Dawn'
-
 require 'dawn/cli'
+
+Dawn::CLI::Application.new.run
 
 # dawn keys
   # - :add / :push

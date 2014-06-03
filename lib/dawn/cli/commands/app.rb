@@ -1,3 +1,8 @@
+module Dawn
+module CLI
+class Application
+def app_commands
+
 command "app:list" do |c|
   c.syntax = "dawn app:list"
   c.description = "Displays a list of all the apps you have deployed to dawn"
@@ -153,4 +158,7 @@ command "app:restart" do |c|
 end
 alias_command "restart", "app:restart"
 
+end
+end
+end
 end

@@ -3,10 +3,10 @@ require 'net/http'
 require 'time-lord'
 require 'terminal-table'
 
-require 'dawn/api'            # Dawn::Api
-require 'dawn/cli/version'    # CLI::Version information
-require 'dawn/cli/helpers'    # CLI Helpers Module
-require 'dawn/cli/app_finder' # CLI App resolver
-require 'dawn/cli/formatter'  # CLI Console Formatters
-require 'dawn/cli/commands'   # CLI Commands
-require 'dawn/cli/patches'    # Various Monkey Patches
+require 'dawn/api'             # Dawn::Api
+require 'dawn/cli/version'     # CLI::Version information
+require 'dawn/cli/helpers'     # CLI Helpers Module
+require 'dawn/cli/app_finder'  # CLI App resolver
+require 'dawn/cli/formatter'   # CLI Console Formatters
+require 'dawn/cli/patches'     # Various Monkey Patches
+require 'dawn/cli/application' # Various Monkey Patches

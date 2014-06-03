@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.authors     = ['Blaž Hrastnik', 'Corey Powell']
 
+  s.add_runtime_dependency 'commander',      '~> 4.2'
   s.add_runtime_dependency 'time-lord',      '~> 1.0'
   s.add_runtime_dependency 'terminal-table', '~> 1.4'
   s.add_runtime_dependency 'dawn-api',       '~> 0.5'
