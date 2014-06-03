@@ -1,6 +1,10 @@
+require 'dawn/api/base_api'
+
 module Dawn
   class App
     class Gear
+
+      include BaseApi
 
       attr_reader :app
       attr_reader :data
@@ -31,8 +35,8 @@ module Dawn
       end
 
       def restart(options={})
-        Dawn.request(
-          expects: 204,
+        request(
+          expects: 200,
           method: :delete,
           path: "/apps/#{app.id}/gears/#{id}",
           query: options
@@ -40,7 +44,7 @@ module Dawn
       end
 
       def update(options={})
-        Dawn.request(
+        request(
           expects: 200,
           method: :get,
           path: "/apps/#{app.id}/gears/#{id}",

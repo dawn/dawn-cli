@@ -1,6 +1,10 @@
+require 'dawn/api/base_api'
+
 module Dawn
   class App
     class Drain
+
+      include BaseApi
 
       attr_reader :app
       attr_reader :data
@@ -19,7 +23,7 @@ module Dawn
       end
 
       def update(options={})
-        Dawn.request(
+        request(
           expects: 200,
           method: :get,
           path: "/apps/#{app.id}/drain/#{id}",

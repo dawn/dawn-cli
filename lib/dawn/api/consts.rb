@@ -4,7 +4,7 @@ module Dawn
     'Accept'                => 'application/json',
     'Content-Type'          => 'application/json',
     'Accept-Encoding'       => 'gzip',
-    'User-Agent'            => "dawn/#{Api::VERSION}",
+    'User-Agent'            => "dawn/#{API::VERSION}",
     'X-Ruby-Version'        => RUBY_VERSION,
     'X-Ruby-Platform'       => RUBY_PLATFORM
   }

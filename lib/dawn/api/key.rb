@@ -1,5 +1,9 @@
+require 'dawn/api/base_api'
+
 module Dawn
   class Key
+
+    include BaseApi
 
     attr_reader :data
 
@@ -20,44 +24,43 @@ module Dawn
     end
 
     def destroy
-      Dawn.request(
+      request(
         method: :delete,
-        expects: 204,
+        expects: 200,
         path: "/account/keys/#{id}"
       )
     end
 
     def self.add(pubkey)
-      new JSON.load(Dawn.request(
+      new json_request(
         method: :post,
         expects: 200,
         path: '/account/keys',
         query: { key: pubkey }
-      ).body)["key"]
+      )["key"]
     end
 
     def self.get(id)
-      new JSON.load(Dawn.request(
+      new json_request(
         method: :get,
         expects: 200,
         path: "/account/keys/#{id}"
-      ).body)["key"]
+      )["key"]
     end
 
     def self.all(options={})
-      resp = Dawn.request(
+      json_request(
         method: :get,
         expects: 200,
         path: '/account/keys',
         query: options
-      )
-      JSON.load(resp.body).map { |hsh| new(hsh["key"]) }
+      ).map { |hsh| new(hsh["key"]) }
     end
 
     def self.destroy(options={})
-      Dawn.request(
+      request(
         method: :delete,
-        expects: 204,
+        expects: 200,
         path: "/account/keys/#{options[:id]}"
       )
     end

@@ -20,7 +20,7 @@ module Dawn
 
           @connection = Excon.new url, headers: HEADERS
 
-          @api_key = post_login(username: username, password: password)['api_key']
+          @api_key = User.login(username: username, password: password)['api_key']
 
           netrc = Netrc.read
           netrc[hostname] = username, @api_key

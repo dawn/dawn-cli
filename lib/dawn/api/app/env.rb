@@ -1,6 +1,10 @@
+require 'dawn/api/base_api'
+
 module Dawn
   class App
     class Env < Hash
+
+      include BaseApi
 
       attr_reader :app
 
@@ -11,21 +15,21 @@ module Dawn
       end
 
       def refresh(options={})
-        merge!(JSON.load(Dawn.request(
+        merge!(json_request(
           expects: 200,
           method: :get,
           path: "/apps/#{app.id}/env",
           query: options
-        ).body)["env"])
+        )["env"])
       end
 
       def save(options={})
-        merge!(JSON.load(Dawn.request(
+        merge!(json_request(
           expects: 200,
           method: :put,
           path: "/apps/#{app.id}/env",
           body: { env: merge(options) }.to_json
-        ).body)["env"])
+        )["env"])
       end
 
     end

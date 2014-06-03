@@ -1,3 +1,4 @@
+require 'dawn/api/base_api'
 require 'dawn/api/app/env'
 require 'dawn/api/app/gear'
 require 'dawn/api/app/gears'
@@ -6,6 +7,8 @@ require 'dawn/api/app/drains'
 
 module Dawn
   class App
+
+    include BaseApi
 
     attr_reader :data
     attr_reader :env
@@ -32,8 +35,8 @@ module Dawn
     end
 
     def restart(options={})
-      Dawn.request(
-        expects: 204,
+      request(
+        expects: 200,
         method: :delete,
         path: "/apps/#{id}/gears",
         query: options
@@ -41,34 +44,38 @@ module Dawn
     end
 
     def gears
-      Gears.new(self)
+      @gears ||= Gears.new self
     end
 
     def drains
-      Drains.new(self)
+      @drains ||= Drains.new self
+    end
+
+    def domains
+      @domains ||= Domains.new self
     end
 
     def logs(options={})
-      url = JSON.load(Dawn.request(
+      url = json_request(
         expects: 200,
         method: :get,
         path: "/apps/#{id}/logs",
         query: options
-      ).body)["logs"]
+      )["logs"]
       "http://#{Dawn.log_host}#{url}"
     end
 
     def update(options={})
-      data.merge!(JSON.load(Dawn.request(
+      data.merge!(json_request(
         expects: 200,
         method: :patch,
         path: "/apps/#{id}",
         body: { name: name }.merge(options).to_json
-      ).body)["app"])
+      )["app"])
     end
 
     def scale(options={})
-      Dawn.request(
+      request(
         expects: 200,
         method: :post,
         path: "/apps/#{id}/scale",
@@ -77,8 +84,8 @@ module Dawn
     end
 
     def destroy(options={})
-      Dawn.request(
-        expects: 204,
+      request(
+        expects: 200,
         method: :delete,
         path: "/apps/#{id}",
         query: options
@@ -86,38 +93,37 @@ module Dawn
     end
 
     def self.all(options={})
-      resp = Dawn.request(
+      json_request(
         expects: 200,
         method: :get,
         path: "/apps",
         query: options
-      )
-      JSON.load(resp.body).map { |hsh| new(hsh["app"]) }
+      ).map { |hsh| new(hsh["app"]) }
     end
 
     def self.create(options)
-      new JSON.load(Dawn.request(
+      new json_request(
         expects: 200,
         method: :post,
         path: '/apps',
         body: options.to_json
-      ).body)["app"]
+      )["app"]
     end
 
     def self.find(options)
       path = options[:id] ? "/apps/#{options.delete(:id)}" : "/apps"
-      hsh = JSON.load(Dawn.request(
+      hsh = json_request(
         expects: 200,
         method: :get,
         path: path,
         query: options
-      ).body)
+      )
       hsh = hsh.first if hsh.is_a?(Array)
       hsh && new(hsh["app"])
     end
 
     def self.destroy(options)
-      app = find(options)
+      app = find options
       app.destroy if app
     end
 
