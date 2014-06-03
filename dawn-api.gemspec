@@ -11,14 +11,14 @@ Gem::Specification.new do |s|
   s.summary     = 'Dawn API'
   s.description = 'Dawn Client API'
   s.homepage    = 'http://dawn.dev:5000/'
-  s.version     = Dawn::Api::Version::STRING
+  s.version     = Dawn::API::Version::STRING
   s.platform    = Gem::Platform::RUBY
   s.date        = Time.now.to_date.to_s
   s.license     = 'MIT'
   s.authors     = ['Blaž Hrastnik', 'Corey Powell']
 
-  s.add_runtime_dependency 'commander', '~> 4.2'
-  s.add_runtime_dependency 'excon',     '~> 0.33'
+
+  s.add_runtime_dependency 'excon',     '~> 0.34'
   s.add_runtime_dependency 'json',      '~> 1.8'
   s.add_runtime_dependency 'netrc',     '~> 0.7'
   s.add_runtime_dependency 'sshkey',    '~> 1.6'
