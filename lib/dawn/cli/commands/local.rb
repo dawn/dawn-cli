@@ -44,9 +44,9 @@ command "init" do |c|
 
   c.action do |args, options|
     appname = args.first || options.name || File.basename(Dir.getwd)
-    appname = nil if !options.random
-    app = try_create_app(appname)
-    git_add_dawn_remote(app)
+    appname = nil if options.random
+    app = try_create_app appname
+    git_add_dawn_remote app
   end
 end
 
