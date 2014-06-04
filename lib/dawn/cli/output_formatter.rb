@@ -33,10 +33,10 @@ module Dawn
 
       def format_drains(drains)
         table = Terminal::Table.new title: 'Drains',
-                                    headings: ['ID', 'Name', 'URL'],
+                                    headings: ['ID', 'URL'],
                                     style: table_style
         drains.each do |drain|
-          table << [drain.id, drain.name, drain.url]
+          table << [drain.id, drain.url]
           table << :separator
         end
 
