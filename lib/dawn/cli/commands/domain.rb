@@ -4,26 +4,31 @@ class Application
 def domain_commands
 
 command "domain:add" do |c|
-  c.syntax = "dawn domain:add <name>"
+  c.syntax = "dawn domain:add <url>"
   c.description = "Add a new domain to the current app"
 
   c.action do |args, options|
-    name = args.first
+    url = args.first
     app = current_app
 
-    app.domains.add name: name
+    app.domains.create url: url
   end
 end
 
 command "domain:delete" do |c|
-  c.syntax = "dawn domain:delete <name>"
+  c.syntax = "dawn domain:delete <url>"
   c.description = "Remove an existing domain from the current app"
 
   c.action do |args, options|
-    name = args.first
+    url = args.first
     app = current_app
 
-    app.domains.destroy name: name
+    domain = app.domains.all.find { |domain| domain.url == url }
+    if domain
+      domain.destroy
+    else
+      say "Domain (url: #{url}) could not be found"
+    end
   end
 end
 

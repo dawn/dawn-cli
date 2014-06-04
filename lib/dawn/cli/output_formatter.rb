@@ -31,6 +31,18 @@ module Dawn
         table
       end
 
+      def format_domains(domains)
+        table = Terminal::Table.new title: 'Domains',
+                                    headings: ['ID', 'URL'],
+                                    style: table_style
+        domains.each do |domain|
+          table << [domain.id, domain.url]
+          table << :separator
+        end
+
+        table
+      end
+
       def format_drains(drains)
         table = Terminal::Table.new title: 'Drains',
                                     headings: ['ID', 'URL'],

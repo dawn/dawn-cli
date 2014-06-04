@@ -4,24 +4,31 @@ class Application
 def drain_commands
 
 command "drain:add" do |c|
-  c.syntax = "dawn drain:add <drain_url>"
+  c.syntax = "dawn drain:add <url>"
   c.description = "Add a Drain url"
 
   c.action do |args, options|
-    drain_url = args.first
+    url = args.first
     app = current_app
-    drain = app.drains.add url: drain_url
+
+    drain = app.drains.create url: url
   end
 end
 
 command "drain:delete" do |c|
-  c.syntax = "dawn drain:delete <drain_url>"
+  c.syntax = "dawn drain:delete <url>"
   c.description = "Remove a Drain url"
 
   c.action do |args, options|
-    drain_url = args.first
+    url = args.first
     app = current_app
-    drain = app.drains.delete url: drain_url
+
+    drain = app.drains.all.find { |drain| drain.url == url }
+    if drain
+      drain.destroy
+    else
+      say "Drain (url: #{url}) could not be found"
+    end
   end
 end
 
@@ -30,7 +37,7 @@ command "drain:ls" do |c|
   c.description = "Lists all Drains for this App"
 
   c.action do |args, options|
-    drain_url = args.first
+    url = args.first
     app = current_app
     drains = app.drains.all
     say format_drains(drains)
