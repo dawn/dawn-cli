@@ -30,7 +30,7 @@ command "new" do |c|
       `git init`
       git_add_dawn_remote app
     end
-    say "\tNEW APP\t#{appname}"
+    say "\tAPP\t#{appname}"
   end
 end
 alias_command "create", "new"
@@ -47,6 +47,7 @@ command "init" do |c|
     appname = nil if options.random
     app = try_create_app appname
     git_add_dawn_remote app
+    say "\tAPP\t#{app.name}"
   end
 end
 

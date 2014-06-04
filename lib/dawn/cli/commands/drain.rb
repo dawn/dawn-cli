@@ -10,7 +10,7 @@ command "drain:add" do |c|
   c.action do |args, options|
     drain_url = args.first
     app = current_app
-    drain = app.drains.add(drain_url: drain_url)
+    drain = app.drains.add url: drain_url
   end
 end
 
@@ -21,7 +21,7 @@ command "drain:delete" do |c|
   c.action do |args, options|
     drain_url = args.first
     app = current_app
-    drain = app.drains.delete(drain_url: drain_url)
+    drain = app.drains.delete url: drain_url
   end
 end
 
