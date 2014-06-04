@@ -1,4 +1,5 @@
 require 'dawn/api/base_api'
+require 'dawn/api/app/drain'
 
 module Dawn
   class App
@@ -12,7 +13,16 @@ module Dawn
         @app = app
       end
 
-      def add(options={})
+      def all(options={})
+        json_request(
+          expects: 200,
+          method: :get,
+          path: "/apps/#{app.id}/drains",
+          query: options
+        ).map { |hsh| Drain.new(@app, hsh["drain"]) }
+      end
+
+      def create(options={})
         Drain.new json_request(
           expects: 200,
           method: :post,
@@ -28,15 +38,6 @@ module Dawn
           path: "/apps/#{app.id}/drains",
           body: options.to_json
         )
-      end
-
-      def all(options={})
-        json_request(
-          expects: 200,
-          method: :get,
-          path: "/apps/#{app.id}/drains",
-          query: options
-        ).map { |hsh| Drain.new(app, hsh["drain"]) }
       end
 
       def find(options={})

@@ -1,8 +1,6 @@
 require 'dawn/api/base_api'
 require 'dawn/api/app/env'
-require 'dawn/api/app/gear'
 require 'dawn/api/app/gears'
-require 'dawn/api/app/drain'
 require 'dawn/api/app/drains'
 require 'dawn/api/app/domains'
 
