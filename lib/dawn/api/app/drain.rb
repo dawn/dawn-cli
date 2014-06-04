@@ -15,19 +15,28 @@ module Dawn
       end
 
       def id
-        data["id"]["$oid"]
+        data["id"]
       end
 
       def url
         data["url"]
       end
 
+      def refresh
+        data = request(
+          expects: 200,
+          method: :get,
+          path: "/apps/#{app.id}/drains/#{id}",
+          query: options
+        )
+      end
+
       def update(options={})
         request(
           expects: 200,
-          method: :get,
-          path: "/apps/#{app.id}/drain/#{id}",
-          query: options
+          method: :post,
+          path: "/apps/#{app.id}/drains/#{id}",
+          body: options.to_json
         )
       end
 

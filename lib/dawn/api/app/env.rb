@@ -11,11 +11,11 @@ module Dawn
       def initialize(app, data)
         @app = app
         super()
-        merge!(data)
+        replace(data)
       end
 
       def refresh(options={})
-        merge!(json_request(
+        replace(json_request(
           expects: 200,
           method: :get,
           path: "/apps/#{app.id}/env",
@@ -24,7 +24,7 @@ module Dawn
       end
 
       def save(options={})
-        merge!(json_request(
+        replace(json_request(
           expects: 200,
           method: :put,
           path: "/apps/#{app.id}/env",

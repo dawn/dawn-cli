@@ -34,11 +34,20 @@ module Dawn
         data["number"]
       end
 
+      def refresh
+        @data = request(
+          expects: 200,
+          method: :get,
+          path: "/apps/#{app.id}/gears/#{id}",
+          query: options
+        )["gear"]
+      end
+
       def restart(options={})
         request(
           expects: 200,
-          method: :delete,
-          path: "/apps/#{app.id}/gears/#{id}",
+          method: :post,
+          path: "/apps/#{app.id}/gears/#{id}/restart",
           query: options
         )
       end
@@ -46,9 +55,9 @@ module Dawn
       def update(options={})
         request(
           expects: 200,
-          method: :get,
+          method: :post,
           path: "/apps/#{app.id}/gears/#{id}",
-          query: options
+          body: options.to_json
         )
       end
 
