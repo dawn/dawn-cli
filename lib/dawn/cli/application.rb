@@ -69,16 +69,17 @@ module Dawn
       end
 
       def git_remove_dawn_remote(app)
-        Dawn::Helpers.git("remote remove dawn") # remove old dawn remote
+        # remove old dawn remote
+        git "remote remove dawn"
       end
 
       def git_add_dawn_remote(app)
         abort "dawn remote already exists, please `dawn app:delete` first" if git_dawn_remote?
-        Dawn::Helpers.git("remote add dawn git@#{Dawn.git_host}:#{app.git}")
+        git "remote add dawn git@#{Dawn.git_host}:#{app.git}"
       end
 
       def extract_app_remote_from_git_config
-        remote = Dawn::Helpers.git("config dawn.remote")
+        remote = git "config dawn.remote"
         remote.empty? ? nil : remote
       end
 
