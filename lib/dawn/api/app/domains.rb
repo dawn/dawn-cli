@@ -1,4 +1,5 @@
 require 'dawn/api/base_api'
+require 'dawn/api/app/domain'
 
 module Dawn
   class App
@@ -18,15 +19,26 @@ module Dawn
           method: :get,
           path: "/apps/#{app.id}/domains",
           query: options
-        )["domains"]
+        ).map { |hsh| Domain.new(@app, hsh) }
       end
 
-      def add(options={})
+      def get(options)
+        id = options.delete(:id)
+
+        Domain.new(json_request(
+          expects: 200,
+          method: :get,
+          path: "/apps/#{app.id}/domains/#{id}",
+          query: options
+        )["domain"])
+      end
+
+      def create(options={})
         request(
           expects: 200,
           method: :post,
           path: "/apps/#{app.id}/domains",
-          query: options
+          body: options
         )
       end
 
