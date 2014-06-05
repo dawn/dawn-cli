@@ -15,21 +15,21 @@ module Dawn
       end
 
       def refresh(options={})
-        replace(json_request(
+        replace json_request(
           expects: 200,
           method: :get,
           path: "/apps/#{app.id}/env",
           query: options
-        )["env"])
+        )["env"]
       end
 
       def save(options={})
-        replace(json_request(
+        replace json_request(
           expects: 200,
-          method: :put,
+          method: :post,
           path: "/apps/#{app.id}/env",
           body: { env: merge(options) }.to_json
-        )["env"])
+        )["env"]
       end
 
     end

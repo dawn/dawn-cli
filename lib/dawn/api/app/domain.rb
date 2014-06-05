@@ -1,43 +1,15 @@
 require 'dawn/api/base_api'
+require 'dawn/api/domain'
 
 module Dawn
   class App
-    class Domain
-
-      include BaseApi
+    class Domain < Dawn::Domain
 
       attr_reader :app
-      attr_reader :data
 
       def initialize(app, hsh)
         @app = app
-        @data = hsh
-      end
-
-      def id
-        data["id"]
-      end
-
-      def url
-        data["url"]
-      end
-
-      def refresh
-        data = request(
-          expects: 200,
-          method: :get,
-          path: "/apps/#{app.id}/domains/#{id}",
-          query: options
-        )
-      end
-
-      def update(options={})
-        request(
-          expects: 200,
-          method: :post,
-          path: "/apps/#{app.id}/domains/#{id}",
-          body: options.to_json
-        )
+        super hsh
       end
 
     end

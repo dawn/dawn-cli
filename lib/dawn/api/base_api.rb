@@ -1,3 +1,6 @@
+require 'dawn/api/authenticate'
+require 'json'
+
 module Dawn
   module BaseApi
     module Extension

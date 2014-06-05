@@ -1,3 +1,4 @@
+require 'dawn/api/hosts'
 require 'dawn/api/base_api'
 require 'dawn/api/app/env'
 require 'dawn/api/app/gears'
