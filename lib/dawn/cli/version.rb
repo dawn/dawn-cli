@@ -2,7 +2,7 @@ module Dawn
   module CLI
     module Version
       MAJOR = 0
-      MINOR = 6
+      MINOR = 7
       PATCH = 0
       BUILD = nil
       STRING = [MAJOR, MINOR, PATCH, BUILD].compact.join(".").freeze

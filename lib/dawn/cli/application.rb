@@ -1,3 +1,5 @@
+require 'dawn/api'
+require 'dawn/api/hosts'
 require 'dawn/cli/output_formatter' # CLI Console Formatters
 require 'dawn/cli/commands'         # CLI Commands
 
