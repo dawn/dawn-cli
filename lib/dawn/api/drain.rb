@@ -6,9 +6,19 @@ module Dawn
     include BaseApi
 
     attr_reader :data
+    attr_writer :app
 
     def initialize(data)
+      @app = nil
       @data = data
+    end
+
+    def app_id
+      data["app_id"]
+    end
+
+    def app
+      @app ||= App.find(id: app_id)
     end
 
     def id
