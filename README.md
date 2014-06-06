@@ -1,6 +1,4 @@
 Dawn-CLI
 ========
 
-# Inlcudes:
-- API
-- CLI
+One day this readme will actually be a readme.
