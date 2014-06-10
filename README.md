@@ -1,5 +1,8 @@
 Dawn-CLI
 ========
+[![Gem Version](https://badge.fury.io/rb/dawn-cli.svg)](http://badge.fury.io/rb/dawn-cli)
+[![Code Climate](https://codeclimate.com/github/dawn/dawn-cli.png)](https://codeclimate.com/github/dawn/dawn-cli)
+
 CLI for [Dawn](https://github.com/dawn/dawn)
 
 If you are looking for the ruby API
@@ -8,6 +11,11 @@ If you are looking for the ruby API
 ## Installation
 ```shell
 gem install dawn-cli
+```
+
+## Building
+```shell
+gem pack dawn-cli.gem
 ```
 
 ## Usage
