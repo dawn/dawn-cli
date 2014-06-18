@@ -1,5 +1,6 @@
 require 'dawn/api'
 require 'dawn/api/hosts'
+require 'dawn/cli/version'
 require 'dawn/cli/output_formatter' # CLI Console Formatters
 require 'dawn/cli/commands'         # CLI Commands
 
@@ -43,9 +44,9 @@ module Dawn
       def try_create_app(appname=nil)
         abort "dawn remote already exists, please remove it (dawn app:delete)" if git_dawn_remote?
         begin
-          app = Dawn::App.create name: appname
+          app = Dawn::App.create(app: { name: appname })
         rescue Excon::Errors::Conflict
-          app = Dawn::App.find name: appname
+          app = Dawn::App.find(name: appname)
           say " warning ! App (#{app.name}) already exists"
         end
         return app
@@ -114,7 +115,7 @@ module Dawn
       end
 
       def current_app
-        app = Dawn::App.find name: current_app_name
+        app = Dawn::App.find(name: current_app_name)
         abort "App (#{current_app_name}) was not found on the dawn server!" unless app
         app
       end

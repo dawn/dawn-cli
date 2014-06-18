@@ -11,7 +11,7 @@ command "drain:add" do |c|
     url = args.first
     app = current_app
 
-    drain = app.drains.create url: url
+    drain = app.drains.create(drain: { url: url })
   end
 end
 

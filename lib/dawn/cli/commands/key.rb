@@ -10,7 +10,7 @@ command "key:add" do |c|
   c.action do |args, options|
     filename = File.join(Dir.home, ".ssh/id_rsa.pub")
     pubkey = File.read filename
-    key    = Dawn::Key.add(pubkey)
+    key    = Dawn::Key.create(key: pubkey)
   end
 end
 

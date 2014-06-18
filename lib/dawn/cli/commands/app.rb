@@ -36,7 +36,7 @@ command "app:scale" do |c|
                         when "=" then value
                         end
     end
-    app.scale formation: formation
+    app.scale(app: { formation: formation })
   end
 end
 
@@ -69,7 +69,7 @@ command "app:rename" do |c|
   c.action do |args, options|
     app_name = args.first
     app = current_app
-    app.update name: app_name
+    app.update(app: { name: app_name })
   end
 end
 alias_command "rename", "app:rename"

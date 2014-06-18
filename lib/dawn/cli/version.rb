@@ -2,10 +2,10 @@ module Dawn
   module CLI
     module Version
       MAJOR = 0
-      MINOR = 7
+      MINOR = 8
       PATCH = 0
-      BUILD = nil
-      STRING = [MAJOR, MINOR, PATCH, BUILD].compact.join(".").freeze
+      BUILD = "dev"
+      STRING = [[MAJOR, MINOR, PATCH].compact.join("."), BUILD].compact.join("-").freeze
     end
     # backward compatibility
     VERSION = Version::STRING

@@ -11,7 +11,7 @@ command "domain:add" do |c|
     url = args.first
     app = current_app
 
-    app.domains.create url: url
+    app.domains.create(domain: { url: url })
   end
 end
 
