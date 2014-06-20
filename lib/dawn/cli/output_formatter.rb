@@ -1,3 +1,6 @@
+require 'time-lord'
+require 'terminal-table'
+
 module Dawn
   module CLI
     module OutputFormatter
