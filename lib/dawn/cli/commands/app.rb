@@ -12,7 +12,7 @@ module Dawn
       end
 
       # "Modify the gears of the current app"
-      def self.scale(app, modifiers)
+      def self.scale(modifiers)
         app = current_app
 
         #formation = app.formation.dup
