@@ -1,4 +1,5 @@
 require "docopt"
+require 'highline/import'
 
 module Dawn
   module CLI

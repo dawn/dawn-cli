@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.authors     = ['Blaž Hrastnik', 'Corey Powell']
 
   s.add_runtime_dependency 'docopt',         '~> 0.5'
+  s.add_runtime_dependency 'highline',       '~> 1.6'
   s.add_runtime_dependency 'time-lord',      '~> 1.0'
   s.add_runtime_dependency 'terminal-table', '~> 1.4'
   s.add_runtime_dependency 'dawn-api',       '~> 0.10.0.pre.dev'
