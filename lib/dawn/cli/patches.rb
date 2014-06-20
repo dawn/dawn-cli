@@ -1,3 +1,5 @@
+require 'terminal-table'
+
 class Terminal::Table
 
   ##
