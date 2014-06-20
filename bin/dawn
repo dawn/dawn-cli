@@ -5,4 +5,4 @@ require 'dawn/cli/version'
 
 require 'dawn/cli'
 
-Dawn::CLI::Application.new.run
+Dawn::CLI.run ARGV.dup
