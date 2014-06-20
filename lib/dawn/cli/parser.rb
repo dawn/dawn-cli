@@ -29,7 +29,9 @@ Options:
 )
 
 DOC_SUBCOMMAND = {}
-DOC_SUBCOMMAND["app"] = %Q(Usage: dawn app [<command>]
+DOC_SUBCOMMAND["app"] = %Q(Usage:
+  dawn app            list all avaiable apps
+  dawn app <command>
 
 Commands:
   delete
@@ -42,21 +44,27 @@ GearModifier:
   type-number
 )
 
-DOC_SUBCOMMAND["domain"] = %Q(Usage: dawn domain [<command>]
+DOC_SUBCOMMAND["domain"] = %Q(Usage:
+  dawn domain              list all domains for current app
+  dawn domain [<command>]
 
 Commands:
   add <url>
   delete <url>
 )
 
-DOC_SUBCOMMAND["drain"] = %Q(Usage: dawn drain [<command>]
+DOC_SUBCOMMAND["drain"] = %Q(Usage:
+  dawn drain              list all drains for current app
+  dawn drain [<command>]
 
 Commands:
   add <url>
   delete <url>
 )
 
-DOC_SUBCOMMAND["env"] = %Q(Usage: dawn env [<command>]
+DOC_SUBCOMMAND["env"] = %Q(Usage:
+  dawn env              print the ENV for the current app
+  dawn env [<command>]
 
 Commands:
   get <key_name>...
@@ -64,7 +72,9 @@ Commands:
   unset <key_name>...
 )
 
-DOC_SUBCOMMAND["key"] = %Q(Usage: dawn key [<command>]
+DOC_SUBCOMMAND["key"] = %Q(Usage:
+  dawn key              list all keys deployed to dawn
+  dawn key [<command>]
 
 Commands:
   add
@@ -72,7 +82,9 @@ Commands:
   get <id>
 )
 
-DOC_SUBCOMMAND["release"] = %Q(Usage: dawn key [<command>]
+DOC_SUBCOMMAND["release"] = %Q(Usage:
+  dawn release              list all releases for the current app
+  dawn release [<command>]
 
 Commands:
   add
@@ -196,8 +208,14 @@ Commands:
     end
 
     def self.run_subcommand(command, argv)
-      result = Docopt.docopt(DOC_SUBCOMMAND[command], argv: command_argv)
-      send("run_#{command}_command", result["<command>"], result)
+      if argv.empty?
+        subcommand = ""
+      else
+        result = Docopt.docopt(DOC_SUBCOMMAND[command], argv: argv,
+                               version: Dawn::CLI::VERSION, help: false)
+        subcommand = result["<command>"]
+      end
+      send("run_#{command}_command", subcommand, result)
     end
 
     def self.run(argv)
