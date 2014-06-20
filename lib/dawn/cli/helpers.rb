@@ -2,31 +2,12 @@ require 'dawn/api'
 require 'dawn/api/hosts'
 require 'dawn/cli/version'
 require 'dawn/cli/output_formatter' # CLI Console Formatters
-require 'dawn/cli/commands'         # CLI Commands
 
 module Dawn
   module CLI
-    class Application
+    module Helpers
 
-      include Commander::Methods
       include OutputFormatter
-
-      def run
-        # :name is optional, otherwise uses the basename of this executable
-        program :name, 'Dawn CLI'
-        program :version, Dawn::CLI::VERSION + "α"
-        program :description, 'CLI client for Dawn'
-
-        default_command 'help'
-
-        app_commands
-        domain_commands
-        drain_commands
-        env_commands
-        key_commands
-        local_commands
-        login_commands
-      end
 
       ## swiped from Heroku
       def has_git?
@@ -47,7 +28,7 @@ module Dawn
           app = Dawn::App.create(app: { name: appname })
         rescue Excon::Errors::Conflict
           app = Dawn::App.find(name: appname)
-          say " warning ! App (#{app.name}) already exists"
+          puts " warning ! App (#{app.name}) already exists"
         end
         return app
       end
@@ -114,10 +95,9 @@ module Dawn
         end
       end
 
-      def current_app
-        app = Dawn::App.find(name: current_app_name)
-        abort "App (#{current_app_name}) was not found on the dawn server!" unless app
-        app
+      def current_app(options={})
+        name = current_app_name(options)
+        Dawn::App.find(name: name)
       end
 
     end
