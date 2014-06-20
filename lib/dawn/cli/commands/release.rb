@@ -12,8 +12,8 @@ module Dawn
       end
 
       # "Add a new release to the current app"
-      def self.add(url)
-        current_app.releases.create(release: { url: url })
+      def self.add
+        current_app.releases.create(release:{})
       end
 
     end
