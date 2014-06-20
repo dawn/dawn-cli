@@ -77,6 +77,22 @@ Commands:
   add
 )
 
+    @@selected_app = nil
+
+    ###
+    # @return [String]
+    ###
+    def self.selected_app
+      @@selected_app
+    end
+
+    ###
+    # @param [String] appname
+    ###
+    def self.selected_app=(appname)
+      @@selected_app = appname
+    end
+
     def self.run_app_command(command, options)
       case command
       when "delete"
