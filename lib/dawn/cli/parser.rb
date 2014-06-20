@@ -93,14 +93,25 @@ Commands:
       @@selected_app = appname
     end
 
+    ###
+    # @param [String] command
+    # @param [Hash] options
+    ###
     def self.run_app_command(command, options)
-      case command
+      case command.to_s
+      when ""
+        Dawn::CLI::App.list
       when "delete"
         Dawn::CLI::App.delete
       when "restart"
         Dawn::CLI::App.restart
       when "scale"
-        Dawn::CLI::App.scale
+        data = options["<argv>"].inject({}) do |str, hash|
+          if str =~ /(\S+)([+-=])(\d+)/
+            hash[$1] = [$2, $3.to_i]
+          end
+        end
+        Dawn::CLI::App.scale(data)
       end
     end
 
@@ -152,13 +163,17 @@ Commands:
     end
 
     def self.run_key_command(command, options)
-      case command
+      case command.to_s
+      when ""
+        Dawn::CLI::Key.list
+      when "add"
+        Dawn::CLI::Key.add
       when "get"
-        Dawn::CLI::Key.delete
-      when "set"
-        Dawn::CLI::Key.restart
-      when "unset"
-        Dawn::CLI::Key.scale
+        id = options["<argv>"].first
+        Dawn::CLI::Key.get(id)
+      when "delete"
+        id = options["<argv>"].first
+        Dawn::CLI::Key.delete(id)
       end
     end
 
