@@ -4,6 +4,7 @@ require 'highline/import'
 module Dawn
   module CLI
 DOC_TOP = %Q(Usage:
+  dawn --version
   dawn [-a APPNAME] [-h] <command> [<argv>...]
 
 Commands:
@@ -24,7 +25,7 @@ Commands:
 Options:
   -a APPNAME, --app=APPNAME  specify app
   -h, --help                 display help
-
+  --version                  print version
 )
 
 DOC_SUBCOMMAND = {}
@@ -91,6 +92,14 @@ Commands:
     ###
     def self.selected_app=(appname)
       @@selected_app = appname
+    end
+
+    ###
+    # @param [String] basename
+    ###
+    def self.not_a_command(basename, command)
+      # oh look, git style error message
+      abort "#{basename}: '#{command}' is not a #{basename} command. See '#{basename} --help'."
     end
 
     ###
@@ -192,27 +201,35 @@ Commands:
     end
 
     def self.run(argv)
-      result = Docopt.docopt(DOC_TOP, argv: argv)
-      self.selected_app = result["--app"]
+      result = Docopt.docopt(DOC_TOP, version: Dawn::CLI::VERSION, argv: argv)
+      if result["--version"]
+        say "Dawn CLI #{Dawn::CLI::VERSION}"
+      else
+        self.selected_app = result["--app"]
 
-      command = result["<command>"]
-      command_argv = result["<argv>"]
-      case command
-      when "create"
-        Dawn::CLI::App.create command_argv.first
-      when "ls"
-        Dawn::CLI::App.list
-      when "ps"
-        Dawn::CLI::App.list_gears
-      when "login"
-        username = ask("Username: ")
-        password = ask("Password: ") { |q| q.echo = false }
-        Dawn::CLI::Auth.login username, password
-      when "logs"
-        Dawn::CLI::App.logs
-      when *DOC_SUBCOMMAND.keys
-        run_subcommand(command, command_argv)
+        command = result["<command>"]
+        command_argv = result["<argv>"]
+        case command
+        when "create"
+          Dawn::CLI::App.create command_argv.first
+        when "ls"
+          Dawn::CLI::App.list
+        when "ps"
+          Dawn::CLI::App.list_gears
+        when "login"
+          username = ask("Username: ")
+          password = ask("Password: ") { |q| q.echo = false }
+          Dawn::CLI::Auth.login username, password
+        when "logs"
+          Dawn::CLI::App.logs
+        when *DOC_SUBCOMMAND.keys
+          run_subcommand(command, command_argv)
+        else
+          not_a_command("dawn", command)
+        end
       end
+    rescue Docopt::Exit => ex
+      abort ex.message
     end
 
   end
