@@ -8,7 +8,7 @@ module Dawn
 
       # "Lists all your Keys currently on dawn"
       def self.list
-        puts format_keys(Dawn::Key.all)
+        say format_keys(Dawn::Key.all)
       end
 
       # "Adds this machine's sshkey to Dawn"
@@ -21,7 +21,7 @@ module Dawn
       # "Retrieve a Key by ID"
       def self.get(id)
         key = Dawn::Key.find(id: id)
-        puts format_keys([key])
+        say format_keys([key])
       end
 
       # "Delete a Key by ID"

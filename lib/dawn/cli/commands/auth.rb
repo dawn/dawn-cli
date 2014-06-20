@@ -10,8 +10,8 @@ module Dawn
       # usn = ask "Username: "
       # psw = password "Password: "
       def self.login(username, password)
-        Dawn.authenticate(username: usn, password: psw)
-        puts " ! login details have been saved to your .netrc"
+        Dawn.authenticate(username: username, password: password)
+        say " ! login details have been saved to your .netrc"
       end
 
     end

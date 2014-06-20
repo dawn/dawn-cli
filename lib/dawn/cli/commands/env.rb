@@ -9,7 +9,7 @@ module Dawn
       # displays all the current app's ENV variables
       def self.list
         current_app.env.each do |k, v|
-          puts "#{k}=#{v}"
+          say "#{k}=#{v}"
         end
       end
 
@@ -18,7 +18,7 @@ module Dawn
         app = current_app
         env = app.env
         keys.each do |k|
-          puts "#{k}=#{env[k]}"
+          say "#{k}=#{env[k]}"
         end
       end
 

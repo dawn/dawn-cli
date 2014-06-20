@@ -8,7 +8,7 @@ module Dawn
 
       # "List all domains for the current app"
       def self.list
-        puts format_domains(current_app.domains.all)
+        say format_domains(current_app.domains.all)
       end
 
       # "Add a new domain to the current app"

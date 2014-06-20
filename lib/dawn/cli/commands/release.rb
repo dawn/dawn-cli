@@ -8,7 +8,7 @@ module Dawn
 
       # "List all releases for the current app"
       def self.list
-        puts format_releases(current_app.releases.all)
+        say format_releases(current_app.releases.all)
       end
 
       # "Add a new release to the current app"

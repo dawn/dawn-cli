@@ -8,7 +8,7 @@ module Dawn
 
       # "List all drains for the current app"
       def self.list
-        puts format_drains(current_app.drains.all)
+        say format_drains(current_app.drains.all)
       end
 
       # "Add a new drain to the current app"

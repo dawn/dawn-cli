@@ -8,7 +8,7 @@ module Dawn
 
       # "Displays a list of all the apps you have deployed to dawn"
       def self.list
-        puts format_apps(Dawn::App.all)
+        say format_apps(Dawn::App.all)
       end
 
       # "Modify the gears of the current app"
@@ -63,17 +63,17 @@ module Dawn
           begin
             http.start do
               link_url = uri.path + ("?srv=1")
-              #puts uri.host + ":" + uri.port.to_s + link_url
+              #say uri.host + ":" + uri.port.to_s + link_url
               http.request_get(link_url) do |request|
                 request.read_body do |chunk|
                   if filters.size > 0
                     chunk.each_line do |line|
                       if mtch_data = line.chomp.match(filter_regex)
-                        puts mtch_data[0] if filters.include?(mtch_data[:proc_id])
+                        say mtch_data[0] if filters.include?(mtch_data[:proc_id])
                       end
                     end
                   else
-                    puts chunk.to_s
+                    say chunk.to_s
                   end
                 end
               end
@@ -98,8 +98,8 @@ module Dawn
         end
         gears_by_type.keys.sort.each do |key|
           grs = gears_by_type[key]
-          puts "=== #{key}:"
-          puts format_gears grs
+          say "=== #{key}:"
+          say format_gears grs
         end
       end
 

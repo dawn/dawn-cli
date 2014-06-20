@@ -17,7 +17,7 @@ module Dawn
         # setting the appname again based on the real app's name is required
         appname = app.name
         git_add_dawn_remote app
-        puts "\tAPP\t#{app.name}"
+        say "\tAPP\t#{app.name}"
       end
 
     end
