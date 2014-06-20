@@ -190,8 +190,8 @@ Commands:
       when "ps"
         Dawn::CLI::App.list_gears
       when "login"
-        username = ask "Username: "
-        password = password "Password: "
+        username = ask("Username: ")
+        password = ask("Password: ") { |q| q.echo = false }
         Dawn::CLI::Auth.login username, password
       when "logs"
         Dawn::CLI::App.logs
