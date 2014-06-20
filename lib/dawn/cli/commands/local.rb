@@ -2,6 +2,8 @@ module Dawn
   module CLI
     module Local
 
+      extend self
+
       def health_check
         Dawn::API.health_check
       end

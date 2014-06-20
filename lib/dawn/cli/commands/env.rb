@@ -2,6 +2,8 @@ module Dawn
   module CLI
     module Env
 
+      extend self
+
       # displays all the current app's ENV variables
       def list
         current_app.env.each do |k, v|
