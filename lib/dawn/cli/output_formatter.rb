@@ -14,8 +14,8 @@ module Dawn
                                     headings: ['ID', 'Fingerprint', 'Key'],
                                     style: table_style
         keys.each do |key|
-          table << [key.id, key.fingerprint, " ... "]#key.key[0, 20]] # truncate the key
-          table << :separator
+          table << [key.id, key.fingerprint, key.key] #{}" ... "]#key.key[0, 20]] # truncate the key
+          #table << :separator
         end
 
         table
@@ -28,7 +28,7 @@ module Dawn
         apps.each do |app|
           form = app.formation.map { |k,v| "#{k}: #{v}" }.join("\n")
           table << [app.id, app.name, form]
-          table << :separator
+          #table << :separator
         end
 
         table
@@ -40,7 +40,7 @@ module Dawn
                                     style: table_style
         domains.each do |domain|
           table << [domain.id, domain.url]
-          table << :separator
+          #table << :separator
         end
 
         table
@@ -52,7 +52,7 @@ module Dawn
                                     style: table_style
         drains.each do |drain|
           table << [drain.id, drain.url]
-          table << :separator
+          #table << :separator
         end
 
         table
@@ -71,7 +71,7 @@ module Dawn
             uptime = "just now"
           end
           table << [gear.id, gear.name, uptime]
-          table << :separator
+          #table << :separator
         end
 
         table
