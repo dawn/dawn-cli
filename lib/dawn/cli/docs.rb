@@ -87,6 +87,3 @@ Commands:
 
   end
 end
-
-argv = "create"
-p Dawn::CLI.parse_argv(argv)
