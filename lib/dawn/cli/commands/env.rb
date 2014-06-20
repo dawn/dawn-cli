@@ -1,18 +1,20 @@
+require "dawn/cli/helpers"
+
 module Dawn
   module CLI
     module Env
 
-      extend self
+      extend Dawn::CLI::Helpers
 
       # displays all the current app's ENV variables
-      def list
+      def self.list
         current_app.env.each do |k, v|
           puts "#{k}=#{v}"
         end
       end
 
       # "Get an ENV var"
-      def get(*keys)
+      def self.get(*keys)
         app = current_app
         env = app.env
         keys.each do |k|
@@ -21,14 +23,14 @@ module Dawn
       end
 
       # "Set multiple ENV variables"
-      def set(hash)
+      def self.set(hash)
         app = current_app
         app.env.update(app.env.merge(hash)) # this is a Hash method
         app.env.save                        # this is a API method
       end
 
       # "Deletes an ENV var"
-      def unset(*keys)
+      def self.unset(*keys)
         app = current_app
         keys.each do |k|
           app.env.delete(k)

@@ -1,21 +1,23 @@
+require "dawn/cli/helpers"
+
 module Dawn
   module CLI
     module Drain
 
-      extend self
+      extend Dawn::CLI::Helpers
 
       # "List all drains for the current app"
-      def list
+      def self.list
         puts format_drains(current_app.drains.all)
       end
 
       # "Add a new drain to the current app"
-      def add(url)
+      def self.add(url)
         current_app.drains.create(drain: { url: url })
       end
 
       # "Remove an existing drain from the current app"
-      def delete(url)
+      def self.delete(url)
         current_app.drains.delete(url: url)
       end
 

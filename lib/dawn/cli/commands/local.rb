@@ -1,15 +1,17 @@
+require "dawn/cli/helpers"
+
 module Dawn
   module CLI
     module Local
 
-      extend self
+      extend Dawn::CLI::Helpers
 
-      def health_check
+      def self.health_check
         Dawn::API.health_check
       end
 
       # "Create a new dawn App (with git; setup)"
-      def create(appname=nil)
+      def self.create(appname=nil)
         app = try_create_app appname
         # since its possible for dawn to create a new app, with a random name
         # setting the appname again based on the real app's name is required

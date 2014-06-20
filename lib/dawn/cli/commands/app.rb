@@ -1,16 +1,18 @@
+require "dawn/cli/helpers"
+
 module Dawn
   module CLI
     module App
 
-      extend self
+      extend Dawn::CLI::Helpers
 
       # "Displays a list of all the apps you have deployed to dawn"
-      def list
+      def self.list
         puts format_apps(Dawn::App.all)
       end
 
       # "Modify the gears of the current app"
-      def scale(app, modifiers)
+      def self.scale(app, modifiers)
         app = current_app
 
         #formation = app.formation.dup
@@ -32,7 +34,7 @@ module Dawn
       end
 
       # "Deletes the app on dawn"
-      def delete
+      def self.delete
         app = current_app
 
         app.destroy
@@ -40,7 +42,7 @@ module Dawn
       end
 
       # "Prints the App's log to STDOUT"
-      def logs(follow=false)
+      def self.logs(follow=false)
         # this is the only method which requires the uri & net/http
         require 'uri'
         require 'net/http'
@@ -86,7 +88,7 @@ module Dawn
       end
 
       # "Lists all currently running Gears"
-      def list_gears
+      def self.list_gears
         app = current_app
         gears = app.gears.all.sort_by(&:number)
 
@@ -101,7 +103,7 @@ module Dawn
         end
       end
 
-      def restart
+      def self.restart
         current_app.restart
       end
 
