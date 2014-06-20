@@ -178,6 +178,7 @@ Commands:
 
     def self.run(argv)
       result = Docopt.docopt(DOC_TOP, argv: argv)
+      self.selected_app = result["--app"]
 
       command = result["<command>"]
       command_argv = result["<argv>"]
