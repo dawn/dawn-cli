@@ -133,6 +133,8 @@ Commands:
           end
         end
         Dawn::CLI::App.scale(data)
+      else
+        not_a_command("dawn app", command)
       end
     end
 
@@ -146,6 +148,8 @@ Commands:
       when "delete"
         url = options["<argv>"].first
         Dawn::CLI::Domain.delete(url)
+      else
+        not_a_command("dawn domain", command)
       end
     end
 
@@ -159,6 +163,8 @@ Commands:
       when "delete"
         url = options["<argv>"].first
         Dawn::CLI::Drain.delete(url)
+      else
+        not_a_command("dawn drain", command)
       end
     end
 
@@ -180,6 +186,8 @@ Commands:
       when "unset"
         keys = options["<argv>"]
         Dawn::CLI::Env.unset(*keys)
+      else
+        not_a_command("dawn env", command)
       end
     end
 
@@ -195,6 +203,8 @@ Commands:
       when "delete"
         id = options["<argv>"].first
         Dawn::CLI::Key.delete(id)
+      else
+        not_a_command("dawn env", command)
       end
     end
 
@@ -204,6 +214,8 @@ Commands:
         Dawn::CLI::Release.list
       when "add"
         Dawn::CLI::Release.add
+      else
+        not_a_command("dawn release", command)
       end
     end
 
