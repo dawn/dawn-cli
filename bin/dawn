@@ -1,8 +1,3 @@
 #!/usr/bin/env ruby
-require 'commander'
-require 'commander/import'
-require 'dawn/cli/version'
-
 require 'dawn/cli'
-
 Dawn::CLI.run ARGV.dup
