@@ -84,13 +84,9 @@ module Dawn
       end
 
       def current_app_name(options={})
-        @current_app ||= if options.key?(:app)
-          options[:app]
-        elsif ENV.key?("DAWN_APP")
-          ENV["DAWN_APP"]
-        elsif app_from_dir = extract_app_in_dir(Dir.pwd, options)
-          app_from_dir
-        else
+        @current_app ||= begin
+          options[:app] || ENV["DAWN_APP"] ||
+          Dawn::CLI.selected_app || extract_app_in_dir(Dir.pwd, options) ||
           abort "App could not be located!"
         end
       end
