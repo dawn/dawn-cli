@@ -87,7 +87,7 @@ module Dawn
         @current_app ||= begin
           options[:app] || ENV["DAWN_APP"] ||
           Dawn::CLI.selected_app || extract_app_in_dir(Dir.pwd, options) ||
-          abort "App could not be located!"
+          abort("App could not be located!")
         end
       end
 
