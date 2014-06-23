@@ -24,9 +24,9 @@ module Dawn
           old_formation = (app.formation[type] || 0).to_i
 
           formation[type] = case operator
-                            when "+" then old_formation + value
-                            when "-" then old_formation - value
-                            when "=" then value
+                            when "+" then old_formation + value.to_i
+                            when "-" then old_formation - value.to_i
+                            when "=" then value.to_i
                             end
         end
 
