@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'highline',       '~> 1.6'
   s.add_runtime_dependency 'time-lord',      '~> 1.0'
   s.add_runtime_dependency 'terminal-table', '~> 1.4'
-  s.add_runtime_dependency 'dawn-api',       '~> 0.10.0.pre.dev'
+  s.add_runtime_dependency 'dawn-api',       '~> 0.10'
 
   s.executables = 'dawn'
   s.require_path = 'lib'
