@@ -3,17 +3,21 @@ require 'highline/import'
 
 module Dawn
   module CLI
-DOC_TOP = %Q(Usage:
-  dawn --version
-  dawn [-a APPNAME] [-h] <command> [<argv>...]
+DOC_TOP =
+%Q(usage: dawn [-a APPNAME] [-h] <command> [<argv>...]
+
+Options:
+  -a APPNAME, --app=APPNAME           specify app.
+  -h, --help                          display help.
+  --version                           print version.
 
 Commands:
-  create [<name>]
-  ls
-  ps
+  create [<name>]                     initialize a new app in this the wd
+  ls                                  print all deployed apps
+  ps                                  print all running gears for current app
   login
   logs [-f]
-    -f, --follow               follow logs
+    -f, --follow                      follow logs
   app
   domain
   drain
@@ -21,73 +25,111 @@ Commands:
   key
   release
   run
-
-Options:
-  -a APPNAME, --app=APPNAME  specify app
-  -h, --help                 display help
-  --version                  print version
 )
 
 DOC_SUBCOMMAND = {}
-DOC_SUBCOMMAND["app"] = %Q(Usage:
-  dawn app            list all avaiable apps
-  dawn app <command>
+DOC_SUBCOMMAND["app"] =
+%Q(usage: dawn app
+       dawn app delete
+       dawn app restart
+       dawn app scale <gear_modifier>...
+
+Options:
+  -h, --help                          display help.
 
 Commands:
-  delete
-  restart
-  scale <gear_modifier>
+  delete                              remove the app from dawn.
+  restart                             self explanatory.
+  scale                               scale app services.
+
+  if no command is given, prints all avaiable apps.
 
 GearModifier:
   type=number
   type+number
   type-number
+
+  EG.
+    web=3
+    db+1
 )
 
-DOC_SUBCOMMAND["domain"] = %Q(Usage:
-  dawn domain              list all domains for current app
-  dawn domain [<command>]
+DOC_SUBCOMMAND["domain"] =
+%Q(usage: dawn domain
+       dawn domain add <url>
+       dawn domain delete <url>
+
+Options:
+  -h, --help                          display help.
 
 Commands:
-  add <url>
-  delete <url>
+  add                                 add a new domain to the current app
+  delete                              remove a domain from the current app
+
+  if no command is given, prints all domains for current app.
+
 )
 
-DOC_SUBCOMMAND["drain"] = %Q(Usage:
-  dawn drain              list all drains for current app
-  dawn drain [<command>]
+DOC_SUBCOMMAND["drain"] =
+%Q(usage: dawn drain
+  dawn drain add <url>
+  dawn drain delete <url>
+
+Options:
+  -h, --help                          display help.
 
 Commands:
-  add <url>
-  delete <url>
+  add                                 add a new log drain to current app
+  delete                              remove a log drain from the current app
+
+  if no command is given, prints all drains for current app.
 )
 
-DOC_SUBCOMMAND["env"] = %Q(Usage:
-  dawn env              print the ENV for the current app
-  dawn env [<command>]
+DOC_SUBCOMMAND["env"] =
+%Q(usage: dawn env
+       dawn env get <key_name>...
+       dawn env set <key_name=value>...
+       dawn env unset <key_name>...
+
+Options:
+  -h, --help                          display help.
 
 Commands:
-  get <key_name>...
-  set <key_name=value>...
-  unset <key_name>...
+  get                                 print filtered ENV variables.
+  set                                 set ENV variables.
+  unset                               unset ENV variables.
+
+  if no command is given, prints the ENV for the current app
 )
 
-DOC_SUBCOMMAND["key"] = %Q(Usage:
-  dawn key              list all keys deployed to dawn
-  dawn key [<command>]
+DOC_SUBCOMMAND["key"] =
+%Q(usage: dawn key
+       dawn key add
+       dawn key delete <id>
+       dawn key get <id>
+
+Options:
+  -h, --help                          display help.
 
 Commands:
-  add
-  delete <id>
-  get <id>
+  add                                 add your current public key to dawn
+  delete                              remove a key
+  get                                 retrieve a key
+
+  if no command is given, prints all keys deployed to dawn
 )
 
-DOC_SUBCOMMAND["release"] = %Q(Usage:
-  dawn release              list all releases for the current app
-  dawn release [<command>]
+DOC_SUBCOMMAND["release"] =
+%Q(usage: dawn release
+       dawn release add
+
+Options:
+  -h, --help                          display help.
 
 Commands:
-  add
+  add                                 create a new release for the current app
+
+  if no command is given, list all releases for the current app
 )
 
     @@selected_app = nil
@@ -118,64 +160,52 @@ Commands:
     # @param [String] command
     # @param [Hash] options
     ###
-    def self.run_app_command(command, options)
-      case command.to_s
-      when ""
-        Dawn::CLI::App.list
-      when "delete"
+    def self.run_app_command(options)
+      if options["delete"]
         Dawn::CLI::App.delete
-      when "restart"
+      elsif options["restart"]
         Dawn::CLI::App.restart
-      when "scale"
-        data = options["<argv>"].inject({}) do |str, hash|
+      elsif options["scale"]
+        data = options["<gear_modifier>"].inject({}) do |str, hash|
           if str =~ /(\S+)([+-=])(\d+)/
             hash[$1] = [$2, $3.to_i]
           end
         end
         Dawn::CLI::App.scale(data)
       else
-        not_a_command("dawn app", command)
+        Dawn::CLI::App.list
       end
     end
 
-    def self.run_domain_command(command, options)
-      case command.to_s
-      when ""
-        Dawn::CLI::Domain.list
-      when "add"
-        url = options["<argv>"].first
+    def self.run_domain_command(options)
+      if options["add"]
+        url = options["<url>"]
         Dawn::CLI::Domain.add(url)
-      when "delete"
-        url = options["<argv>"].first
+      elsif options["delete"]
+        url = options["<url>"]
         Dawn::CLI::Domain.delete(url)
       else
-        not_a_command("dawn domain", command)
+        Dawn::CLI::Domain.list
       end
     end
 
-    def self.run_drain_command(command, options)
-      case command.to_s
-      when ""
-        Dawn::CLI::Drain.list
-      when "add"
-        url = options["<argv>"].first
+    def self.run_drain_command(options)
+      if options["add"]
+        url = options["<url>"]
         Dawn::CLI::Drain.add(url)
-      when "delete"
-        url = options["<argv>"].first
+      elsif options["delete"]
+        url = options["<url>"]
         Dawn::CLI::Drain.delete(url)
       else
-        not_a_command("dawn drain", command)
+        Dawn::CLI::Drain.list
       end
     end
 
-    def self.run_env_command(command, options)
-      case command.to_s
-      when ""
-        Dawn::CLI::Env.list
-      when "get"
-        keys = options["<argv>"]
+    def self.run_env_command(options)
+      if options["get"]
+        keys = options["<key_name>"]
         Dawn::CLI::Env.get(*keys)
-      when "set"
+      elsif options["set"]
         data = options["<argv>"].each_with_object({}) do |str, hash|
           if str =~ /(\S+)=(.*)/
             key, value = $1, $2
@@ -183,38 +213,33 @@ Commands:
           end
         end
         Dawn::CLI::Env.set(data)
-      when "unset"
-        keys = options["<argv>"]
+      elsif options["unset"]
+        keys = options["<key_name>"]
         Dawn::CLI::Env.unset(*keys)
       else
-        not_a_command("dawn env", command)
+        Dawn::CLI::Env.list
       end
     end
 
-    def self.run_key_command(command, options)
-      case command.to_s
-      when ""
-        Dawn::CLI::Key.list
-      when "add"
+    def self.run_key_command(options)
+      if options["add"]
         Dawn::CLI::Key.add
-      when "get"
-        id = options["<argv>"].first
+      elsif options["get"]
+        id = options["<id>"].first
         Dawn::CLI::Key.get(id)
-      when "delete"
-        id = options["<argv>"].first
+      elsif options["delete"]
+        id = options["<id>"].first
         Dawn::CLI::Key.delete(id)
       else
-        not_a_command("dawn env", command)
+        Dawn::CLI::Key.list
       end
     end
 
-    def self.run_release_command(command, options)
-      case command.to_s
-      when ""
-        Dawn::CLI::Release.list
-      when "add"
+    def self.run_release_command(options)
+      if options["add"]
         Dawn::CLI::Release.add
       else
+        Dawn::CLI::Release.list
         not_a_command("dawn release", command)
       end
     end
@@ -225,38 +250,32 @@ Commands:
       else
         result = Docopt.docopt(DOC_SUBCOMMAND[command], argv: argv,
                                version: Dawn::CLI::VERSION, help: false)
-        subcommand = result["<command>"]
       end
-      send("run_#{command}_command", subcommand, result)
+      send("run_#{command}_command", result)
     end
 
     def self.run(argv)
       result = Docopt.docopt(DOC_TOP, version: Dawn::CLI::VERSION, argv: argv)
-      if result["--version"]
-        say "Dawn CLI #{Dawn::CLI::VERSION}"
-      else
-        self.selected_app = result["--app"]
+      self.selected_app = result["--app"]
 
-        command = result["<command>"]
-        command_argv = result["<argv>"]
-        case command
-        when "create"
-          Dawn::CLI::App.create command_argv.first
-        when "ls"
-          Dawn::CLI::App.list
-        when "ps"
-          Dawn::CLI::App.list_gears
-        when "login"
-          username = ask("Username: ")
-          password = ask("Password: ") { |q| q.echo = false }
-          Dawn::CLI::Auth.login username, password
-        when "logs"
-          Dawn::CLI::App.logs
-        when *DOC_SUBCOMMAND.keys
-          run_subcommand(command, command_argv)
-        else
-          not_a_command("dawn", command)
-        end
+      command = result["<command>"]
+      case command
+      when "create"
+        Dawn::CLI::App.create command_argv.first
+      when "ls"
+        Dawn::CLI::App.list
+      when "ps"
+        Dawn::CLI::App.list_gears
+      when "login"
+        username = ask("Username: ")
+        password = ask("Password: ") { |q| q.echo = false }
+        Dawn::CLI::Auth.login username, password
+      when "logs"
+        Dawn::CLI::App.logs
+      when *DOC_SUBCOMMAND.keys
+        run_subcommand(command, argv)
+      else
+        not_a_command("dawn", command)
       end
     rescue Docopt::Exit => ex
       abort ex.message
