@@ -26,7 +26,7 @@ module Dawn
       # @param [String] url
       ###
       def self.delete(url)
-        current_app.drains.delete(url: url)
+        current_app.drains.destroy(url: url)
       end
 
     end
