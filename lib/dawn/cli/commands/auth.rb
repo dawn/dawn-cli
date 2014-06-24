@@ -6,9 +6,11 @@ module Dawn
 
       extend Dawn::CLI::BaseCommands
 
+      ###
       # "save login details to .netrc"
-      # usn = ask "Username: "
-      # psw = password "Password: "
+      # @param [String] username
+      # @param [String] password
+      ###
       def self.login(username, password)
         Dawn.authenticate(username: username, password: password)
         say " ! login details have been saved to your .netrc"
