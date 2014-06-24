@@ -14,20 +14,20 @@ Options:
   --version                           print version.
 
 Commands:
-  create [<name>]                     initialize a new app in this the wd.
-  ls                                  print all deployed apps.
-  ps                                  print all running gears for current app.
-  login                               setup your netrc login details for dawn.
-  logs [-f]
-    -f, --follow                      follow logs.
   app                                 App control command.
+  create [<name>]                     initialize a new app in this the wd.
   domain                              Domain control command.
   drain                               Drain control command.
   env                                 ENV control command.
+  health-check                        checks if the dawn server is running.
   key                                 Key control command.
+  login                               setup your netrc login details for dawn.
+  logs [-f]
+    -f, --follow                      follow logs.
+  ls                                  print all deployed apps.
+  ps                                  print all running gears for current app.
   release                             Release control command.
   run                                 run command on current app.
-  health-check                        checks if the dawn server is running.
 )
 
 DOC_SUBCOMMAND = {}
