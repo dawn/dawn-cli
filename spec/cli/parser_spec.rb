@@ -146,6 +146,48 @@ describe Dawn::CLI do
       it "should default to list" do
         expect(Dawn::CLI.run(%w[env])).to eq(:list)
       end
+
+      context "get" do
+        it "should not accept without parameters" do
+          expect { Dawn::CLI.run(%w[env get]) }.to raise_error(SystemExit)
+        end
+
+        it "should accept with parameter" do
+          expect(Dawn::CLI.run(%w[env get HOSTNAME])).to eq(:get)
+        end
+
+        it "should accept with multiple parameters" do
+          expect(Dawn::CLI.run(%w[env get HOSTNAME BREAD EGGS AND CHEESE])).to eq(:get)
+        end
+      end
+
+      context "set" do
+        it "should not accept without parameters" do
+          expect { Dawn::CLI.run(%w[env set]) }.to raise_error(SystemExit)
+        end
+
+        it "should accept with parameter" do
+          expect(Dawn::CLI.run(%w[env set HOSTNAME=kana])).to eq(:set)
+        end
+
+        it "should accept with multiple parameters" do
+          expect(Dawn::CLI.run(%W[env set HOSTNAME=kana BREAD=wheat EGGS=3 AND="YEAH" CHEESE="the\sblue\skind"])).to eq(:set)
+        end
+      end
+
+      context "unset" do
+        it "should not accept without parameters" do
+          expect { Dawn::CLI.run(%w[env unset]) }.to raise_error(SystemExit)
+        end
+
+        it "should accept with parameter" do
+          expect(Dawn::CLI.run(%w[env unset HOSTNAME])).to eq(:unset)
+        end
+
+        it "should accept with multiple parameters" do
+          expect(Dawn::CLI.run(%w[env unset HOSTNAME BREAD EGGS AND CHEESE])).to eq(:unset)
+        end
+      end
     end
 
     context "when given a `key` command" do
