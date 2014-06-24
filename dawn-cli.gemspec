@@ -23,10 +23,11 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'terminal-table', '~> 1.4'
   s.add_runtime_dependency 'dawn-api',       '~> 0.10'
 
-  s.executables = 'dawn'
+  s.executables = ['dawn', 'dawni']
   s.require_path = 'lib'
   s.files = ["README.md", "CHANGELOG.md"] +
             Dir.glob('bin/**/*') +
             Dir.glob('lib/**/*') +
+            Dir.glob('spec/**/*') +
             Dir.glob('test/**/*')
 end
