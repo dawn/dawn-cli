@@ -13,7 +13,9 @@ module Dawn
       ###
       def self.login(username, password)
         Dawn.authenticate(username: username, password: password)
-        say " ! login details have been saved to your .netrc"
+        say "\tLOGIN details have been saved to your ~/.netrc"
+      rescue Excon::Errors::BadRequest
+        abort "dawn login: Login has failed, check your username and password"
       end
 
     end
