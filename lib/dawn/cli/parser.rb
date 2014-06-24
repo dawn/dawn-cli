@@ -286,7 +286,7 @@ Commands:
       self.selected_app = result["--app"]
       case command
       when "create"
-        Dawn::CLI::App.command(:create, argv.first)
+        Dawn::CLI::App.command(:create, result["<argv>"].first)
       when "ls"
         Dawn::CLI::App.command(:list)
       when "ps"
