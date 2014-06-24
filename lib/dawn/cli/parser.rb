@@ -237,11 +237,9 @@ Commands:
       if options["add"]
         Dawn::CLI::Key.command(:add)
       elsif options["get"]
-        id = options["<id>"].first
-        Dawn::CLI::Key.command(:get, id)
+        Dawn::CLI::Key.command(:get, options["<id>"])
       elsif options["delete"]
-        id = options["<id>"].first
-        Dawn::CLI::Key.command(:delete, id)
+        Dawn::CLI::Key.command(:delete, options["<id>"])
       else
         Dawn::CLI::Key.command(:list)
       end
