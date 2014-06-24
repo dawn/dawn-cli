@@ -37,6 +37,10 @@ describe Dawn::CLI::App, :vcr do
     it "should run a command on current app" do
       Dawn::CLI::App.run(%w[bash --version])
     end
+
+    it "should fail if no command is given" do
+      Dawn::CLI::App.run(%w[])
+    end
   end
 
   context ".logs" do
