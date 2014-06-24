@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+require 'dawn/cli'
+
+line_number = 1
+loop do
+  print("~dawn %03d> " % line_number)
+  line = gets.chomp
+  argv = line.split(" ")
+  break if %w[quit exit].include?(argv.first)
+  begin
+    Dawn::CLI.run argv
+  rescue SystemExit # any form of abort
+  end
+  line_number += 1
+end
