@@ -244,21 +244,36 @@ Commands:
       end
     end
 
+    ###
+    # @param [String] command
+    # @param [Array<String>] argv
+    ###
     def self.run_subcommand(command, argv)
       if argv.empty?
         subcommand = ""
       else
         result = Docopt.docopt(DOC_SUBCOMMAND[command], argv: argv,
-                               version: Dawn::CLI::VERSION, help: false)
+                               version: Dawn::CLI::VERSION, help: true)
       end
       send("run_#{command}_command", result)
     end
 
+    ###
+    # @param [Array<String>] argv
+    ###
     def self.run(argv)
-      result = Docopt.docopt(DOC_TOP, version: Dawn::CLI::VERSION, argv: argv)
-      self.selected_app = result["--app"]
-
+      # initial run to retrieve command
+      result = Docopt.docopt(DOC_TOP, argv: argv,
+                             version: Dawn::CLI::VERSION, help: false)
       command = result["<command>"]
+      # run the docopt again this time with help enabled if there was no command
+      unless command
+        result = Docopt.docopt(DOC_TOP, argv: argv,
+                               version: Dawn::CLI::VERSION, help: true)
+      end
+
+      # set the selected_app
+      self.selected_app = result["--app"]
       case command
       when "create"
         Dawn::CLI::App.create command_argv.first
