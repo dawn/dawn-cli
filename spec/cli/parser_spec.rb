@@ -234,6 +234,12 @@ describe Dawn::CLI do
       it "should default to list" do
         expect(Dawn::CLI.run(%w[release])).to eq(:list)
       end
+
+      context "add" do
+        it "should accept without parameters" do
+          expect(Dawn::CLI.run(%w[release add])).to eq(:add)
+        end
+      end
     end
 
     ## not sure how to test run
