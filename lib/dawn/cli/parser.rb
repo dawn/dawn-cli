@@ -1,5 +1,7 @@
 require "docopt"
 require 'highline/import'
+require "dawn/cli/commands"
+require "dawn/cli/version"
 
 module Dawn
   module CLI
