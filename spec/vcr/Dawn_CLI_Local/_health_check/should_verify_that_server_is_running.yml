@@ -33,18 +33,18 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 20a9e488-7768-43d5-916a-cef677ceb67e
+      - f3355615-4da6-4167-8ebd-63e122190a92
       x-runtime:
-      - '0.008023'
+      - '0.007936'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 19:21:04 GMT
+      - Tue, 24 Jun 2014 22:27:54 GMT
     body:
       encoding: UTF-8
       string: " "
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 19:21:24 GMT
+  recorded_at: Tue, 24 Jun 2014 22:28:14 GMT
 recorded_with: VCR 2.9.2

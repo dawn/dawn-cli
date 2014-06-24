@@ -24,27 +24,29 @@ http_interactions:
       - Basic SWNlRHJhZ29uOmFGM0VHM1hjdW16Sm1LcGFIeUI5
   response:
     status:
-      code: 422
+      code: 200
       message: 
     headers:
       content-type:
       - text/html
+      etag:
+      - '"7b63a587d0a6d83688274ad35ddd4c00"'
       cache-control:
-      - no-cache
+      - max-age=0, private, must-revalidate
       x-request-id:
-      - 39038902-0001-4d59-91c0-a8fe0789906b
+      - fd0762a1-c081-4add-8700-350864835356
       x-runtime:
-      - '0.047709'
+      - '0.019589'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 19:24:51 GMT
+      - Tue, 24 Jun 2014 22:27:06 GMT
     body:
       encoding: UTF-8
-      string: '{"id":"key.save.fail","message":"saving the key has failed","error":{"fingerprint":"has
-        already been taken"}}'
+      string: '{"key":{"id":6,"created_at":"2014-06-24 22:27:06 UTC","updated_at":"2014-06-24
+        22:27:06 UTC","key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDhTo7oNMhE3Pe96pXdDBWiWb6LYZCSWkNhLj5PIzejSWrxnGaXqCI+VIr62GtX9TqkC0vZCOC9sljYi1g/dhD0RMYzlmWkKChHAGDB95bV/APYCojy0y7wMxfAIPUIgBOYfqGz6JaEYaDRWFOtyMcyhHM3EtuXSKxUXELWKUB/BuDyln3LAcVdMMqGeSxt7BlWDai9OfWLy5TU4isvC0YN8LjFHk6iU66FvmNNq17lTrbZEW+XXROGZ5d1WfOFhOYIiUTAnSu45ta9TNp72AAJ7cRfaX+RH2srU1urfEzypSbRaW6MMpHgL60g6SZOfL4Um0ME5e06O/8IAZDZhKt3","fingerprint":"c0:ca:bf:73:c1:da:2e:23:48:82:55:98:17:33:1c:06"}}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 19:25:12 GMT
+  recorded_at: Tue, 24 Jun 2014 22:27:27 GMT
 recorded_with: VCR 2.9.2

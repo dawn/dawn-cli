@@ -29,28 +29,28 @@ http_interactions:
       content-type:
       - text/html
       etag:
-      - '"ed81efdf8b3e6701d77d52d4285a80be"'
+      - '"3706693ac5e209a35be13767e42109c6"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 3517d9c7-3efb-400b-a936-6fb2a809ad8d
+      - 22c53e55-7075-4052-8305-6b7da580ce34
       x-runtime:
-      - '0.015121'
+      - '0.025555'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 18:55:24 GMT
+      - Tue, 24 Jun 2014 22:23:54 GMT
     body:
       encoding: UTF-8
-      string: '{"app":{"id":13,"created_at":"2014-06-24 18:51:42 UTC","updated_at":"2014-06-24
-        18:53:19 UTC","name":"app-test","version":0,"env":{},"formation":{"web":"2"},"url":"app-test.dawnapp.dev"}}'
+      string: '{"app":{"id":15,"created_at":"2014-06-24 19:08:41 UTC","updated_at":"2014-06-24
+        22:21:35 UTC","name":"app-test","version":0,"env":{},"formation":{"web":"2"},"url":"app-test.dawnapp.dev"}}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 18:55:44 GMT
+  recorded_at: Tue, 24 Jun 2014 22:24:14 GMT
 - request:
     method: get
-    uri: http://api.dawn.dev/apps/13/logs?tail=false
+    uri: http://api.dawn.dev/apps/15/logs?tail=false
     body:
       encoding: US-ASCII
       string: ''
@@ -77,22 +77,22 @@ http_interactions:
       content-type:
       - text/html
       etag:
-      - '"874d16990532d8f6ffbe617860e86e5f"'
+      - '"a29a821b348570a427b3e52fda5c3a91"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 444a5953-391a-475f-bdec-a7151ccd019e
+      - b21a520b-d7e1-482e-a12f-f4c40d480013
       x-runtime:
-      - '0.016871'
+      - '0.034857'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 18:55:26 GMT
+      - Tue, 24 Jun 2014 22:23:58 GMT
     body:
       encoding: UTF-8
-      string: '{"logs":"/sessions/0d1bdf06-55c1-4e2b-98e3-0e0f13199429"}'
+      string: '{"logs":"/sessions/af98169c-4714-4683-90d3-4f84ef474a85"}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 18:55:47 GMT
+  recorded_at: Tue, 24 Jun 2014 22:24:18 GMT
 recorded_with: VCR 2.9.2

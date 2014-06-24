@@ -29,23 +29,23 @@ http_interactions:
       content-type:
       - text/html
       etag:
-      - '"a0c5e72c41d0b8b3f3a32e7394ba9ae5"'
+      - '"ce9867a51a39b1798d0a59d81cde56ae"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 1b4146e9-2b8b-4480-98b0-b4e4d402590d
+      - 6421e01c-a0a2-47ff-8f83-845ec0bc3f3d
       x-runtime:
-      - '0.010290'
+      - '0.044707'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 19:21:06 GMT
+      - Tue, 24 Jun 2014 22:27:55 GMT
     body:
       encoding: UTF-8
       string: '{"user":{"id":2,"created_at":"2014-06-24 18:34:17 UTC","updated_at":"2014-06-24
-        18:34:17 UTC","username":"IceDragon","email":"mistdragon100@gmail.com","api_key":"aF3EG3XcumzJmKpaHyB9"}}'
+        22:14:15 UTC","username":"IceDragon","email":"mistdragon100@gmail.com","api_key":"aF3EG3XcumzJmKpaHyB9"}}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 19:21:26 GMT
+  recorded_at: Tue, 24 Jun 2014 22:28:16 GMT
 recorded_with: VCR 2.9.2

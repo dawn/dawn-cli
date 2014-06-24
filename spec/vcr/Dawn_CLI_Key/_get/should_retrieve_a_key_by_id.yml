@@ -29,28 +29,31 @@ http_interactions:
       content-type:
       - text/html
       etag:
-      - '"e2e73fb0feed1c382422378c1578e6e7"'
+      - '"a252071f35779f51b1f15e6a477061b4"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 209f79e3-b394-47e9-a78e-d9ace5ca206b
+      - 0457af83-399f-4813-a837-ca12b4f112b4
       x-runtime:
-      - '0.014630'
+      - '0.017429'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 19:24:53 GMT
+      - Tue, 24 Jun 2014 22:27:39 GMT
     body:
       encoding: UTF-8
-      string: '[{"key":{"id":1,"created_at":"2014-06-24 19:20:30 UTC","updated_at":"2014-06-24
-        19:20:30 UTC","key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDhTo7oNMhE3Pe96pXdDBWiWb6LYZCSWkNhLj5PIzejSWrxnGaXqCI+VIr62GtX9TqkC0vZCOC9sljYi1g/dhD0RMYzlmWkKChHAGDB95bV/APYCojy0y7wMxfAIPUIgBOYfqGz6JaEYaDRWFOtyMcyhHM3EtuXSKxUXELWKUB/BuDyln3LAcVdMMqGeSxt7BlWDai9OfWLy5TU4isvC0YN8LjFHk6iU66FvmNNq17lTrbZEW+XXROGZ5d1WfOFhOYIiUTAnSu45ta9TNp72AAJ7cRfaX+RH2srU1urfEzypSbRaW6MMpHgL60g6SZOfL4Um0ME5e06O/8IAZDZhKt3","fingerprint":"c0:ca:bf:73:c1:da:2e:23:48:82:55:98:17:33:1c:06"}}]'
+      string: '[{"key":{"id":2,"created_at":"2014-06-24 22:04:42 UTC","updated_at":"2014-06-24
+        22:04:42 UTC","key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDALiPQc0GAmHQEBfDA430l6dLP5jMnJ6FcbAi103xtGAOAiWRVcBPFLkGXx2MRWZGHry3QW8hEIOgxsHOxa9/0qIiR1647h6ZenA6SJeBSntEZc13lRzyypLL45acNffcEsNVGCWx/A3HJsNyN4q7UmpbSEIwIIyRgRf0YIeDqvL3TqnwV29RGY9cl84ATu+7Wye2g6AG60qTXZONqldjM1bxzPi6iq4Alxt937kH8nDs6jvsYe+gjoGgrhjIhYPucukeuHJBRW6dzTvQDBqOB2kTSAtq5hbSc4PbWuHGR7Zk/QsctC7nX9O2V+oudGO0RlPqc714g/ntbV4QdTqrz","fingerprint":"9e:da:d1:6f:06:a2:fa:c9:a3:e3:ec:f0:0b:bc:5b:68"}},{"key":{"id":3,"created_at":"2014-06-24
+        22:04:46 UTC","updated_at":"2014-06-24 22:04:46 UTC","key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzf9Z9gEOg9PJvhaZOZzuan6g2q9xUaqwNhiKtWPXA551NZNXk+tIYwYVv/aWY2T6+6KyeeFIzXJmUO9EJCPh8fmirGKrmdxGCFgkv2eK8bMJ+gVkPUoHbEqP5lzVTr+pB1l0wGIOn+G10Rs30vqvEz2sWUAJEWNksAZmlUOgubBpHhSYpoUyj8uaYG8/E2Gm0MgaCJHyT15lyavc8crdpm8NZbI8x3nHTrv/JwZaqQwTWJ6Am7g5WfYmeqr3ThJh/ODlaP7VnM7DJqnkfP8NuirV8lkoHe3qvlRcRMGDpikuvFKiI4BcHUy7E+R+Vl6MnPTb+4TY2uzLcXXXMBSiH","fingerprint":"7b:e3:80:47:5a:13:45:34:2c:0f:3d:ce:28:53:b5:08"}},{"key":{"id":4,"created_at":"2014-06-24
+        22:06:55 UTC","updated_at":"2014-06-24 22:06:55 UTC","key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwKxxipkdhqXxcb1T2/IA4PCNJ5hVkLXtsMKVTta30eRKA5vxnzO56ovFngF00bCa1nIsTlsaX2JCkKHJblNCpxapEWq0Mg+PyHpXoFd0yqxgyLVy/X43StTCQISD015r/mpUJD7umk4cFPdYZo6ojik4v+9wRvlUVHkduUeMH4htQqpGhHrRYvFhSGI54jR1vZPfbU5HFilDimDrMRlwomGRZl4PHbtpcYRKgmQU45uQiksknYQ6P3oAQYQGQ1tL9Zs9pmXzrmq5h0mdTWbv8qo5yRs5xlFssvVA6cVXEtiPblYQXiJWO6JocavwUhn8QmkHC008AfGLHLvLSukhT","fingerprint":"61:94:99:ed:91:89:01:45:99:10:cb:fc:45:a3:81:c3"}},{"key":{"id":6,"created_at":"2014-06-24
+        22:27:06 UTC","updated_at":"2014-06-24 22:27:06 UTC","key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDhTo7oNMhE3Pe96pXdDBWiWb6LYZCSWkNhLj5PIzejSWrxnGaXqCI+VIr62GtX9TqkC0vZCOC9sljYi1g/dhD0RMYzlmWkKChHAGDB95bV/APYCojy0y7wMxfAIPUIgBOYfqGz6JaEYaDRWFOtyMcyhHM3EtuXSKxUXELWKUB/BuDyln3LAcVdMMqGeSxt7BlWDai9OfWLy5TU4isvC0YN8LjFHk6iU66FvmNNq17lTrbZEW+XXROGZ5d1WfOFhOYIiUTAnSu45ta9TNp72AAJ7cRfaX+RH2srU1urfEzypSbRaW6MMpHgL60g6SZOfL4Um0ME5e06O/8IAZDZhKt3","fingerprint":"c0:ca:bf:73:c1:da:2e:23:48:82:55:98:17:33:1c:06"}}]'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 19:25:13 GMT
+  recorded_at: Tue, 24 Jun 2014 22:27:59 GMT
 - request:
     method: get
-    uri: http://api.dawn.dev/account/keys/1
+    uri: http://api.dawn.dev/account/keys/6
     body:
       encoding: US-ASCII
       string: ''
@@ -77,23 +80,23 @@ http_interactions:
       content-type:
       - text/html
       etag:
-      - '"c81570611dc0d9188bff3adde9ea9729"'
+      - '"7b63a587d0a6d83688274ad35ddd4c00"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 66c542ac-e1ea-4001-90c6-722443edc471
+      - ddf2c1a4-8aac-413e-997f-ab0b8542f6d6
       x-runtime:
-      - '0.017693'
+      - '0.012357'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 19:29:21 GMT
+      - Tue, 24 Jun 2014 22:27:42 GMT
     body:
       encoding: UTF-8
-      string: '{"key":{"id":1,"created_at":"2014-06-24 19:20:30 UTC","updated_at":"2014-06-24
-        19:20:30 UTC","key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDhTo7oNMhE3Pe96pXdDBWiWb6LYZCSWkNhLj5PIzejSWrxnGaXqCI+VIr62GtX9TqkC0vZCOC9sljYi1g/dhD0RMYzlmWkKChHAGDB95bV/APYCojy0y7wMxfAIPUIgBOYfqGz6JaEYaDRWFOtyMcyhHM3EtuXSKxUXELWKUB/BuDyln3LAcVdMMqGeSxt7BlWDai9OfWLy5TU4isvC0YN8LjFHk6iU66FvmNNq17lTrbZEW+XXROGZ5d1WfOFhOYIiUTAnSu45ta9TNp72AAJ7cRfaX+RH2srU1urfEzypSbRaW6MMpHgL60g6SZOfL4Um0ME5e06O/8IAZDZhKt3","fingerprint":"c0:ca:bf:73:c1:da:2e:23:48:82:55:98:17:33:1c:06"}}'
+      string: '{"key":{"id":6,"created_at":"2014-06-24 22:27:06 UTC","updated_at":"2014-06-24
+        22:27:06 UTC","key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDhTo7oNMhE3Pe96pXdDBWiWb6LYZCSWkNhLj5PIzejSWrxnGaXqCI+VIr62GtX9TqkC0vZCOC9sljYi1g/dhD0RMYzlmWkKChHAGDB95bV/APYCojy0y7wMxfAIPUIgBOYfqGz6JaEYaDRWFOtyMcyhHM3EtuXSKxUXELWKUB/BuDyln3LAcVdMMqGeSxt7BlWDai9OfWLy5TU4isvC0YN8LjFHk6iU66FvmNNq17lTrbZEW+XXROGZ5d1WfOFhOYIiUTAnSu45ta9TNp72AAJ7cRfaX+RH2srU1urfEzypSbRaW6MMpHgL60g6SZOfL4Um0ME5e06O/8IAZDZhKt3","fingerprint":"c0:ca:bf:73:c1:da:2e:23:48:82:55:98:17:33:1c:06"}}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 19:29:42 GMT
+  recorded_at: Tue, 24 Jun 2014 22:28:02 GMT
 recorded_with: VCR 2.9.2

@@ -29,28 +29,28 @@ http_interactions:
       content-type:
       - text/html
       etag:
-      - '"593c05345cf91eff244f1fee3bcaa3ba"'
+      - '"d5f561456fce1e85587f20c72f7e3305"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 0205bb7b-7310-4b43-bc8e-3580398cb72b
+      - 05930a84-dff0-481b-97af-6cf6c670c353
       x-runtime:
-      - '0.018894'
+      - '0.021922'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 18:53:18 GMT
+      - Tue, 24 Jun 2014 22:21:33 GMT
     body:
       encoding: UTF-8
-      string: '{"app":{"id":13,"created_at":"2014-06-24 18:51:42 UTC","updated_at":"2014-06-24
-        18:51:42 UTC","name":"app-test","version":0,"env":{},"formation":{"web":"1"},"url":"app-test.dawnapp.dev"}}'
+      string: '{"app":{"id":15,"created_at":"2014-06-24 19:08:41 UTC","updated_at":"2014-06-24
+        19:08:41 UTC","name":"app-test","version":0,"env":{},"formation":{"web":"1"},"url":"app-test.dawnapp.dev"}}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 18:53:38 GMT
+  recorded_at: Tue, 24 Jun 2014 22:21:53 GMT
 - request:
     method: post
-    uri: http://api.dawn.dev/apps/13/scale
+    uri: http://api.dawn.dev/apps/15/scale
     body:
       encoding: UTF-8
       string: '{"app":{"formation":{"web":2}}}'
@@ -81,18 +81,18 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 8fd8e408-d73b-40b9-bf6d-978e0f2c8c8c
+      - c668f751-6fbd-4b5a-bcd5-150447af7220
       x-runtime:
-      - '0.017610'
+      - '0.018060'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 18:53:19 GMT
+      - Tue, 24 Jun 2014 22:21:35 GMT
     body:
       encoding: UTF-8
       string: '{"formation":{"web":"2"}}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 18:53:40 GMT
+  recorded_at: Tue, 24 Jun 2014 22:21:55 GMT
 recorded_with: VCR 2.9.2

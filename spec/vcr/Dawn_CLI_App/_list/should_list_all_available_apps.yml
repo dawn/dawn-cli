@@ -29,19 +29,19 @@ http_interactions:
       content-type:
       - text/html
       etag:
-      - '"54e24726d56f4a3db1f0c02a7080738b"'
+      - '"b01482c2585fba0bdf33bc5188ceac4c"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 59ca4851-d1c1-4365-b231-8887fa396f1f
+      - 01f51aeb-3100-429f-97bd-4b311b392a4f
       x-runtime:
-      - '0.060017'
+      - '0.091846'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 18:53:17 GMT
+      - Tue, 24 Jun 2014 22:21:29 GMT
     body:
       encoding: UTF-8
       string: '[{"app":{"id":2,"created_at":"2014-06-24 18:36:05 UTC","updated_at":"2014-06-24
@@ -54,10 +54,12 @@ http_interactions:
         18:36:20 UTC","updated_at":"2014-06-24 18:36:20 UTC","name":"releases-test","version":0,"env":{},"formation":{"web":"1"},"url":"releases-test.dawnapp.dev"}},{"app":{"id":9,"created_at":"2014-06-24
         18:36:20 UTC","updated_at":"2014-06-24 18:36:20 UTC","name":"release-test","version":0,"env":{},"formation":{"web":"1"},"url":"release-test.dawnapp.dev"}},{"app":{"id":10,"created_at":"2014-06-24
         18:36:22 UTC","updated_at":"2014-06-24 18:36:22 UTC","name":"env-test","version":0,"env":{},"formation":{"web":"1"},"url":"env-test.dawnapp.dev"}},{"app":{"id":11,"created_at":"2014-06-24
-        18:39:55 UTC","updated_at":"2014-06-24 18:39:55 UTC","name":"high-morse-82","version":0,"env":{},"formation":{"web":"1"},"url":"high-morse-82.dawnapp.dev"}},{"app":{"id":12,"created_at":"2014-06-24
-        18:39:59 UTC","updated_at":"2014-06-24 18:39:59 UTC","name":"crispy-judge","version":0,"env":{},"formation":{"web":"1"},"url":"crispy-judge.dawnapp.dev"}},{"app":{"id":13,"created_at":"2014-06-24
-        18:51:42 UTC","updated_at":"2014-06-24 18:51:42 UTC","name":"app-test","version":0,"env":{},"formation":{"web":"1"},"url":"app-test.dawnapp.dev"}},{"app":{"id":14,"created_at":"2014-06-24
-        18:53:16 UTC","updated_at":"2014-06-24 18:53:16 UTC","name":"jovial-pike-55","version":0,"env":{},"formation":{"web":"1"},"url":"jovial-pike-55.dawnapp.dev"}}]'
+        18:39:55 UTC","updated_at":"2014-06-24 18:39:55 UTC","name":"high-morse-82","version":0,"env":{},"formation":{"web":"1"},"url":"high-morse-82.dawnapp.dev"}},{"app":{"id":14,"created_at":"2014-06-24
+        18:53:16 UTC","updated_at":"2014-06-24 18:53:16 UTC","name":"jovial-pike-55","version":0,"env":{},"formation":{"web":"1"},"url":"jovial-pike-55.dawnapp.dev"}},{"app":{"id":15,"created_at":"2014-06-24
+        19:08:41 UTC","updated_at":"2014-06-24 19:08:41 UTC","name":"app-test","version":0,"env":{},"formation":{"web":"1"},"url":"app-test.dawnapp.dev"}},{"app":{"id":16,"created_at":"2014-06-24
+        21:59:06 UTC","updated_at":"2014-06-24 22:01:42 UTC","name":"cookie-crushers","version":0,"env":{},"formation":{"web":"2"},"url":"cookie-crushers.dawnapp.dev"}},{"app":{"id":17,"created_at":"2014-06-24
+        22:21:21 UTC","updated_at":"2014-06-24 22:21:21 UTC","name":"sick-brown-32","version":0,"env":{},"formation":{"web":"1"},"url":"sick-brown-32.dawnapp.dev"}},{"app":{"id":18,"created_at":"2014-06-24
+        22:21:22 UTC","updated_at":"2014-06-24 22:21:22 UTC","name":"crispy-judge","version":0,"env":{},"formation":{"web":"1"},"url":"crispy-judge.dawnapp.dev"}}]'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 18:53:37 GMT
+  recorded_at: Tue, 24 Jun 2014 22:21:50 GMT
 recorded_with: VCR 2.9.2

@@ -33,21 +33,21 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 6afa0dc6-cd6b-45ef-8135-1c2635f4a3ac
+      - 94b071cb-9d6b-44db-a456-de0ca4770994
       x-runtime:
-      - '0.014030'
+      - '0.043556'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 18:55:41 GMT
+      - Tue, 24 Jun 2014 22:25:53 GMT
     body:
       encoding: UTF-8
       string: '{"app":{"id":3,"created_at":"2014-06-24 18:36:06 UTC","updated_at":"2014-06-24
         18:36:06 UTC","name":"domain-test","version":0,"env":{},"formation":{"web":"1"},"url":"domain-test.dawnapp.dev"}}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 18:56:01 GMT
+  recorded_at: Tue, 24 Jun 2014 22:26:13 GMT
 - request:
     method: post
     uri: http://api.dawn.dev/apps/3/domains
@@ -71,29 +71,26 @@ http_interactions:
       - Basic SWNlRHJhZ29uOmFGM0VHM1hjdW16Sm1LcGFIeUI5
   response:
     status:
-      code: 200
+      code: 409
       message: 
     headers:
       content-type:
       - text/html
-      etag:
-      - '"ad233faaa033212b6d46d2b35c7601ee"'
       cache-control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       x-request-id:
-      - b7d9b5e0-3cd9-4195-b650-93e309aec1cd
+      - f7bacf89-fba1-481f-aa13-3c442caf7d77
       x-runtime:
-      - '0.018785'
+      - '0.014082'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 18:55:44 GMT
+      - Tue, 24 Jun 2014 22:26:09 GMT
     body:
       encoding: UTF-8
-      string: '{"domain":{"id":4,"created_at":"2014-06-24 18:55:44 UTC","updated_at":"2014-06-24
-        18:55:44 UTC","url":"itwasadomain.io","app":{"app_id":3}}}'
+      string: '{"id":"domain.exists","message":"Domain  exists"}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 18:56:04 GMT
+  recorded_at: Tue, 24 Jun 2014 22:26:29 GMT
 recorded_with: VCR 2.9.2

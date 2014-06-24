@@ -33,21 +33,21 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 9e01d9b7-1003-42ec-b603-39e3d7069186
+      - 94efff15-0153-4b7a-9f13-c94da0ab157a
       x-runtime:
-      - '0.015005'
+      - '0.022089'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 18:55:54 GMT
+      - Tue, 24 Jun 2014 22:26:38 GMT
     body:
       encoding: UTF-8
       string: '{"app":{"id":10,"created_at":"2014-06-24 18:36:22 UTC","updated_at":"2014-06-24
         18:36:22 UTC","name":"env-test","version":0,"env":{},"formation":{"web":"1"},"url":"env-test.dawnapp.dev"}}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 18:56:14 GMT
+  recorded_at: Tue, 24 Jun 2014 22:26:59 GMT
 - request:
     method: post
     uri: http://api.dawn.dev/apps/10/env
@@ -77,15 +77,15 @@ http_interactions:
       content-type:
       - text/html; charset=utf-8
       x-request-id:
-      - cf966586-877c-49a5-be07-50d7bee94056
+      - 717eff4b-ddc7-4d04-80ac-540f945d80d8
       x-runtime:
-      - '0.075297'
+      - '0.126809'
       content-length:
       - '29487'
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 18:55:55 GMT
+      - Tue, 24 Jun 2014 22:26:45 GMT
     body:
       encoding: UTF-8
       string: "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\"
@@ -420,5 +420,5 @@ http_interactions:
         &quot;HTTP/1.1&quot;</pre></div>\n</div>\n\n<h2 style=\"margin-top: 30px\">Response</h2>\n<p><b>Headers</b>:</p>
         <pre>None</pre>\n\n</div>\n\n\n</body>\n</html>\n"
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 18:56:15 GMT
+  recorded_at: Tue, 24 Jun 2014 22:27:06 GMT
 recorded_with: VCR 2.9.2
