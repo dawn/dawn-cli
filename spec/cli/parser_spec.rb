@@ -198,6 +198,32 @@ describe Dawn::CLI do
       it "should default to list" do
         expect(Dawn::CLI.run(%w[key])).to eq(:list)
       end
+
+      context "add" do
+        it "should accept without parameters" do
+          expect(Dawn::CLI.run(%w[key add])).to eq(:add)
+        end
+      end
+
+      context "delete" do
+        it "should not accept without parameters" do
+          expect { Dawn::CLI.run(%w[key delete]) }.to raise_error(SystemExit)
+        end
+
+        it "should accept with parameters" do
+          expect(Dawn::CLI.run(%w[key delete 14])).to eq(:delete)
+        end
+      end
+
+      context "get" do
+        it "should not accept without parameters" do
+          expect { Dawn::CLI.run(%w[key get]) }.to raise_error(SystemExit)
+        end
+
+        it "should accept with parameters" do
+          expect(Dawn::CLI.run(%w[key get 13])).to eq(:get)
+        end
+      end
     end
 
     context "when given a `release` command" do
