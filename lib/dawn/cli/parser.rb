@@ -28,6 +28,7 @@ Commands:
   ps                                  print all running gears for current app.
   release                             Release control command.
   run                                 run command on current app.
+  whoami                              print currently logged in username.
 )
 
 DOC_SUBCOMMAND = {}
@@ -300,6 +301,8 @@ Commands:
         Dawn::CLI::App.command(:run, result["<argv>"])
       when "health-check"
         Dawn::CLI::Local.command(:health_check)
+      when "whoami"
+        Dawn::CLI::Local.command(:whoami)
       when *DOC_SUBCOMMAND.keys
         run_subcommand(command, argv)
       else

@@ -14,6 +14,14 @@ module Dawn
         say "All is well"
       end
 
+      ###
+      # "print current username to console"
+      ###
+      def self.whoami
+        account = Dawn::Account.current
+        say account.username
+      end
+
     end
   end
 end
