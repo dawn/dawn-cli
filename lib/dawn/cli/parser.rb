@@ -14,19 +14,19 @@ Options:
   --version                           print version.
 
 Commands:
-  create [<name>]                     initialize a new app in this the wd
-  ls                                  print all deployed apps
-  ps                                  print all running gears for current app
-  login
+  create [<name>]                     initialize a new app in this the wd.
+  ls                                  print all deployed apps.
+  ps                                  print all running gears for current app.
+  login                               setup your netrc login details for dawn.
   logs [-f]
-    -f, --follow                      follow logs
-  app
-  domain
-  drain
-  env
-  key
-  release
-  run
+    -f, --follow                      follow logs.
+  app                                 App control command.
+  domain                              Domain control command.
+  drain                               Drain control command.
+  env                                 ENV control command.
+  key                                 Key control command.
+  release                             Release control command.
+  run                                 run command on current app.
 )
 
 DOC_SUBCOMMAND = {}
@@ -43,17 +43,11 @@ Commands:
   delete                              remove the app from dawn.
   restart                             self explanatory.
   scale                               scale app services.
+                                        gear_modifier takes the format
+                                        type=number, type+number or type-number
+                                        EG: web=3 db+1
 
-  if no command is given, prints all avaiable apps.
-
-GearModifier:
-  type=number
-  type+number
-  type-number
-
-  EG.
-    web=3
-    db+1
+  if no command is given, prints all available apps.
 )
 
 DOC_SUBCOMMAND["domain"] =
@@ -65,8 +59,8 @@ Options:
   -h, --help                          display help.
 
 Commands:
-  add                                 add a new domain to the current app
-  delete                              remove a domain from the current app
+  add                                 add a new domain to the current app.
+  delete                              remove a domain from the current app.
 
   if no command is given, prints all domains for current app.
 
@@ -81,8 +75,8 @@ Options:
   -h, --help                          display help.
 
 Commands:
-  add                                 add a new log drain to current app
-  delete                              remove a log drain from the current app
+  add                                 add a new log drain to current app.
+  delete                              remove a log drain from the current app.
 
   if no command is given, prints all drains for current app.
 )
@@ -101,7 +95,7 @@ Commands:
   set                                 set ENV variables.
   unset                               unset ENV variables.
 
-  if no command is given, prints the ENV for the current app
+  if no command is given, prints the ENV for the current app.
 )
 
 DOC_SUBCOMMAND["key"] =
@@ -114,11 +108,11 @@ Options:
   -h, --help                          display help.
 
 Commands:
-  add                                 add your current public key to dawn
-  delete                              remove a key
-  get                                 retrieve a key
+  add                                 add your current public key to dawn.
+  delete                              remove a key.
+  get                                 retrieve a key.
 
-  if no command is given, prints all keys deployed to dawn
+  if no command is given, prints all keys deployed to dawn.
 )
 
 DOC_SUBCOMMAND["release"] =
@@ -129,9 +123,9 @@ Options:
   -h, --help                          display help.
 
 Commands:
-  add                                 create a new release for the current app
+  add                                 create a new release for the current app.
 
-  if no command is given, list all releases for the current app
+  if no command is given, list all releases for the current app.
 )
 
     @@selected_app = nil
