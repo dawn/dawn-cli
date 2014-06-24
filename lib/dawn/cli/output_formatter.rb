@@ -7,7 +7,7 @@ module Dawn
     module OutputFormatter
 
       def table_style
-        { } #width: 80 }
+        { border_x: "-", border_i: "-", border_y: " " } #width: 80 }
       end
 
       def format_keys(keys)
