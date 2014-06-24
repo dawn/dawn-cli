@@ -178,7 +178,7 @@ Commands:
       elsif options["restart"]
         Dawn::CLI::App.command(:restart)
       elsif options["scale"]
-        data = options["<gear_modifier>"].inject({}) do |str, hash|
+        data = options["<gear_modifier>"].each_with_object({}) do |str, hash|
           if str =~ /(\S+)([+-=])(\d+)/
             hash[$1] = [$2, $3.to_i]
           end
