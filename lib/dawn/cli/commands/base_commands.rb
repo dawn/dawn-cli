@@ -8,7 +8,7 @@ module Dawn
 
       def command(sym, *args, &block)
         if Dawn::CLI.no_operation
-          say "#{self}.#{sym}(#{args.join(", ")})"
+          say "#{self}.#{sym}(#{args.map(&:inspect).join(", ")})"
         else
           send(sym, *args, &block)
         end
