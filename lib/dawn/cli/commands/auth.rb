@@ -3,7 +3,6 @@ require "dawn/cli/commands/base_commands"
 module Dawn
   module CLI
     module Auth
-
       extend Dawn::CLI::BaseCommands
 
       ###
@@ -17,7 +16,6 @@ module Dawn
       rescue Excon::Errors::BadRequest
         abort "dawn login: Login has failed, check your username and password"
       end
-
     end
   end
 end

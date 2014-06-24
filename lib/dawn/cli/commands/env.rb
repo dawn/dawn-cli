@@ -3,7 +3,6 @@ require "dawn/cli/commands/base_commands"
 module Dawn
   module CLI
     module Env
-
       extend Dawn::CLI::BaseCommands
 
       ###
@@ -33,6 +32,8 @@ module Dawn
         appenv = current_app.env
         appenv.update(appenv.merge(env)) # this is a Hash method
         appenv.save                       # this is an API method
+      rescue Excon::Errors::BadRequest => ex
+        handle_abort_exception("dawn env set", ex)
       end
 
       ###
@@ -45,8 +46,9 @@ module Dawn
           env.delete(k)
         end
         env.save
+      rescue Excon::Errors::BadRequest => ex
+        handle_abort_exception("dawn env unset", ex)
       end
-
     end
   end
 end

@@ -3,7 +3,6 @@ require "dawn/cli/commands/base_commands"
 module Dawn
   module CLI
     module Key
-
       extend Dawn::CLI::BaseCommands
 
       ###
@@ -20,6 +19,8 @@ module Dawn
         filename = File.join(Dir.home, ".ssh/id_rsa.pub")
         pubkey = File.read filename
         key    = Dawn::Key.create(key: pubkey)
+      rescue Excon::Errors::UnprocessableEntity => ex
+        handle_abort_exception("dawn key add", ex)
       end
 
       ###
@@ -27,8 +28,9 @@ module Dawn
       # @param [String] id
       ###
       def self.get(id)
-        key = Dawn::Key.find(id: id)
-        say format_keys([key])
+        say Dawn::Key.find(id: id).key
+      rescue Excon::Errors::NotFound => ex
+        handle_abort_exception("dawn key get", ex)
       end
 
       ###
@@ -37,8 +39,9 @@ module Dawn
       ###
       def self.delete(id)
         Dawn::Key.destroy(id: id)
+      rescue Excon::Errors::NotFound => ex
+        handle_abort_exception("dawn key delete", ex)
       end
-
     end
   end
 end

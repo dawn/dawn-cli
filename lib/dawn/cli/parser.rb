@@ -308,6 +308,8 @@ Commands:
       else
         not_a_command("dawn", command)
       end
+    rescue Excon::Errors::Unauthorized
+      abort "dawn: unauthorized. Did you login? (dawn login)"
     rescue Docopt::Exit => ex
       abort ex.message
     end

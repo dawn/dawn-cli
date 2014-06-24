@@ -3,7 +3,6 @@ require "dawn/cli/commands/base_commands"
 module Dawn
   module CLI
     module Release
-
       extend Dawn::CLI::BaseCommands
 
       ###
@@ -19,7 +18,6 @@ module Dawn
       def self.add
         current_app.releases.create(release:{})
       end
-
     end
   end
 end

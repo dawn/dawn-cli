@@ -3,7 +3,6 @@ require "dawn/cli/helpers"
 module Dawn
   module CLI
     module BaseCommands
-
       include Dawn::CLI::Helpers
 
       ###
@@ -19,6 +18,14 @@ module Dawn
         sym
       end
 
+      def handle_abort_exception(basename, ex)
+        error_obj = JSON.load(ex.response.body) rescue nil
+        if error_obj
+          abort "#{basename}: (#{error_obj["id"]}) #{error_obj["message"]} #{error_obj["error"]}"
+        else
+          abort "#{basename}: has failed for some unknown reason"
+        end
+      end
     end
   end
 end

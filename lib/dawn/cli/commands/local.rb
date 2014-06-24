@@ -3,7 +3,6 @@ require "dawn/cli/commands/base_commands"
 module Dawn
   module CLI
     module Local
-
       extend Dawn::CLI::BaseCommands
 
       ###
@@ -21,7 +20,6 @@ module Dawn
         account = Dawn::Account.current
         say account.username
       end
-
     end
   end
 end

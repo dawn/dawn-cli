@@ -3,7 +3,6 @@ require "dawn/cli/commands/base_commands"
 module Dawn
   module CLI
     module Drain
-
       extend Dawn::CLI::BaseCommands
 
       ###
@@ -19,6 +18,8 @@ module Dawn
       ###
       def self.add(url)
         current_app.drains.create(drain: { url: url })
+      rescue Excon::Errors::Conflict => ex
+        handle_abort_exception("dawn drain add", ex)
       end
 
       ###
@@ -27,8 +28,9 @@ module Dawn
       ###
       def self.delete(url)
         current_app.drains.destroy(url: url)
+      rescue Excon::Errors::NotFound => ex
+        handle_abort_exception("dawn drain delete", ex)
       end
-
     end
   end
 end
