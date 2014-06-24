@@ -116,6 +116,26 @@ describe Dawn::CLI do
       it "should default to list" do
         expect(Dawn::CLI.run(%w[drain])).to eq(:list)
       end
+
+      context "add" do
+        it "should not accept without parameters" do
+          expect { Dawn::CLI.run(%w[drain add]) }.to raise_error(SystemExit)
+        end
+
+        it "should accept with parameters" do
+          expect(Dawn::CLI.run(%w[drain add http://alliswell.io])).to eq(:add)
+        end
+      end
+
+      context "delete" do
+        it "should not accept without parameters" do
+          expect { Dawn::CLI.run(%w[drain delete]) }.to raise_error(SystemExit)
+        end
+
+        it "should accept with parameters" do
+          expect(Dawn::CLI.run(%w[drain delete http://alliswell.io])).to eq(:delete)
+        end
+      end
     end
 
     context "when given an `env` command" do
