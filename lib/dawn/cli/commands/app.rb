@@ -64,20 +64,21 @@ module Dawn
 
       ###
       # "Prints the App's log to STDOUT"
+      # @param [Array<String>] filters
       # @param [Boolean] follow
       ###
-      def self.logs(follow=false)
+      def self.logs(filters, follow=false)
         # this is the only method which requires the uri & net/http
         require 'uri'
         require 'net/http'
+
+        app = current_app
 
         filter_regex = %r{\A(?<timestamp>\S+)\s(?<token>\S+)\[(?<proc_id>\S+)\]\:(?<message>.*)}
         timestamp_regex = %r{(?<year>\d+)-(?<month>\d+)-(?<day>\d+)T(?<hour>\d+)\:(?<minute>\d+)\:(?<second>\d+)\.(?<other>.*)}
 
         opts = {}
         opts[:tail] = follow
-        filters = args
-        app = current_app
         url = app.logs(opts)
         uri  = URI.parse(url)
 

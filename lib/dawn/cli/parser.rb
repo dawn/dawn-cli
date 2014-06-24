@@ -295,7 +295,7 @@ Commands:
         password = ask("Password: ") { |q| q.echo = false }
         Dawn::CLI::Auth.command(:login, username, password)
       when "logs"
-        Dawn::CLI::App.command(:logs)
+        Dawn::CLI::App.command(:logs, result["<argv>"], result["--follow"])
       when "run"
         Dawn::CLI::App.command(:run, result["<argv>"])
       when "health-check"
