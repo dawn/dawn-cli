@@ -6,7 +6,10 @@ module Dawn
 
       extend Dawn::CLI::BaseCommands
 
+      ###
       # "Create a new dawn App (with git; setup)"
+      # @param [String] appname
+      ###
       def self.create(appname=nil)
         app = try_create_app appname
         # since its possible for dawn to create a new app, with a random name
@@ -16,12 +19,18 @@ module Dawn
         say "\tAPP\t#{app.name}"
       end
 
+      ###
       # "Displays a list of all the apps you have deployed to dawn"
+      ###
       def self.list
         say format_apps(Dawn::App.all)
       end
 
+      ###
       # "Modify the gears of the current app"
+      # @param [Hash<String, Array[String, Integer]>] modifiers
+      #   EG. { "web" => ["+", 1] }
+      ###
       def self.scale(modifiers)
         app = current_app
 
@@ -43,7 +52,9 @@ module Dawn
         app.scale(app: { formation: formation })
       end
 
+      ###
       # "Deletes the app on dawn"
+      ###
       def self.delete
         app = current_app
 
@@ -51,7 +62,10 @@ module Dawn
         git_remove_dawn_remote app
       end
 
+      ###
       # "Prints the App's log to STDOUT"
+      # @param [Boolean] follow
+      ###
       def self.logs(follow=false)
         # this is the only method which requires the uri & net/http
         require 'uri'
@@ -97,7 +111,9 @@ module Dawn
         end
       end
 
+      ###
       # "Lists all currently running Gears"
+      ###
       def self.list_gears
         app = current_app
         gears = app.gears.all.sort_by(&:number)
@@ -113,11 +129,18 @@ module Dawn
         end
       end
 
+      ###
+      # "Restart the current app"
+      ###
       def self.restart
         current_app.restart
       end
 
-      def self.run(command)
+      ###
+      # "run a command in the current_app"
+      # @param [Array<String>] argv
+      ###
+      def self.run(argv)
         #
         abort "`run` has not been implemented"
       end
