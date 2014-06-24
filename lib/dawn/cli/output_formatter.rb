@@ -1,5 +1,6 @@
 require 'time-lord'
 require 'terminal-table'
+require 'dawn/cli/patches'
 
 module Dawn
   module CLI
