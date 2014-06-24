@@ -25,7 +25,7 @@ module Dawn
       end
 
       # "Delete a Key by ID"
-      def self.delete
+      def self.delete(id)
         Dawn::Key.destroy(id: id)
       end
 
