@@ -142,8 +142,7 @@ module Dawn
       # @param [Array<String>] argv
       ###
       def self.run(argv)
-        #
-        abort "`run` has not been implemented"
+        current_app.run(command: argv.join(" "))
       end
 
     end
