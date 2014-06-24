@@ -15,7 +15,7 @@ module Dawn
                                     headings: ['ID', 'Fingerprint', 'Key'],
                                     style: table_style
         keys.each do |key|
-          table << [key.id, key.fingerprint, key.key] #{}" ... "]#key.key[0, 20]] # truncate the key
+          table << [key.id, key.fingerprint, key.key[0,30]+"..."] #{}" ... "]#key.key[0, 20]] # truncate the key
           #table << :separator
         end
 
