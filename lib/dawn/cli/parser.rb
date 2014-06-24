@@ -218,7 +218,7 @@ Commands:
         keys = options["<key_name>"]
         Dawn::CLI::Env.command(:get, *keys)
       elsif options["set"]
-        data = options["<argv>"].each_with_object({}) do |str, hash|
+        data = options["<key_name=value>"].each_with_object({}) do |str, hash|
           if str =~ /(\S+)=(.*)/
             key, value = $1, $2
             hash[key] = value
