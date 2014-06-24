@@ -20,7 +20,7 @@ http_interactions:
       X-Ruby-Platform:
       - x86_64-linux
       Authorization:
-      - Basic SWNlRHJhZ29uOmhpbV93NGJ6TGNoMXdFdkhMOENI
+      - Basic SWNlRHJhZ29uOmFGM0VHM1hjdW16Sm1LcGFIeUI5
   response:
     status:
       code: 200
@@ -29,28 +29,28 @@ http_interactions:
       content-type:
       - text/html
       etag:
-      - '"68d4cbfacf1e2087a7cca41f6f4ca291"'
+      - '"593c05345cf91eff244f1fee3bcaa3ba"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 703e368e-cc85-499f-be60-46aa9902d59d
+      - ed58bf23-8ed3-4b2b-8aa2-372661d650c3
       x-runtime:
-      - '0.017831'
+      - '0.014567'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 17:48:50 GMT
+      - Tue, 24 Jun 2014 18:53:17 GMT
     body:
       encoding: UTF-8
-      string: '{"app":{"id":1,"created_at":"2014-06-24 17:46:19 UTC","updated_at":"2014-06-24
-        17:46:19 UTC","name":"app-test","version":0,"env":{},"formation":{"web":"1"},"url":"app-test.dawnapp.dev"}}'
+      string: '{"app":{"id":13,"created_at":"2014-06-24 18:51:42 UTC","updated_at":"2014-06-24
+        18:51:42 UTC","name":"app-test","version":0,"env":{},"formation":{"web":"1"},"url":"app-test.dawnapp.dev"}}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 17:49:10 GMT
+  recorded_at: Tue, 24 Jun 2014 18:53:37 GMT
 - request:
     method: get
-    uri: http://api.dawn.dev/apps/1/gears
+    uri: http://api.dawn.dev/apps/13/gears
     body:
       encoding: US-ASCII
       string: ''
@@ -68,7 +68,7 @@ http_interactions:
       X-Ruby-Platform:
       - x86_64-linux
       Authorization:
-      - Basic SWNlRHJhZ29uOmhpbV93NGJ6TGNoMXdFdkhMOENI
+      - Basic SWNlRHJhZ29uOmFGM0VHM1hjdW16Sm1LcGFIeUI5
   response:
     status:
       code: 200
@@ -81,18 +81,18 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 34fd52e6-72b1-4adb-a719-38b28e613c19
+      - 2036741d-ebb3-46c2-beed-98424240d34c
       x-runtime:
-      - '0.014787'
+      - '0.013323'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 17:48:50 GMT
+      - Tue, 24 Jun 2014 18:53:18 GMT
     body:
       encoding: UTF-8
       string: "[]"
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 17:49:11 GMT
+  recorded_at: Tue, 24 Jun 2014 18:53:38 GMT
 recorded_with: VCR 2.9.2

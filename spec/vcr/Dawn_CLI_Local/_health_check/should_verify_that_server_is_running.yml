@@ -1,11 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: http://api.dawn.dev/apps
+    method: get
+    uri: http://api.dawn.dev/healthcheck
     body:
-      encoding: UTF-8
-      string: '{"app":{"name":null}}'
+      encoding: US-ASCII
+      string: ''
     headers:
       Accept:
       - application/json
@@ -27,25 +27,24 @@ http_interactions:
       message: 
     headers:
       content-type:
-      - text/html
+      - application/json
       etag:
-      - '"d4cbb75860d35adc30a0d0d55bd39e81"'
+      - '"7215ee9c7d9dc229d2921a40e899ec5f"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - df60f3df-251a-464a-9a61-f20c4e0797de
+      - 20a9e488-7768-43d5-916a-cef677ceb67e
       x-runtime:
-      - '0.032128'
+      - '0.008023'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 18:53:16 GMT
+      - Tue, 24 Jun 2014 19:21:04 GMT
     body:
       encoding: UTF-8
-      string: '{"app":{"id":14,"created_at":"2014-06-24 18:53:16 UTC","updated_at":"2014-06-24
-        18:53:16 UTC","name":"jovial-pike-55","version":0,"env":{},"formation":{"web":"1"},"url":"jovial-pike-55.dawnapp.dev"}}'
+      string: " "
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 18:53:36 GMT
+  recorded_at: Tue, 24 Jun 2014 19:21:24 GMT
 recorded_with: VCR 2.9.2

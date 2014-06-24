@@ -20,7 +20,7 @@ http_interactions:
       X-Ruby-Platform:
       - x86_64-linux
       Authorization:
-      - Basic SWNlRHJhZ29uOmhpbV93NGJ6TGNoMXdFdkhMOENI
+      - Basic SWNlRHJhZ29uOmFGM0VHM1hjdW16Sm1LcGFIeUI5
   response:
     status:
       code: 200
@@ -29,28 +29,28 @@ http_interactions:
       content-type:
       - text/html
       etag:
-      - '"fecf4b24feed7a8ed147b109a6e40e4b"'
+      - '"ed81efdf8b3e6701d77d52d4285a80be"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 972bc8d7-ac94-44a0-b3eb-dee26e78faea
+      - 33a6c5ac-dae4-48cf-9014-1ab2252a9eaf
       x-runtime:
-      - '0.014751'
+      - '0.013742'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 17:48:55 GMT
+      - Tue, 24 Jun 2014 18:55:28 GMT
     body:
       encoding: UTF-8
-      string: '{"app":{"id":1,"created_at":"2014-06-24 17:46:19 UTC","updated_at":"2014-06-24
-        17:48:53 UTC","name":"app-test","version":0,"env":{},"formation":{"web":"2"},"url":"app-test.dawnapp.dev"}}'
+      string: '{"app":{"id":13,"created_at":"2014-06-24 18:51:42 UTC","updated_at":"2014-06-24
+        18:53:19 UTC","name":"app-test","version":0,"env":{},"formation":{"web":"2"},"url":"app-test.dawnapp.dev"}}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 17:49:15 GMT
+  recorded_at: Tue, 24 Jun 2014 18:55:48 GMT
 - request:
     method: delete
-    uri: http://api.dawn.dev/apps/1
+    uri: http://api.dawn.dev/apps/13
     body:
       encoding: US-ASCII
       string: ''
@@ -68,7 +68,7 @@ http_interactions:
       X-Ruby-Platform:
       - x86_64-linux
       Authorization:
-      - Basic SWNlRHJhZ29uOmhpbV93NGJ6TGNoMXdFdkhMOENI
+      - Basic SWNlRHJhZ29uOmFGM0VHM1hjdW16Sm1LcGFIeUI5
   response:
     status:
       code: 200
@@ -81,18 +81,113 @@ http_interactions:
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 2ded4347-f5c5-41ac-8df2-c1b5bfabfbb8
+      - 5f83b365-622b-49f7-9780-646452599d46
       x-runtime:
-      - '0.040402'
+      - '0.018478'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 17:48:57 GMT
+      - Tue, 24 Jun 2014 18:55:29 GMT
     body:
       encoding: UTF-8
       string: '{"message":"app has been destroyed"}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 17:49:17 GMT
+  recorded_at: Tue, 24 Jun 2014 18:55:49 GMT
+- request:
+    method: get
+    uri: http://api.dawn.dev/apps/crispy-judge
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      User-Agent:
+      - dawn/0.10.1
+      X-Ruby-Version:
+      - 2.1.2
+      X-Ruby-Platform:
+      - x86_64-linux
+      Authorization:
+      - Basic SWNlRHJhZ29uOmFGM0VHM1hjdW16Sm1LcGFIeUI5
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - text/html
+      etag:
+      - '"d5c11ee900e3656dac0854b15a9c6f90"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-request-id:
+      - a4805868-99ac-4dd3-b537-20f5130e5e93
+      x-runtime:
+      - '0.022893'
+      transfer-encoding:
+      - ''
+      connection:
+      - TE, close
+      Date:
+      - Tue, 24 Jun 2014 19:08:03 GMT
+    body:
+      encoding: UTF-8
+      string: '{"app":{"id":12,"created_at":"2014-06-24 18:39:59 UTC","updated_at":"2014-06-24
+        18:39:59 UTC","name":"crispy-judge","version":0,"env":{},"formation":{"web":"1"},"url":"crispy-judge.dawnapp.dev"}}'
+    http_version: 
+  recorded_at: Tue, 24 Jun 2014 19:08:24 GMT
+- request:
+    method: delete
+    uri: http://api.dawn.dev/apps/12
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      User-Agent:
+      - dawn/0.10.1
+      X-Ruby-Version:
+      - 2.1.2
+      X-Ruby-Platform:
+      - x86_64-linux
+      Authorization:
+      - Basic SWNlRHJhZ29uOmFGM0VHM1hjdW16Sm1LcGFIeUI5
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - text/html
+      etag:
+      - '"1ce274e88a32b6499661c494df064296"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-request-id:
+      - f74ab8d7-3c6a-421f-a7a5-1d4e0e525909
+      x-runtime:
+      - '0.024387'
+      transfer-encoding:
+      - ''
+      connection:
+      - TE, close
+      Date:
+      - Tue, 24 Jun 2014 19:08:04 GMT
+    body:
+      encoding: UTF-8
+      string: '{"message":"app has been destroyed"}'
+    http_version: 
+  recorded_at: Tue, 24 Jun 2014 19:08:24 GMT
 recorded_with: VCR 2.9.2

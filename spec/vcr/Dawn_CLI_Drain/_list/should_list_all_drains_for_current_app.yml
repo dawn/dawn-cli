@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.dawn.dev/apps/app-test
+    uri: http://api.dawn.dev/apps/drain-test
     body:
       encoding: US-ASCII
       string: ''
@@ -29,31 +29,31 @@ http_interactions:
       content-type:
       - text/html
       etag:
-      - '"ed81efdf8b3e6701d77d52d4285a80be"'
+      - '"7589b1cbb4a716cc872fca9fb11eb526"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 1eee4faf-db8c-44f7-944a-b78cf749a72e
+      - 0b433175-617e-4267-8612-a4c1ea545b88
       x-runtime:
-      - '0.013624'
+      - '0.016318'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 18:55:27 GMT
+      - Tue, 24 Jun 2014 18:55:50 GMT
     body:
       encoding: UTF-8
-      string: '{"app":{"id":13,"created_at":"2014-06-24 18:51:42 UTC","updated_at":"2014-06-24
-        18:53:19 UTC","name":"app-test","version":0,"env":{},"formation":{"web":"2"},"url":"app-test.dawnapp.dev"}}'
+      string: '{"app":{"id":5,"created_at":"2014-06-24 18:36:12 UTC","updated_at":"2014-06-24
+        18:36:12 UTC","name":"drain-test","version":0,"env":{},"formation":{"web":"1"},"url":"drain-test.dawnapp.dev"}}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 18:55:47 GMT
+  recorded_at: Tue, 24 Jun 2014 18:56:10 GMT
 - request:
-    method: post
-    uri: http://api.dawn.dev/apps/13/gears/restart
+    method: get
+    uri: http://api.dawn.dev/apps/5/drains
     body:
-      encoding: UTF-8
-      string: "{}"
+      encoding: US-ASCII
+      string: ''
     headers:
       Accept:
       - application/json
@@ -77,22 +77,22 @@ http_interactions:
       content-type:
       - text/html
       etag:
-      - '"960e2ff7d8088d758c2145d8dcd915dc"'
+      - '"d751713988987e9331980363e24189ce"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 9f4c3d26-3417-49a6-a68c-f98ec645eb09
+      - 9f612027-b2a4-4650-be19-07f706a938db
       x-runtime:
-      - '0.009482'
+      - '0.019735'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 18:55:28 GMT
+      - Tue, 24 Jun 2014 18:55:51 GMT
     body:
       encoding: UTF-8
-      string: '{"message":"gears have been restarted"}'
+      string: "[]"
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 18:55:48 GMT
+  recorded_at: Tue, 24 Jun 2014 18:56:11 GMT
 recorded_with: VCR 2.9.2

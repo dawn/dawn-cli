@@ -1,11 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: http://api.dawn.dev/apps
+    method: get
+    uri: http://api.dawn.dev/account
     body:
-      encoding: UTF-8
-      string: '{"app":{"name":null}}'
+      encoding: US-ASCII
+      string: ''
     headers:
       Accept:
       - application/json
@@ -29,23 +29,23 @@ http_interactions:
       content-type:
       - text/html
       etag:
-      - '"d4cbb75860d35adc30a0d0d55bd39e81"'
+      - '"a0c5e72c41d0b8b3f3a32e7394ba9ae5"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - df60f3df-251a-464a-9a61-f20c4e0797de
+      - 1b4146e9-2b8b-4480-98b0-b4e4d402590d
       x-runtime:
-      - '0.032128'
+      - '0.010290'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 18:53:16 GMT
+      - Tue, 24 Jun 2014 19:21:06 GMT
     body:
       encoding: UTF-8
-      string: '{"app":{"id":14,"created_at":"2014-06-24 18:53:16 UTC","updated_at":"2014-06-24
-        18:53:16 UTC","name":"jovial-pike-55","version":0,"env":{},"formation":{"web":"1"},"url":"jovial-pike-55.dawnapp.dev"}}'
+      string: '{"user":{"id":2,"created_at":"2014-06-24 18:34:17 UTC","updated_at":"2014-06-24
+        18:34:17 UTC","username":"IceDragon","email":"mistdragon100@gmail.com","api_key":"aF3EG3XcumzJmKpaHyB9"}}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 18:53:36 GMT
+  recorded_at: Tue, 24 Jun 2014 19:21:26 GMT
 recorded_with: VCR 2.9.2

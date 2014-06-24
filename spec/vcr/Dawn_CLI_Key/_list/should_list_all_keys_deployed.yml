@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.dawn.dev/account/keys
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      User-Agent:
+      - dawn/0.10.1
+      X-Ruby-Version:
+      - 2.1.2
+      X-Ruby-Platform:
+      - x86_64-linux
+      Authorization:
+      - Basic SWNlRHJhZ29uOmFGM0VHM1hjdW16Sm1LcGFIeUI5
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - text/html
+      etag:
+      - '"e2e73fb0feed1c382422378c1578e6e7"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-request-id:
+      - ad7a4036-b12e-406b-80d7-422ba57e13ff
+      x-runtime:
+      - '0.034203'
+      transfer-encoding:
+      - ''
+      connection:
+      - TE, close
+      Date:
+      - Tue, 24 Jun 2014 19:24:48 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"key":{"id":1,"created_at":"2014-06-24 19:20:30 UTC","updated_at":"2014-06-24
+        19:20:30 UTC","key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDhTo7oNMhE3Pe96pXdDBWiWb6LYZCSWkNhLj5PIzejSWrxnGaXqCI+VIr62GtX9TqkC0vZCOC9sljYi1g/dhD0RMYzlmWkKChHAGDB95bV/APYCojy0y7wMxfAIPUIgBOYfqGz6JaEYaDRWFOtyMcyhHM3EtuXSKxUXELWKUB/BuDyln3LAcVdMMqGeSxt7BlWDai9OfWLy5TU4isvC0YN8LjFHk6iU66FvmNNq17lTrbZEW+XXROGZ5d1WfOFhOYIiUTAnSu45ta9TNp72AAJ7cRfaX+RH2srU1urfEzypSbRaW6MMpHgL60g6SZOfL4Um0ME5e06O/8IAZDZhKt3","fingerprint":"c0:ca:bf:73:c1:da:2e:23:48:82:55:98:17:33:1c:06"}}]'
+    http_version: 
+  recorded_at: Tue, 24 Jun 2014 19:25:08 GMT
+recorded_with: VCR 2.9.2

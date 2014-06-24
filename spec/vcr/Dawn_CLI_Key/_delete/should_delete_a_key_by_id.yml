@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.dawn.dev/apps/app-test
+    uri: http://api.dawn.dev/account/keys
     body:
       encoding: US-ASCII
       string: ''
@@ -29,31 +29,31 @@ http_interactions:
       content-type:
       - text/html
       etag:
-      - '"ed81efdf8b3e6701d77d52d4285a80be"'
+      - '"e2e73fb0feed1c382422378c1578e6e7"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 1eee4faf-db8c-44f7-944a-b78cf749a72e
+      - 0f317960-ee2c-4063-ba9e-09afe698eee3
       x-runtime:
-      - '0.013624'
+      - '0.013413'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 18:55:27 GMT
+      - Tue, 24 Jun 2014 19:25:08 GMT
     body:
       encoding: UTF-8
-      string: '{"app":{"id":13,"created_at":"2014-06-24 18:51:42 UTC","updated_at":"2014-06-24
-        18:53:19 UTC","name":"app-test","version":0,"env":{},"formation":{"web":"2"},"url":"app-test.dawnapp.dev"}}'
+      string: '[{"key":{"id":1,"created_at":"2014-06-24 19:20:30 UTC","updated_at":"2014-06-24
+        19:20:30 UTC","key":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDhTo7oNMhE3Pe96pXdDBWiWb6LYZCSWkNhLj5PIzejSWrxnGaXqCI+VIr62GtX9TqkC0vZCOC9sljYi1g/dhD0RMYzlmWkKChHAGDB95bV/APYCojy0y7wMxfAIPUIgBOYfqGz6JaEYaDRWFOtyMcyhHM3EtuXSKxUXELWKUB/BuDyln3LAcVdMMqGeSxt7BlWDai9OfWLy5TU4isvC0YN8LjFHk6iU66FvmNNq17lTrbZEW+XXROGZ5d1WfOFhOYIiUTAnSu45ta9TNp72AAJ7cRfaX+RH2srU1urfEzypSbRaW6MMpHgL60g6SZOfL4Um0ME5e06O/8IAZDZhKt3","fingerprint":"c0:ca:bf:73:c1:da:2e:23:48:82:55:98:17:33:1c:06"}}]'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 18:55:47 GMT
+  recorded_at: Tue, 24 Jun 2014 19:25:28 GMT
 - request:
-    method: post
-    uri: http://api.dawn.dev/apps/13/gears/restart
+    method: delete
+    uri: http://api.dawn.dev/account/keys/1
     body:
-      encoding: UTF-8
-      string: "{}"
+      encoding: US-ASCII
+      string: ''
     headers:
       Accept:
       - application/json
@@ -77,22 +77,22 @@ http_interactions:
       content-type:
       - text/html
       etag:
-      - '"960e2ff7d8088d758c2145d8dcd915dc"'
+      - '"ffc3660def67aa84ab18934bf5dae1d3"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 9f4c3d26-3417-49a6-a68c-f98ec645eb09
+      - d0f0ccb1-c079-49cc-a257-f42d5fb2fad5
       x-runtime:
-      - '0.009482'
+      - '0.011147'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 18:55:28 GMT
+      - Tue, 24 Jun 2014 19:29:23 GMT
     body:
       encoding: UTF-8
-      string: '{"message":"gears have been restarted"}'
+      string: '{"message":"key removed successfully"}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 18:55:48 GMT
+  recorded_at: Tue, 24 Jun 2014 19:29:43 GMT
 recorded_with: VCR 2.9.2

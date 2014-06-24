@@ -20,7 +20,52 @@ http_interactions:
       X-Ruby-Platform:
       - x86_64-linux
       Authorization:
-      - Basic SWNlRHJhZ29uOmhpbV93NGJ6TGNoMXdFdkhMOENI
+      - Basic SWNlRHJhZ29uOmFGM0VHM1hjdW16Sm1LcGFIeUI5
+  response:
+    status:
+      code: 409
+      message: 
+    headers:
+      content-type:
+      - text/html
+      cache-control:
+      - no-cache
+      x-request-id:
+      - 2098efb1-794c-4ffc-a630-283f41fd2b66
+      x-runtime:
+      - '0.008594'
+      transfer-encoding:
+      - ''
+      connection:
+      - TE, close
+      Date:
+      - Tue, 24 Jun 2014 18:53:16 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":"app.exists","message":"App crispy-judge already exists"}'
+    http_version: 
+  recorded_at: Tue, 24 Jun 2014 18:53:36 GMT
+- request:
+    method: get
+    uri: http://api.dawn.dev/apps/crispy-judge
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      User-Agent:
+      - dawn/0.10.1
+      X-Ruby-Version:
+      - 2.1.2
+      X-Ruby-Platform:
+      - x86_64-linux
+      Authorization:
+      - Basic SWNlRHJhZ29uOmFGM0VHM1hjdW16Sm1LcGFIeUI5
   response:
     status:
       code: 200
@@ -29,23 +74,23 @@ http_interactions:
       content-type:
       - text/html
       etag:
-      - '"e3b078fd10b585949183fb950842c224"'
+      - '"d5c11ee900e3656dac0854b15a9c6f90"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 9ede7f94-e03e-4ffe-85d7-2e8e3e4c1069
+      - a10d1441-1568-453b-9376-dbc43812c5b9
       x-runtime:
-      - '0.030809'
+      - '0.019725'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 17:48:49 GMT
+      - Tue, 24 Jun 2014 18:53:17 GMT
     body:
       encoding: UTF-8
-      string: '{"app":{"id":12,"created_at":"2014-06-24 17:48:49 UTC","updated_at":"2014-06-24
-        17:48:49 UTC","name":"crispy-judge","version":0,"env":{},"formation":{"web":"1"},"url":"crispy-judge.dawnapp.dev"}}'
+      string: '{"app":{"id":12,"created_at":"2014-06-24 18:39:59 UTC","updated_at":"2014-06-24
+        18:39:59 UTC","name":"crispy-judge","version":0,"env":{},"formation":{"web":"1"},"url":"crispy-judge.dawnapp.dev"}}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 17:49:09 GMT
+  recorded_at: Tue, 24 Jun 2014 18:53:37 GMT
 recorded_with: VCR 2.9.2

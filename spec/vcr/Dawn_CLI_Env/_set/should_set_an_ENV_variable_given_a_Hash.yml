@@ -1,0 +1,424 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.dawn.dev/apps/env-test
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      User-Agent:
+      - dawn/0.10.1
+      X-Ruby-Version:
+      - 2.1.2
+      X-Ruby-Platform:
+      - x86_64-linux
+      Authorization:
+      - Basic SWNlRHJhZ29uOmFGM0VHM1hjdW16Sm1LcGFIeUI5
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - text/html
+      etag:
+      - '"12423b39d6aa36cbfabe6db4db698199"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-request-id:
+      - 9e01d9b7-1003-42ec-b603-39e3d7069186
+      x-runtime:
+      - '0.015005'
+      transfer-encoding:
+      - ''
+      connection:
+      - TE, close
+      Date:
+      - Tue, 24 Jun 2014 18:55:54 GMT
+    body:
+      encoding: UTF-8
+      string: '{"app":{"id":10,"created_at":"2014-06-24 18:36:22 UTC","updated_at":"2014-06-24
+        18:36:22 UTC","name":"env-test","version":0,"env":{},"formation":{"web":"1"},"url":"env-test.dawnapp.dev"}}'
+    http_version: 
+  recorded_at: Tue, 24 Jun 2014 18:56:14 GMT
+- request:
+    method: post
+    uri: http://api.dawn.dev/apps/10/env
+    body:
+      encoding: UTF-8
+      string: '{"app":{"env":{"LemmeAtIt":"maybe"}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      User-Agent:
+      - dawn/0.10.1
+      X-Ruby-Version:
+      - 2.1.2
+      X-Ruby-Platform:
+      - x86_64-linux
+      Authorization:
+      - Basic SWNlRHJhZ29uOmFGM0VHM1hjdW16Sm1LcGFIeUI5
+  response:
+    status:
+      code: 500
+      message: 
+    headers:
+      content-type:
+      - text/html; charset=utf-8
+      x-request-id:
+      - cf966586-877c-49a5-be07-50d7bee94056
+      x-runtime:
+      - '0.075297'
+      content-length:
+      - '29487'
+      connection:
+      - TE, close
+      Date:
+      - Tue, 24 Jun 2014 18:55:55 GMT
+    body:
+      encoding: UTF-8
+      string: "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\"
+        />\n  <title>Action Controller: Exception caught</title>\n  <style>\n    body
+        {\n      background-color: #FAFAFA;\n      color: #333;\n      margin: 0px;\n
+        \   }\n\n    body, p, ol, ul, td {\n      font-family: helvetica, verdana,
+        arial, sans-serif;\n      font-size:   13px;\n      line-height: 18px;\n    }\n\n
+        \   pre {\n      font-size: 11px;\n      white-space: pre-wrap;\n    }\n\n
+        \   pre.box {\n      border: 1px solid #EEE;\n      padding: 10px;\n      margin:
+        0px;\n      width: 958px;\n    }\n\n    header {\n      color: #F0F0F0;\n
+        \     background: #C52F24;\n      padding: 0.5em 1.5em;\n    }\n\n    h1 {\n
+        \     margin: 0.2em 0;\n      line-height: 1.1em;\n      font-size: 2em;\n
+        \   }\n\n    h2 {\n      color: #C52F24;\n      line-height: 25px;\n    }\n\n
+        \   .details {\n      border: 1px solid #D0D0D0;\n      border-radius: 4px;\n
+        \     margin: 1em 0px;\n      display: block;\n      width: 978px;\n    }\n\n
+        \   .summary {\n      padding: 8px 15px;\n      border-bottom: 1px solid #D0D0D0;\n
+        \     display: block;\n    }\n\n    .details pre {\n      margin: 5px;\n      border:
+        none;\n    }\n\n    #container {\n      box-sizing: border-box;\n      width:
+        100%;\n      padding: 0 1.5em;\n    }\n\n    .source * {\n      margin: 0px;\n
+        \     padding: 0px;\n    }\n\n    .source {\n      border: 1px solid #D9D9D9;\n
+        \     background: #ECECEC;\n      width: 978px;\n    }\n\n    .source pre
+        {\n      padding: 10px 0px;\n      border: none;\n    }\n\n    .source .data
+        {\n      font-size: 80%;\n      overflow: auto;\n      background-color: #FFF;\n
+        \   }\n\n    .info {\n      padding: 0.5em;\n    }\n\n    .source .data .line_numbers
+        {\n      background-color: #ECECEC;\n      color: #AAA;\n      padding: 1em
+        .5em;\n      border-right: 1px solid #DDD;\n      text-align: right;\n    }\n\n
+        \   .line {\n      padding-left: 10px;\n    }\n\n    .line:hover {\n      background-color:
+        #F6F6F6;\n    }\n\n    .line.active {\n      background-color: #FFCCCC;\n
+        \   }\n\n    a { color: #980905; }\n    a:visited { color: #666; }\n    a:hover
+        { color: #C52F24; }\n\n    \n  </style>\n\n  <script>\n    var toggle = function(id)
+        {\n      var s = document.getElementById(id).style;\n      s.display = s.display
+        == 'none' ? 'block' : 'none';\n      return false;\n    }\n    var show =
+        function(id) {\n      document.getElementById(id).style.display = 'block';\n
+        \   }\n    var hide = function(id) {\n      document.getElementById(id).style.display
+        = 'none';\n    }\n    var toggleTrace = function() {\n      return toggle('blame_trace');\n
+        \   }\n    var toggleSessionDump = function() {\n      return toggle('session_dump');\n
+        \   }\n    var toggleEnvDump = function() {\n      return toggle('env_dump');\n
+        \   }\n  </script>\n</head>\n<body>\n\n<header>\n  <h1>\n    Docker::Error::NotFoundError\n
+        \     in AppsController#update_env\n  </h1>\n</header>\n\n<div id=\"container\">\n
+        \ <h2>Expected(200..204) &lt;=&gt; Actual(404 Not Found)</h2>\n\n  <div class=\"source\">\n<div
+        class=\"info\">\n  Extracted source (around line <strong>#29</strong>):\n</div>\n<div
+        class=\"data\">\n  <table cellpadding=\"0\" cellspacing=\"0\" class=\"lines\">\n
+        \     <tr>\n        <td>\n          <pre class=\"line_numbers\">\n<span>27</span>\n<span>28</span>\n<span>29</span>\n<span>30</span>\n<span>31</span>\n<span>32</span>\n
+        \         </pre>\n        </td>\n<td width=\"100%\">\n<pre>\n<div class=\"line\">
+        \   }.map {|key, val| &quot;-#{key}=#{val.inspect}&quot; }.join(&quot; &quot;)\n</div><div
+        class=\"line\">\n</div><div class=\"line active\">    container = Docker::Container.create(\n</div><div
+        class=\"line\">      &#39;Image&#39; =&gt; app.releases.first.image,\n</div><div
+        class=\"line\">      &#39;Cmd&#39;   =&gt; [&quot;/bin/bash&quot;, &quot;-c&quot;,
+        &quot;/start #{proctype} 2&gt;&amp;1 | /opt/log-shuttle/log-shuttle #{logshuttle}&quot;],\n</div><div
+        class=\"line\">      &#39;Env&#39;   =&gt; app.env.map { |k,v| &quot;#{k}=#{v}&quot;
+        }.concat([&quot;PORT=#{port}&quot;])\n</div>\n</pre>\n</td>\n    </tr>\n  </table>\n</div>\n</div>\n\n
+        \ \n<p><code>Rails.root: /usr/src/app</code></p>\n\n<div id=\"traces\">\n
+        \   <a href=\"#\" onclick=\"hide(&#39;Framework-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Application-Trace&#39;);;
+        return false;\">Application Trace</a> |\n    <a href=\"#\" onclick=\"hide(&#39;Application-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Framework-Trace&#39;);;
+        return false;\">Framework Trace</a> |\n    <a href=\"#\" onclick=\"hide(&#39;Application-Trace&#39;);hide(&#39;Framework-Trace&#39;);show(&#39;Full-Trace&#39;);;
+        return false;\">Full Trace</a> \n\n    <div id=\"Application-Trace\" style=\"display:
+        block;\">\n      <pre><code>app/models/gear.rb:29:in `spawn&#39;\napp/models/gear.rb:15:in
+        `block in &lt;class:Gear&gt;&#39;\napp/models/release.rb:23:in `block (2 levels)
+        in deploy!&#39;\napp/models/release.rb:22:in `times&#39;\napp/models/release.rb:22:in
+        `block in deploy!&#39;\napp/models/release.rb:21:in `each&#39;\napp/models/release.rb:21:in
+        `deploy!&#39;\napp/models/app.rb:24:in `release!&#39;\napp/controllers/apps_controller.rb:49:in
+        `update_env&#39;</code></pre>\n    </div>\n    <div id=\"Framework-Trace\"
+        style=\"display: none;\">\n      <pre><code>/usr/local/lib/ruby/gems/2.1.0/bundler/gems/docker-api-980939fc3826/lib/docker/connection.rb:48:in
+        `rescue in request&#39;\n/usr/local/lib/ruby/gems/2.1.0/bundler/gems/docker-api-980939fc3826/lib/docker/connection.rb:36:in
+        `request&#39;\n/usr/local/lib/ruby/gems/2.1.0/bundler/gems/docker-api-980939fc3826/lib/docker/connection.rb:57:in
+        `block (2 levels) in &lt;class:Connection&gt;&#39;\n/usr/local/lib/ruby/gems/2.1.0/bundler/gems/docker-api-980939fc3826/lib/docker/container.rb:153:in
+        `create&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:440:in
+        `instance_exec&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:440:in
+        `block in make_lambda&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:143:in
+        `call&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:143:in `block
+        in halting_and_conditional&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:86:in
+        `call&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:86:in `run_callbacks&#39;\nactivemodel
+        (4.1.1) lib/active_model/validations/callbacks.rb:111:in `run_validations!&#39;\nactivemodel
+        (4.1.1) lib/active_model/validations.rb:317:in `valid?&#39;\nactiverecord
+        (4.1.1) lib/active_record/validations.rb:70:in `valid?&#39;\nactiverecord
+        (4.1.1) lib/active_record/validations.rb:77:in `perform_validations&#39;\nactiverecord
+        (4.1.1) lib/active_record/validations.rb:57:in `save!&#39;\nactiverecord (4.1.1)
+        lib/active_record/attribute_methods/dirty.rb:29:in `save!&#39;\nactiverecord
+        (4.1.1) lib/active_record/transactions.rb:273:in `block in save!&#39;\nactiverecord
+        (4.1.1) lib/active_record/transactions.rb:329:in `block in with_transaction_returning_status&#39;\nactiverecord
+        (4.1.1) lib/active_record/connection_adapters/abstract/database_statements.rb:209:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/transactions.rb:208:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/transactions.rb:326:in
+        `with_transaction_returning_status&#39;\nactiverecord (4.1.1) lib/active_record/transactions.rb:273:in
+        `save!&#39;\nactiverecord (4.1.1) lib/active_record/associations/has_many_association.rb:38:in
+        `insert_record&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:462:in
+        `block (2 levels) in create_record&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:389:in
+        `add_to_target&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:460:in
+        `block in create_record&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:168:in
+        `block in transaction&#39;\nactiverecord (4.1.1) lib/active_record/connection_adapters/abstract/database_statements.rb:209:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/transactions.rb:208:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:167:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:459:in
+        `create_record&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:141:in
+        `create!&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_proxy.rb:301:in
+        `create!&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:424:in
+        `block in make_lambda&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:221:in
+        `call&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:221:in `block
+        in halting_and_conditional&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:86:in
+        `call&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:86:in `run_callbacks&#39;\nactiverecord
+        (4.1.1) lib/active_record/callbacks.rb:306:in `create_record&#39;\nactiverecord
+        (4.1.1) lib/active_record/timestamp.rb:57:in `create_record&#39;\nactiverecord
+        (4.1.1) lib/active_record/persistence.rb:482:in `create_or_update&#39;\nactiverecord
+        (4.1.1) lib/active_record/callbacks.rb:302:in `block in create_or_update&#39;\nactivesupport
+        (4.1.1) lib/active_support/callbacks.rb:113:in `call&#39;\nactivesupport (4.1.1)
+        lib/active_support/callbacks.rb:113:in `call&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:166:in
+        `block in halting&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:86:in
+        `call&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:86:in `run_callbacks&#39;\nactiverecord
+        (4.1.1) lib/active_record/callbacks.rb:302:in `create_or_update&#39;\nactiverecord
+        (4.1.1) lib/active_record/persistence.rb:125:in `save!&#39;\nactiverecord
+        (4.1.1) lib/active_record/validations.rb:57:in `save!&#39;\nactiverecord (4.1.1)
+        lib/active_record/attribute_methods/dirty.rb:29:in `save!&#39;\nactiverecord
+        (4.1.1) lib/active_record/transactions.rb:273:in `block in save!&#39;\nactiverecord
+        (4.1.1) lib/active_record/transactions.rb:329:in `block in with_transaction_returning_status&#39;\nactiverecord
+        (4.1.1) lib/active_record/connection_adapters/abstract/database_statements.rb:209:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/transactions.rb:208:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/transactions.rb:326:in
+        `with_transaction_returning_status&#39;\nactiverecord (4.1.1) lib/active_record/transactions.rb:273:in
+        `save!&#39;\nactiverecord (4.1.1) lib/active_record/associations/has_many_association.rb:38:in
+        `insert_record&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:462:in
+        `block (2 levels) in create_record&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:389:in
+        `add_to_target&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:460:in
+        `block in create_record&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:168:in
+        `block in transaction&#39;\nactiverecord (4.1.1) lib/active_record/connection_adapters/abstract/database_statements.rb:211:in
+        `block in transaction&#39;\nactiverecord (4.1.1) lib/active_record/connection_adapters/abstract/database_statements.rb:219:in
+        `within_new_transaction&#39;\nactiverecord (4.1.1) lib/active_record/connection_adapters/abstract/database_statements.rb:211:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/transactions.rb:208:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:167:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:459:in
+        `create_record&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:141:in
+        `create!&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_proxy.rb:301:in
+        `create!&#39;\nactionpack (4.1.1) lib/abstract_controller/base.rb:189:in `process_action&#39;\nactionpack
+        (4.1.1) lib/action_controller/metal/rendering.rb:10:in `process_action&#39;\nactionpack
+        (4.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action&#39;\nactivesupport
+        (4.1.1) lib/active_support/callbacks.rb:113:in `call&#39;\nactivesupport (4.1.1)
+        lib/active_support/callbacks.rb:113:in `call&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:149:in
+        `block in halting_and_conditional&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:149:in
+        `call&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:149:in `block
+        in halting_and_conditional&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:149:in
+        `call&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:149:in `block
+        in halting_and_conditional&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:166:in
+        `call&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:166:in `block
+        in halting&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:166:in
+        `call&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:166:in `block
+        in halting&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:86:in
+        `call&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:86:in `run_callbacks&#39;\nactionpack
+        (4.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action&#39;\nactionpack
+        (4.1.1) lib/abstract_controller/base.rb:136:in `process&#39;\nactionview (4.1.1)
+        lib/action_view/rendering.rb:30:in `process&#39;\nactionpack (4.1.1) lib/action_controller/metal.rb:195:in
+        `dispatch&#39;\nactionpack (4.1.1) lib/action_controller/metal.rb:231:in `block
+        in action&#39;\nactionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:80:in
+        `call&#39;\nactionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:80:in
+        `dispatch&#39;\nactionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:48:in
+        `call&#39;\nactionpack (4.1.1) lib/action_dispatch/journey/router.rb:71:in
+        `block in call&#39;\nactionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in
+        `each&#39;\nactionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in
+        `call&#39;\nactionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:676:in
+        `call&#39;\nwarden (1.2.3) lib/warden/manager.rb:35:in `block in call&#39;\nwarden
+        (1.2.3) lib/warden/manager.rb:34:in `catch&#39;\nwarden (1.2.3) lib/warden/manager.rb:34:in
+        `call&#39;\nrack (1.5.2) lib/rack/etag.rb:23:in `call&#39;\nrack (1.5.2) lib/rack/conditionalget.rb:35:in
+        `call&#39;\nrack (1.5.2) lib/rack/head.rb:11:in `call&#39;\nactionpack (4.1.1)
+        lib/action_dispatch/middleware/params_parser.rb:27:in `call&#39;\nactiverecord
+        (4.1.1) lib/active_record/query_cache.rb:36:in `call&#39;\nactiverecord (4.1.1)
+        lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call&#39;\nactionpack
+        (4.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call&#39;\nactivesupport
+        (4.1.1) lib/active_support/callbacks.rb:82:in `run_callbacks&#39;\nactionpack
+        (4.1.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call&#39;\nactionpack
+        (4.1.1) lib/action_dispatch/middleware/reloader.rb:73:in `call&#39;\nactionpack
+        (4.1.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call&#39;\nbetter_errors
+        (1.1.0) lib/better_errors/middleware.rb:58:in `call&#39;\nactionpack (4.1.1)
+        lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call&#39;\nactionpack
+        (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39;\nrailties
+        (4.1.1) lib/rails/rack/logger.rb:38:in `call_app&#39;\nrailties (4.1.1) lib/rails/rack/logger.rb:20:in
+        `block in call&#39;\nactivesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in
+        `block in tagged&#39;\nactivesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in
+        `tagged&#39;\nactivesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in
+        `tagged&#39;\nrailties (4.1.1) lib/rails/rack/logger.rb:20:in `call&#39;\nactionpack
+        (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39;\nrack
+        (1.5.2) lib/rack/methodoverride.rb:21:in `call&#39;\nrack (1.5.2) lib/rack/runtime.rb:17:in
+        `call&#39;\nactivesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in
+        `call&#39;\nrack (1.5.2) lib/rack/lock.rb:17:in `call&#39;\nactionpack (4.1.1)
+        lib/action_dispatch/middleware/static.rb:64:in `call&#39;\nrack (1.5.2) lib/rack/sendfile.rb:112:in
+        `call&#39;\nrailties (4.1.1) lib/rails/engine.rb:514:in `call&#39;\nrailties
+        (4.1.1) lib/rails/application.rb:144:in `call&#39;\npuma (2.8.2) lib/puma/rack_patch.rb:13:in
+        `call&#39;\npuma (2.8.2) lib/puma/configuration.rb:71:in `call&#39;\npuma
+        (2.8.2) lib/puma/server.rb:490:in `handle_request&#39;\npuma (2.8.2) lib/puma/server.rb:361:in
+        `process_client&#39;\npuma (2.8.2) lib/puma/server.rb:254:in `block in run&#39;\npuma
+        (2.8.2) lib/puma/thread_pool.rb:92:in `call&#39;\npuma (2.8.2) lib/puma/thread_pool.rb:92:in
+        `block in spawn_thread&#39;</code></pre>\n    </div>\n    <div id=\"Full-Trace\"
+        style=\"display: none;\">\n      <pre><code>/usr/local/lib/ruby/gems/2.1.0/bundler/gems/docker-api-980939fc3826/lib/docker/connection.rb:48:in
+        `rescue in request&#39;\n/usr/local/lib/ruby/gems/2.1.0/bundler/gems/docker-api-980939fc3826/lib/docker/connection.rb:36:in
+        `request&#39;\n/usr/local/lib/ruby/gems/2.1.0/bundler/gems/docker-api-980939fc3826/lib/docker/connection.rb:57:in
+        `block (2 levels) in &lt;class:Connection&gt;&#39;\n/usr/local/lib/ruby/gems/2.1.0/bundler/gems/docker-api-980939fc3826/lib/docker/container.rb:153:in
+        `create&#39;\napp/models/gear.rb:29:in `spawn&#39;\napp/models/gear.rb:15:in
+        `block in &lt;class:Gear&gt;&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:440:in
+        `instance_exec&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:440:in
+        `block in make_lambda&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:143:in
+        `call&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:143:in `block
+        in halting_and_conditional&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:86:in
+        `call&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:86:in `run_callbacks&#39;\nactivemodel
+        (4.1.1) lib/active_model/validations/callbacks.rb:111:in `run_validations!&#39;\nactivemodel
+        (4.1.1) lib/active_model/validations.rb:317:in `valid?&#39;\nactiverecord
+        (4.1.1) lib/active_record/validations.rb:70:in `valid?&#39;\nactiverecord
+        (4.1.1) lib/active_record/validations.rb:77:in `perform_validations&#39;\nactiverecord
+        (4.1.1) lib/active_record/validations.rb:57:in `save!&#39;\nactiverecord (4.1.1)
+        lib/active_record/attribute_methods/dirty.rb:29:in `save!&#39;\nactiverecord
+        (4.1.1) lib/active_record/transactions.rb:273:in `block in save!&#39;\nactiverecord
+        (4.1.1) lib/active_record/transactions.rb:329:in `block in with_transaction_returning_status&#39;\nactiverecord
+        (4.1.1) lib/active_record/connection_adapters/abstract/database_statements.rb:209:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/transactions.rb:208:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/transactions.rb:326:in
+        `with_transaction_returning_status&#39;\nactiverecord (4.1.1) lib/active_record/transactions.rb:273:in
+        `save!&#39;\nactiverecord (4.1.1) lib/active_record/associations/has_many_association.rb:38:in
+        `insert_record&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:462:in
+        `block (2 levels) in create_record&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:389:in
+        `add_to_target&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:460:in
+        `block in create_record&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:168:in
+        `block in transaction&#39;\nactiverecord (4.1.1) lib/active_record/connection_adapters/abstract/database_statements.rb:209:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/transactions.rb:208:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:167:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:459:in
+        `create_record&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:141:in
+        `create!&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_proxy.rb:301:in
+        `create!&#39;\napp/models/release.rb:23:in `block (2 levels) in deploy!&#39;\napp/models/release.rb:22:in
+        `times&#39;\napp/models/release.rb:22:in `block in deploy!&#39;\napp/models/release.rb:21:in
+        `each&#39;\napp/models/release.rb:21:in `deploy!&#39;\nactivesupport (4.1.1)
+        lib/active_support/callbacks.rb:424:in `block in make_lambda&#39;\nactivesupport
+        (4.1.1) lib/active_support/callbacks.rb:221:in `call&#39;\nactivesupport (4.1.1)
+        lib/active_support/callbacks.rb:221:in `block in halting_and_conditional&#39;\nactivesupport
+        (4.1.1) lib/active_support/callbacks.rb:86:in `call&#39;\nactivesupport (4.1.1)
+        lib/active_support/callbacks.rb:86:in `run_callbacks&#39;\nactiverecord (4.1.1)
+        lib/active_record/callbacks.rb:306:in `create_record&#39;\nactiverecord (4.1.1)
+        lib/active_record/timestamp.rb:57:in `create_record&#39;\nactiverecord (4.1.1)
+        lib/active_record/persistence.rb:482:in `create_or_update&#39;\nactiverecord
+        (4.1.1) lib/active_record/callbacks.rb:302:in `block in create_or_update&#39;\nactivesupport
+        (4.1.1) lib/active_support/callbacks.rb:113:in `call&#39;\nactivesupport (4.1.1)
+        lib/active_support/callbacks.rb:113:in `call&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:166:in
+        `block in halting&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:86:in
+        `call&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:86:in `run_callbacks&#39;\nactiverecord
+        (4.1.1) lib/active_record/callbacks.rb:302:in `create_or_update&#39;\nactiverecord
+        (4.1.1) lib/active_record/persistence.rb:125:in `save!&#39;\nactiverecord
+        (4.1.1) lib/active_record/validations.rb:57:in `save!&#39;\nactiverecord (4.1.1)
+        lib/active_record/attribute_methods/dirty.rb:29:in `save!&#39;\nactiverecord
+        (4.1.1) lib/active_record/transactions.rb:273:in `block in save!&#39;\nactiverecord
+        (4.1.1) lib/active_record/transactions.rb:329:in `block in with_transaction_returning_status&#39;\nactiverecord
+        (4.1.1) lib/active_record/connection_adapters/abstract/database_statements.rb:209:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/transactions.rb:208:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/transactions.rb:326:in
+        `with_transaction_returning_status&#39;\nactiverecord (4.1.1) lib/active_record/transactions.rb:273:in
+        `save!&#39;\nactiverecord (4.1.1) lib/active_record/associations/has_many_association.rb:38:in
+        `insert_record&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:462:in
+        `block (2 levels) in create_record&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:389:in
+        `add_to_target&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:460:in
+        `block in create_record&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:168:in
+        `block in transaction&#39;\nactiverecord (4.1.1) lib/active_record/connection_adapters/abstract/database_statements.rb:211:in
+        `block in transaction&#39;\nactiverecord (4.1.1) lib/active_record/connection_adapters/abstract/database_statements.rb:219:in
+        `within_new_transaction&#39;\nactiverecord (4.1.1) lib/active_record/connection_adapters/abstract/database_statements.rb:211:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/transactions.rb:208:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:167:in
+        `transaction&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:459:in
+        `create_record&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_association.rb:141:in
+        `create!&#39;\nactiverecord (4.1.1) lib/active_record/associations/collection_proxy.rb:301:in
+        `create!&#39;\napp/models/app.rb:24:in `release!&#39;\napp/controllers/apps_controller.rb:49:in
+        `update_env&#39;\nactionpack (4.1.1) lib/abstract_controller/base.rb:189:in
+        `process_action&#39;\nactionpack (4.1.1) lib/action_controller/metal/rendering.rb:10:in
+        `process_action&#39;\nactionpack (4.1.1) lib/abstract_controller/callbacks.rb:20:in
+        `block in process_action&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:113:in
+        `call&#39;\nactivesupport (4.1.1) lib/active_support/callbacks.rb:113:in `call&#39;\nactivesupport
+        (4.1.1) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional&#39;\nactivesupport
+        (4.1.1) lib/active_support/callbacks.rb:149:in `call&#39;\nactivesupport (4.1.1)
+        lib/active_support/callbacks.rb:149:in `block in halting_and_conditional&#39;\nactivesupport
+        (4.1.1) lib/active_support/callbacks.rb:149:in `call&#39;\nactivesupport (4.1.1)
+        lib/active_support/callbacks.rb:149:in `block in halting_and_conditional&#39;\nactivesupport
+        (4.1.1) lib/active_support/callbacks.rb:166:in `call&#39;\nactivesupport (4.1.1)
+        lib/active_support/callbacks.rb:166:in `block in halting&#39;\nactivesupport
+        (4.1.1) lib/active_support/callbacks.rb:166:in `call&#39;\nactivesupport (4.1.1)
+        lib/active_support/callbacks.rb:166:in `block in halting&#39;\nactivesupport
+        (4.1.1) lib/active_support/callbacks.rb:86:in `call&#39;\nactivesupport (4.1.1)
+        lib/active_support/callbacks.rb:86:in `run_callbacks&#39;\nactionpack (4.1.1)
+        lib/abstract_controller/callbacks.rb:19:in `process_action&#39;\nactionpack
+        (4.1.1) lib/abstract_controller/base.rb:136:in `process&#39;\nactionview (4.1.1)
+        lib/action_view/rendering.rb:30:in `process&#39;\nactionpack (4.1.1) lib/action_controller/metal.rb:195:in
+        `dispatch&#39;\nactionpack (4.1.1) lib/action_controller/metal.rb:231:in `block
+        in action&#39;\nactionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:80:in
+        `call&#39;\nactionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:80:in
+        `dispatch&#39;\nactionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:48:in
+        `call&#39;\nactionpack (4.1.1) lib/action_dispatch/journey/router.rb:71:in
+        `block in call&#39;\nactionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in
+        `each&#39;\nactionpack (4.1.1) lib/action_dispatch/journey/router.rb:59:in
+        `call&#39;\nactionpack (4.1.1) lib/action_dispatch/routing/route_set.rb:676:in
+        `call&#39;\nwarden (1.2.3) lib/warden/manager.rb:35:in `block in call&#39;\nwarden
+        (1.2.3) lib/warden/manager.rb:34:in `catch&#39;\nwarden (1.2.3) lib/warden/manager.rb:34:in
+        `call&#39;\nrack (1.5.2) lib/rack/etag.rb:23:in `call&#39;\nrack (1.5.2) lib/rack/conditionalget.rb:35:in
+        `call&#39;\nrack (1.5.2) lib/rack/head.rb:11:in `call&#39;\nactionpack (4.1.1)
+        lib/action_dispatch/middleware/params_parser.rb:27:in `call&#39;\nactiverecord
+        (4.1.1) lib/active_record/query_cache.rb:36:in `call&#39;\nactiverecord (4.1.1)
+        lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call&#39;\nactionpack
+        (4.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call&#39;\nactivesupport
+        (4.1.1) lib/active_support/callbacks.rb:82:in `run_callbacks&#39;\nactionpack
+        (4.1.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call&#39;\nactionpack
+        (4.1.1) lib/action_dispatch/middleware/reloader.rb:73:in `call&#39;\nactionpack
+        (4.1.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call&#39;\nbetter_errors
+        (1.1.0) lib/better_errors/middleware.rb:58:in `call&#39;\nactionpack (4.1.1)
+        lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call&#39;\nactionpack
+        (4.1.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39;\nrailties
+        (4.1.1) lib/rails/rack/logger.rb:38:in `call_app&#39;\nrailties (4.1.1) lib/rails/rack/logger.rb:20:in
+        `block in call&#39;\nactivesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in
+        `block in tagged&#39;\nactivesupport (4.1.1) lib/active_support/tagged_logging.rb:26:in
+        `tagged&#39;\nactivesupport (4.1.1) lib/active_support/tagged_logging.rb:68:in
+        `tagged&#39;\nrailties (4.1.1) lib/rails/rack/logger.rb:20:in `call&#39;\nactionpack
+        (4.1.1) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39;\nrack
+        (1.5.2) lib/rack/methodoverride.rb:21:in `call&#39;\nrack (1.5.2) lib/rack/runtime.rb:17:in
+        `call&#39;\nactivesupport (4.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in
+        `call&#39;\nrack (1.5.2) lib/rack/lock.rb:17:in `call&#39;\nactionpack (4.1.1)
+        lib/action_dispatch/middleware/static.rb:64:in `call&#39;\nrack (1.5.2) lib/rack/sendfile.rb:112:in
+        `call&#39;\nrailties (4.1.1) lib/rails/engine.rb:514:in `call&#39;\nrailties
+        (4.1.1) lib/rails/application.rb:144:in `call&#39;\npuma (2.8.2) lib/puma/rack_patch.rb:13:in
+        `call&#39;\npuma (2.8.2) lib/puma/configuration.rb:71:in `call&#39;\npuma
+        (2.8.2) lib/puma/server.rb:490:in `handle_request&#39;\npuma (2.8.2) lib/puma/server.rb:361:in
+        `process_client&#39;\npuma (2.8.2) lib/puma/server.rb:254:in `block in run&#39;\npuma
+        (2.8.2) lib/puma/thread_pool.rb:92:in `call&#39;\npuma (2.8.2) lib/puma/thread_pool.rb:92:in
+        `block in spawn_thread&#39;</code></pre>\n    </div>\n</div>\n\n  \n\n<h2
+        style=\"margin-top: 30px\">Request</h2>\n<p><b>Parameters</b>:</p> <pre>{&quot;app&quot;=&gt;{&quot;env&quot;=&gt;{&quot;LemmeAtIt&quot;=&gt;&quot;maybe&quot;}},\n
+        &quot;id&quot;=&gt;&quot;10&quot;,\n &quot;format&quot;=&gt;&quot;json&quot;}</pre>\n\n<div
+        class=\"details\">\n  <div class=\"summary\"><a href=\"#\" onclick=\"return
+        toggleSessionDump()\">Toggle session dump</a></div>\n  <div id=\"session_dump\"
+        style=\"display:none\"><pre></pre></div>\n</div>\n\n<div class=\"details\">\n
+        \ <div class=\"summary\"><a href=\"#\" onclick=\"return toggleEnvDump()\">Toggle
+        env dump</a></div>\n  <div id=\"env_dump\" style=\"display:none\"><pre>GATEWAY_INTERFACE:
+        &quot;CGI/1.2&quot;\nHTTP_ACCEPT: &quot;application/json&quot;\nHTTP_ACCEPT_ENCODING:
+        &quot;gzip&quot;\nREMOTE_ADDR: &quot;172.17.0.11&quot;\nSERVER_NAME: &quot;api.dawn.dev&quot;\nSERVER_PROTOCOL:
+        &quot;HTTP/1.1&quot;</pre></div>\n</div>\n\n<h2 style=\"margin-top: 30px\">Response</h2>\n<p><b>Headers</b>:</p>
+        <pre>None</pre>\n\n</div>\n\n\n</body>\n</html>\n"
+    http_version: 
+  recorded_at: Tue, 24 Jun 2014 18:56:15 GMT
+recorded_with: VCR 2.9.2

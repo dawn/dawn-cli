@@ -20,7 +20,7 @@ http_interactions:
       X-Ruby-Platform:
       - x86_64-linux
       Authorization:
-      - Basic SWNlRHJhZ29uOmhpbV93NGJ6TGNoMXdFdkhMOENI
+      - Basic SWNlRHJhZ29uOmFGM0VHM1hjdW16Sm1LcGFIeUI5
   response:
     status:
       code: 200
@@ -29,28 +29,28 @@ http_interactions:
       content-type:
       - text/html
       etag:
-      - '"fecf4b24feed7a8ed147b109a6e40e4b"'
+      - '"ed81efdf8b3e6701d77d52d4285a80be"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - f0252cad-5b7a-4191-9455-7f47326dda5f
+      - 3517d9c7-3efb-400b-a936-6fb2a809ad8d
       x-runtime:
-      - '0.016716'
+      - '0.015121'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 17:48:53 GMT
+      - Tue, 24 Jun 2014 18:55:24 GMT
     body:
       encoding: UTF-8
-      string: '{"app":{"id":1,"created_at":"2014-06-24 17:46:19 UTC","updated_at":"2014-06-24
-        17:48:53 UTC","name":"app-test","version":0,"env":{},"formation":{"web":"2"},"url":"app-test.dawnapp.dev"}}'
+      string: '{"app":{"id":13,"created_at":"2014-06-24 18:51:42 UTC","updated_at":"2014-06-24
+        18:53:19 UTC","name":"app-test","version":0,"env":{},"formation":{"web":"2"},"url":"app-test.dawnapp.dev"}}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 17:49:13 GMT
+  recorded_at: Tue, 24 Jun 2014 18:55:44 GMT
 - request:
     method: get
-    uri: http://api.dawn.dev/apps/1/logs?tail=false
+    uri: http://api.dawn.dev/apps/13/logs?tail=false
     body:
       encoding: US-ASCII
       string: ''
@@ -68,7 +68,7 @@ http_interactions:
       X-Ruby-Platform:
       - x86_64-linux
       Authorization:
-      - Basic SWNlRHJhZ29uOmhpbV93NGJ6TGNoMXdFdkhMOENI
+      - Basic SWNlRHJhZ29uOmFGM0VHM1hjdW16Sm1LcGFIeUI5
   response:
     status:
       code: 200
@@ -77,22 +77,22 @@ http_interactions:
       content-type:
       - text/html
       etag:
-      - '"3e12de86ad53ee13e992b2c5a42d2fff"'
+      - '"874d16990532d8f6ffbe617860e86e5f"'
       cache-control:
       - max-age=0, private, must-revalidate
       x-request-id:
-      - 8d9414b4-d573-4ea0-a689-4d42cc0d1bbd
+      - 444a5953-391a-475f-bdec-a7151ccd019e
       x-runtime:
-      - '0.019140'
+      - '0.016871'
       transfer-encoding:
       - ''
       connection:
       - TE, close
       Date:
-      - Tue, 24 Jun 2014 17:48:54 GMT
+      - Tue, 24 Jun 2014 18:55:26 GMT
     body:
       encoding: UTF-8
-      string: '{"logs":"/sessions/d2b8f114-8358-4754-8b76-b6ec2c1727ef"}'
+      string: '{"logs":"/sessions/0d1bdf06-55c1-4e2b-98e3-0e0f13199429"}'
     http_version: 
-  recorded_at: Tue, 24 Jun 2014 17:49:14 GMT
+  recorded_at: Tue, 24 Jun 2014 18:55:47 GMT
 recorded_with: VCR 2.9.2
