@@ -59,6 +59,18 @@ module Dawn
         table
       end
 
+      def format_releases(releases)
+        table = Terminal::Table.new title: 'Releases',
+                                    headings: ['ID', 'Version'],
+                                    style: table_style
+        releases.each do |release|
+          table << [release.id, release.version]
+          #table << :separator
+        end
+
+        table
+      end
+
       def format_gears(gears)
         table = Terminal::Table.new title: 'Gears',
                                     headings: ['ID', 'Name', 'Uptime'],
