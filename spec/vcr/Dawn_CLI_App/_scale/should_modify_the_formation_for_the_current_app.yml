@@ -1,0 +1,98 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.dawn.dev/apps/app-test
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      User-Agent:
+      - dawn/0.10.1
+      X-Ruby-Version:
+      - 2.1.2
+      X-Ruby-Platform:
+      - x86_64-linux
+      Authorization:
+      - Basic SWNlRHJhZ29uOmhpbV93NGJ6TGNoMXdFdkhMOENI
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - text/html
+      etag:
+      - '"68d4cbfacf1e2087a7cca41f6f4ca291"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-request-id:
+      - d6d0775e-6cda-4c07-87ed-b9a406999f8f
+      x-runtime:
+      - '0.022158'
+      transfer-encoding:
+      - ''
+      connection:
+      - TE, close
+      Date:
+      - Tue, 24 Jun 2014 17:48:52 GMT
+    body:
+      encoding: UTF-8
+      string: '{"app":{"id":1,"created_at":"2014-06-24 17:46:19 UTC","updated_at":"2014-06-24
+        17:46:19 UTC","name":"app-test","version":0,"env":{},"formation":{"web":"1"},"url":"app-test.dawnapp.dev"}}'
+    http_version: 
+  recorded_at: Tue, 24 Jun 2014 17:49:12 GMT
+- request:
+    method: post
+    uri: http://api.dawn.dev/apps/1/scale
+    body:
+      encoding: UTF-8
+      string: '{"app":{"formation":{"web":2}}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      User-Agent:
+      - dawn/0.10.1
+      X-Ruby-Version:
+      - 2.1.2
+      X-Ruby-Platform:
+      - x86_64-linux
+      Authorization:
+      - Basic SWNlRHJhZ29uOmhpbV93NGJ6TGNoMXdFdkhMOENI
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - text/html
+      etag:
+      - '"c61ca4cc37cdd20e1ca0b6b0544c6993"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-request-id:
+      - 33de5262-b649-40b9-8044-f95227855dc5
+      x-runtime:
+      - '0.025960'
+      transfer-encoding:
+      - ''
+      connection:
+      - TE, close
+      Date:
+      - Tue, 24 Jun 2014 17:48:53 GMT
+    body:
+      encoding: UTF-8
+      string: '{"formation":{"web":"2"}}'
+    http_version: 
+  recorded_at: Tue, 24 Jun 2014 17:49:13 GMT
+recorded_with: VCR 2.9.2

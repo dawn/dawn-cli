@@ -1,0 +1,98 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.dawn.dev/apps/app-test
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      User-Agent:
+      - dawn/0.10.1
+      X-Ruby-Version:
+      - 2.1.2
+      X-Ruby-Platform:
+      - x86_64-linux
+      Authorization:
+      - Basic SWNlRHJhZ29uOmhpbV93NGJ6TGNoMXdFdkhMOENI
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - text/html
+      etag:
+      - '"fecf4b24feed7a8ed147b109a6e40e4b"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-request-id:
+      - 26998c15-668d-4d54-9bc2-4f733856cc91
+      x-runtime:
+      - '0.016274'
+      transfer-encoding:
+      - ''
+      connection:
+      - TE, close
+      Date:
+      - Tue, 24 Jun 2014 17:48:54 GMT
+    body:
+      encoding: UTF-8
+      string: '{"app":{"id":1,"created_at":"2014-06-24 17:46:19 UTC","updated_at":"2014-06-24
+        17:48:53 UTC","name":"app-test","version":0,"env":{},"formation":{"web":"2"},"url":"app-test.dawnapp.dev"}}'
+    http_version: 
+  recorded_at: Tue, 24 Jun 2014 17:49:14 GMT
+- request:
+    method: post
+    uri: http://api.dawn.dev/apps/1/gears/restart
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      User-Agent:
+      - dawn/0.10.1
+      X-Ruby-Version:
+      - 2.1.2
+      X-Ruby-Platform:
+      - x86_64-linux
+      Authorization:
+      - Basic SWNlRHJhZ29uOmhpbV93NGJ6TGNoMXdFdkhMOENI
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - text/html
+      etag:
+      - '"960e2ff7d8088d758c2145d8dcd915dc"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-request-id:
+      - 39679094-1df3-40cb-8635-d05b08d35db6
+      x-runtime:
+      - '0.010356'
+      transfer-encoding:
+      - ''
+      connection:
+      - TE, close
+      Date:
+      - Tue, 24 Jun 2014 17:48:55 GMT
+    body:
+      encoding: UTF-8
+      string: '{"message":"gears have been restarted"}'
+    http_version: 
+  recorded_at: Tue, 24 Jun 2014 17:49:15 GMT
+recorded_with: VCR 2.9.2

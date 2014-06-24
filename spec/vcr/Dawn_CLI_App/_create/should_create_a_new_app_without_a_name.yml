@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://api.dawn.dev/apps
+    body:
+      encoding: UTF-8
+      string: '{"app":{"name":null}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip
+      User-Agent:
+      - dawn/0.10.1
+      X-Ruby-Version:
+      - 2.1.2
+      X-Ruby-Platform:
+      - x86_64-linux
+      Authorization:
+      - Basic SWNlRHJhZ29uOmhpbV93NGJ6TGNoMXdFdkhMOENI
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - text/html
+      etag:
+      - '"bce4e4e0cb9081e60c7a9e9767e90417"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-request-id:
+      - aa50022a-0b69-4657-9315-b5070afc0040
+      x-runtime:
+      - '0.051860'
+      transfer-encoding:
+      - ''
+      connection:
+      - TE, close
+      Date:
+      - Tue, 24 Jun 2014 17:48:48 GMT
+    body:
+      encoding: UTF-8
+      string: '{"app":{"id":11,"created_at":"2014-06-24 17:48:48 UTC","updated_at":"2014-06-24
+        17:48:48 UTC","name":"high-davinci-12","version":0,"env":{},"formation":{"web":"1"},"url":"high-davinci-12.dawnapp.dev"}}'
+    http_version: 
+  recorded_at: Tue, 24 Jun 2014 17:49:08 GMT
+recorded_with: VCR 2.9.2
