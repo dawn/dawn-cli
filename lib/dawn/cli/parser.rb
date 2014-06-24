@@ -297,6 +297,8 @@ Commands:
         Dawn::CLI::Auth.command(:login, username, password)
       when "logs"
         Dawn::CLI::App.command(:logs)
+      when "run"
+        Dawn::CLI::App.command(:run, result["<argv>"])
       when *DOC_SUBCOMMAND.keys
         run_subcommand(command, argv)
       else

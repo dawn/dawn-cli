@@ -117,6 +117,11 @@ module Dawn
         current_app.restart
       end
 
+      def self.run(command)
+        #
+        abort "`run` has not been implemented"
+      end
+
     end
   end
 end
