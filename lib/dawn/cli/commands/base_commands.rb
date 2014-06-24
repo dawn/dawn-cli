@@ -12,6 +12,7 @@ module Dawn
         else
           send(sym, *args, &block)
         end
+        sym
       end
 
     end
