@@ -1,12 +1,10 @@
 Dawn-CLI
 ========
-[link](https://github.com/dawn/dawn-cli)
-
 [![Dependency Status](https://gemnasium.com/dawn/dawn-cli.svg)](https://gemnasium.com/dawn/dawn-cli)
 [![Gem Version](https://badge.fury.io/rb/dawn-cli.svg)](http://badge.fury.io/rb/dawn-cli)
 [![Code Climate](https://codeclimate.com/github/dawn/dawn-cli.png)](https://codeclimate.com/github/dawn/dawn-cli)
 
-CLI for [Dawn](https://github.com/dawn/dawn)
+[CLI](https://github.com/dawn/dawn-cli) for [Dawn](https://github.com/dawn/dawn)
 
 If you are looking for the ruby API
 [Dawn-API](https://github.com/dawn/dawn-api)
