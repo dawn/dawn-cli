@@ -1,4 +1,5 @@
 require "dawn/cli/commands/base_commands"
+require "json"
 
 module Dawn
   module CLI
@@ -143,6 +144,13 @@ module Dawn
       ###
       def self.run(argv)
         current_app.run(command: argv.join(" "))
+      rescue Excon::Errors::BadRequest
+        error_obj = JSON.load(Dawn.last_response_body) rescue nil
+        if error_obj
+          abort "dawn run: has failed (#{error_obj["id"]}) #{error_obj["message"]}"
+        else
+          abort "dawn run: has failed for some unknown reason"
+        end
       end
 
     end
