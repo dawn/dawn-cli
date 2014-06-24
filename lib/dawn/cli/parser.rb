@@ -4,7 +4,7 @@ require 'highline/import'
 module Dawn
   module CLI
 DOC_TOP =
-%Q(usage: dawn [-a APPNAME] [-h] <command> [<argv>...]
+%Q(usage: dawn [-a APPNAME] [-h] [<command>] [<argv>...]
 
 Options:
   -a APPNAME, --app=APPNAME           specify app.
