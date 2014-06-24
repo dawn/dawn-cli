@@ -1,10 +1,10 @@
-require "dawn/cli/helpers"
+require "dawn/cli/commands/base_commands"
 
 module Dawn
   module CLI
     module App
 
-      extend Dawn::CLI::Helpers
+      extend Dawn::CLI::BaseCommands
 
       # "Create a new dawn App (with git; setup)"
       def self.create(appname=nil)

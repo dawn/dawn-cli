@@ -1,10 +1,10 @@
-require "dawn/cli/helpers"
+require "dawn/cli/commands/base_commands"
 
 module Dawn
   module CLI
     module Auth
 
-      extend Dawn::CLI::Helpers
+      extend Dawn::CLI::BaseCommands
 
       # "save login details to .netrc"
       # usn = ask "Username: "

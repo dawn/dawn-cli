@@ -1,10 +1,10 @@
-require "dawn/cli/helpers"
+require "dawn/cli/commands/base_commands"
 
 module Dawn
   module CLI
     module Release
 
-      extend Dawn::CLI::Helpers
+      extend Dawn::CLI::BaseCommands
 
       # "List all releases for the current app"
       def self.list

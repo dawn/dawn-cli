@@ -1,10 +1,10 @@
-require "dawn/cli/helpers"
+require "dawn/cli/commands/base_commands"
 
 module Dawn
   module CLI
     module Env
 
-      extend Dawn::CLI::Helpers
+      extend Dawn::CLI::BaseCommands
 
       # displays all the current app's ENV variables
       def self.list

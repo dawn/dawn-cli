@@ -129,6 +129,7 @@ Commands:
 )
 
     @@selected_app = nil
+    @@no_operation = nil
 
     ###
     # @return [String]
@@ -145,6 +146,20 @@ Commands:
     end
 
     ###
+    # @return [String]
+    ###
+    def self.no_operation
+      @@no_operation
+    end
+
+    ###
+    # @param [String] appname
+    ###
+    def self.no_operation=(appname)
+      @@no_operation = appname
+    end
+
+    ###
     # @param [String] basename
     ###
     def self.not_a_command(basename, command)
@@ -158,49 +173,49 @@ Commands:
     ###
     def self.run_app_command(options)
       if options["delete"]
-        Dawn::CLI::App.delete
+        Dawn::CLI::App.command(:delete)
       elsif options["restart"]
-        Dawn::CLI::App.restart
+        Dawn::CLI::App.command(:restart)
       elsif options["scale"]
         data = options["<gear_modifier>"].inject({}) do |str, hash|
           if str =~ /(\S+)([+-=])(\d+)/
             hash[$1] = [$2, $3.to_i]
           end
         end
-        Dawn::CLI::App.scale(data)
+        Dawn::CLI::App.command(:scale, data)
       else
-        Dawn::CLI::App.list
+        Dawn::CLI::App.command(:list)
       end
     end
 
     def self.run_domain_command(options)
       if options["add"]
         url = options["<url>"]
-        Dawn::CLI::Domain.add(url)
+        Dawn::CLI::Domain.command(:add, url)
       elsif options["delete"]
         url = options["<url>"]
-        Dawn::CLI::Domain.delete(url)
+        Dawn::CLI::Domain.command(:delete, url)
       else
-        Dawn::CLI::Domain.list
+        Dawn::CLI::Domain.command(:list)
       end
     end
 
     def self.run_drain_command(options)
       if options["add"]
         url = options["<url>"]
-        Dawn::CLI::Drain.add(url)
+        Dawn::CLI::Drain.command(:add, url)
       elsif options["delete"]
         url = options["<url>"]
-        Dawn::CLI::Drain.delete(url)
+        Dawn::CLI::Drain.command(:delete, url)
       else
-        Dawn::CLI::Drain.list
+        Dawn::CLI::Drain.command(:list)
       end
     end
 
     def self.run_env_command(options)
       if options["get"]
         keys = options["<key_name>"]
-        Dawn::CLI::Env.get(*keys)
+        Dawn::CLI::Env.command(:get, *keys)
       elsif options["set"]
         data = options["<argv>"].each_with_object({}) do |str, hash|
           if str =~ /(\S+)=(.*)/
@@ -208,35 +223,34 @@ Commands:
             hash[key] = value
           end
         end
-        Dawn::CLI::Env.set(data)
+        Dawn::CLI::Env.command(:set, data)
       elsif options["unset"]
         keys = options["<key_name>"]
-        Dawn::CLI::Env.unset(*keys)
+        Dawn::CLI::Env.command(:unset, *keys)
       else
-        Dawn::CLI::Env.list
+        Dawn::CLI::Env.command(:list)
       end
     end
 
     def self.run_key_command(options)
       if options["add"]
-        Dawn::CLI::Key.add
+        Dawn::CLI::Key.command(:add)
       elsif options["get"]
         id = options["<id>"].first
-        Dawn::CLI::Key.get(id)
+        Dawn::CLI::Key.command(:get, id)
       elsif options["delete"]
         id = options["<id>"].first
-        Dawn::CLI::Key.delete(id)
+        Dawn::CLI::Key.command(:delete, id)
       else
-        Dawn::CLI::Key.list
+        Dawn::CLI::Key.command(:list)
       end
     end
 
     def self.run_release_command(options)
       if options["add"]
-        Dawn::CLI::Release.add
+        Dawn::CLI::Release.command(:add)
       else
-        Dawn::CLI::Release.list
-        not_a_command("dawn release", command)
+        Dawn::CLI::Release.command(:list)
       end
     end
 
@@ -272,17 +286,17 @@ Commands:
       self.selected_app = result["--app"]
       case command
       when "create"
-        Dawn::CLI::App.create command_argv.first
+        Dawn::CLI::App.command(:create, argv.first)
       when "ls"
-        Dawn::CLI::App.list
+        Dawn::CLI::App.command(:list)
       when "ps"
-        Dawn::CLI::App.list_gears
+        Dawn::CLI::App.command(:list_gears)
       when "login"
         username = ask("Username: ")
         password = ask("Password: ") { |q| q.echo = false }
-        Dawn::CLI::Auth.login username, password
+        Dawn::CLI::Auth.command(:login, username, password)
       when "logs"
-        Dawn::CLI::App.logs
+        Dawn::CLI::App.command(:logs)
       when *DOC_SUBCOMMAND.keys
         run_subcommand(command, argv)
       else

@@ -1,10 +1,10 @@
-require "dawn/cli/helpers"
+require "dawn/cli/commands/base_commands"
 
 module Dawn
   module CLI
     module Local
 
-      extend Dawn::CLI::Helpers
+      extend Dawn::CLI::BaseCommands
 
       def self.health_check
         Dawn::API.health_check
