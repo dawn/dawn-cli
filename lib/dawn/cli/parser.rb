@@ -27,6 +27,7 @@ Commands:
   key                                 Key control command.
   release                             Release control command.
   run                                 run command on current app.
+  health-check                        checks if the dawn server is running.
 )
 
 DOC_SUBCOMMAND = {}
@@ -299,6 +300,8 @@ Commands:
         Dawn::CLI::App.command(:logs)
       when "run"
         Dawn::CLI::App.command(:run, result["<argv>"])
+      when "health-check"
+        Dawn::CLI::Local.command(:health_check)
       when *DOC_SUBCOMMAND.keys
         run_subcommand(command, argv)
       else
