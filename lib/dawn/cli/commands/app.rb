@@ -17,6 +17,8 @@ module Dawn
         appname = app.name
         git_add_dawn_remote app
         say "\tAPP\t#{app.name}"
+      rescue Excon::Errors::UnprocessableEntity => ex
+        handle_abort_exception("dawn create", ex)
       end
 
       ###
