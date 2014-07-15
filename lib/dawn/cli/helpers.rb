@@ -59,7 +59,7 @@ module Dawn
 
       def git_add_dawn_remote(app)
         abort "dawn remote already exists, please `dawn app:delete` first" if git_dawn_remote?
-        git "remote add dawn git@#{Dawn.git_host}:#{app.git}"
+        git "remote add dawn ssh://git@#{Dawn.git_host}:#{app.git}"
       end
 
       def extract_app_remote_from_git_config
